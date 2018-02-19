@@ -296,6 +296,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Magic' then
         apply_grimoire_bonuses(spell, action, spellMap, eventArgs)
     end
+	
+	if spell.skill == 'Elemental Magic' then 
+		if spell.element == world.weather_element or spell.element == world.day_element then 
+			equip(sets.WeatherObi)
+		end
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
