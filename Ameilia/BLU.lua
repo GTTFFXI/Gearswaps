@@ -247,7 +247,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		or blue_magic_maps.MagicalChr:contains(spell.english)
 		or blue_magic_maps.MagicalVit:contains(spell.english)
 		or blue_magic_maps.MagicalDex:contains(spell.english)
-		or spell.skill = 'Elemental Magic'
+		or spell.skill == 'Elemental Magic'
 	) then 
 		if spell.element == world.weather_element or spell.element == world.day_element then 
 			equip(sets.WeatherObi)
