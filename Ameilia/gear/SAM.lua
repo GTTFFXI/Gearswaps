@@ -11,7 +11,7 @@ function user_setup()
 	gear.acc.head = { name="Valorous Mask", augments={'Accuracy+25 Attack+25','STR+10','Accuracy+15','Attack+6',}}
     
 	gear.wsdmg = {}
-	gear.wsdmg.head = { name="Valorous Mask", augments={'Mag. Acc.+25','Weapon skill damage +5%','Accuracy+10','Attack+13',}}
+	gear.wsdmg.head = { name="Valorous Mask", augments={'Weapon skill damage +4%','STR+4','Accuracy+12','Attack+15',}}
 	
     -- Additional local binds
     send_command('bind ^` input /ja "Hasso" <me>')
@@ -26,8 +26,8 @@ function init_gear_sets()
 	
 	-- Precast Sets
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Meditate = {head="Wakido Kabuto +2",hands="Sakonji Kote +2",back="Smertrios's Mantle"}
-	sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +2"}
+	sets.precast.JA.Meditate = {head="Wakido Kabuto +3",hands="Sakonji Kote +2",back="Smertrios's Mantle"}
+	sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +3"}
 	sets.precast.JA['Blade Bash'] = {hands="Sakonji Kote +2"}
 
 	-- Waltz set (chr and vit)
@@ -56,11 +56,11 @@ function init_gear_sets()
 	
 	sets.precast.WS = {
 		head=gear.wsdmg.head,neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-		body="Valorous Mail",hands="Valorous Mitts",ring1="Shukuyu Ring",ring2="Ifrit Ring +1",
-		back="Smertrios's Mantle",waist="Fotia Belt",legs="Wakido Haidate +3",feet="Valorous Greaves"}
+		body="Valorous Mail",hands="Valorous Mitts",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
+		back="Smertrios's Mantle",waist="Fotia Belt",legs="Wakido Haidate +3",feet="Sakonji Sune-Ate +2"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		head=gear.acc.head,ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Valorous Mail",hands="Wakido Kote +3",ring1="Chirich Ring",ring2="Cacoethic Ring +1",
+		head="Wakido Kabuto +3",ear1="Telos Earring",ear2="Dignitary's Earring",
+		body="Wakido Domaru +3",hands="Wakido Kote +3",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
 		back="Smertrios's Mantle",legs="Wakido Haidate +3",feet="Wakido Sune-Ate +3"})
 
 	sets.precast.WS.Proc = set_combine(sets.precast.WS.Acc, {
@@ -86,7 +86,7 @@ function init_gear_sets()
 	
 	sets.engaged = {
 		head="Flamma Zucchetto +2",neck="Ganesha's Mala",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Dagon Breastplate",hands="Wakido Kote +3",ring1="Flamma Ring",ring2="Petrov Ring",
+		body="Dagon Breastplate",hands="Wakido Kote +3",ring1="Niqmaddu Ring",ring2="Ilabrat Ring",
 		back="Takaha Mantle",waist="Ioskeha Belt",legs="Valorous Hose",feet="Loyalist Sabatons"}
 
 	-- Midcast Sets
@@ -102,7 +102,7 @@ function init_gear_sets()
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = set_combine(sets.engaged, sets.Reraise, {
-		head=gear.wsdmg.head,neck="Bathy Choker +1",ear1="Telos Earring",ear2="Infused Earring",
+		head="Wakido Kabuto +3",neck="Bathy Choker +1",ear1="Telos Earring",ear2="Infused Earring",
 		body="Hizamaru Haramaki +2",ring1="Sheltered Ring",ring2="Defending Ring",
 		back="Moonbeam Cape",legs="Rao Haidate",feet="Danzo Sune-Ate"})
 	sets.idle.Town = set_combine(sets.idle, {})
@@ -113,11 +113,11 @@ function init_gear_sets()
 	-- Defense sets
 	sets.defense.PDT = {
 		head="Loess Barbuta +1",neck="Loricate Torque +1",
-		body="Chozoron Coselete",hands="Founder's Gauntlets",ring1="Patricius Ring",ring2="Defending Ring",
-		back="Moonbeam Cape",waist="Flume Belt",legs="Valorous Hose",feet="Amm Greaves"}
+		body="Wakido Domaru +3",ring1="Patricius Ring",ring2="Defending Ring",
+		back="Moonbeam Cape",waist="Flume Belt",feet="Amm Greaves"}
 
 	sets.defense.Reraise = set_combine(sets.defense.PDT, sets.Reraise)
-	sets.defense.MDT = set_combine(sets.defense.PDT, {head="Loess Barbuta +1",ear1="Etiolation Earring",ring1="Fortified Ring"})
+	sets.defense.MDT = set_combine(sets.defense.PDT, {ear1="Etiolation Earring",ring1="Fortified Ring"})
 
 	sets.Kiting = {feet="Danzo Sune-Ate"}
 
@@ -127,8 +127,8 @@ function init_gear_sets()
 	-- Engaged sets
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		hands="Wakido Kote +3",ring2="Cacoethic Ring +1",
+		head="Wakido Kabuto +3",neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
+		body="Wakido Domaru +3",hands="Wakido Kote +3",ring2="Cacoethic Ring +1",
 		back="Takaha Mantle",waist="Olseni Belt",legs="Wakido Haidate +3",feet="Wakido Sune-Ate +3"})
 	sets.engaged.PDT = set_combine(sets.engaged, sets.defense.PDT)
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.defense.PDT)
@@ -144,6 +144,6 @@ function init_gear_sets()
 
 	sets.buff.Sekkanoki = {hands="Kasuga Kote +1"}
 	sets.buff.Sengikori = {}
-	sets.buff['Meikyo Shisui'] = {feet="Sakonji Sune-ate"}
+	sets.buff['Meikyo Shisui'] = {feet="Sakonji Sune-ate +2"}
 end
 

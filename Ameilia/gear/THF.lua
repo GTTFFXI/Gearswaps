@@ -30,12 +30,12 @@ function init_gear_sets()
 
 	sets.buff['Sneak Attack'] = {
 		head="Adhemar Bonnet +1",neck="Combatant's Torque",ear1="Sherida Earring",ear2="Mache Earring",
-		body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Ramuh Ring +1",ring2="Epona's Ring",
+		body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Ramuh Ring +1",ring2="Ilabrat Ring",
 		back="Letalis Mantle",waist="Chaac Belt",legs="Samnuha Tights",feet="Rawhide Boots"}
 
 	sets.buff['Trick Attack'] = {
 		head="Adhemar Bonnet +1",neck="Combatant's Torque",ear1="Sherida Earring",ear2="Mache Earring",
-		body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Rufescent Ring",ring2="Epona's Ring",
+		body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Rufescent Ring",ring2="Ilabrat Ring",
 		back="Letalis Mantle",waist="Chaac Belt",legs="Samnuha Tights",feet="Rawhide Boots"}
 		
 	sets.buff["Assassin's Charge"] = {waist="Chiner's Belt +1"}
@@ -91,7 +91,7 @@ function init_gear_sets()
 	
 	sets.precast.WS = {
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
-		body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Ramuh Ring +1",ring2="Epona's Ring",
+		body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Ramuh Ring +1",ring2="Ilabrat Ring",
 		back="Letalis Mantle",waist="Fotia Belt",legs="Lustratio Subligar",feet="Meghanada Jambeaux +2"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		head="Herculean Helm",ear1="Telos Earring",ear1="Dignitary's Earring",

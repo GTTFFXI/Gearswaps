@@ -38,7 +38,7 @@ function init_gear_sets()
 	sets.precast.WS['Myrkr'] = {
 		head="Vanya Hood",neck="Sanctity Necklace",ear1="Evans Earring",ear2="Etiolation Earring",
 		body="Witching Robe",hands="Revealer's Mitts",ring1="Sangoma Ring",ring2="Stikini Ring",
-		back="Pahtli Cape",waist="Mujin Obi",legs="Helios Spats",feet="Regal Pumps +1"}
+		back="Pahtli Cape",waist="Fucho-no-Obi",legs="Helios Spats",feet="Regal Pumps +1"}
 
 
     -- Midcast Sets
@@ -92,7 +92,9 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
         head="Merlinic Hood",neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Barkarole Earring",
         body="Merlinic Jubbah",hands="Chironic Gloves",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Lugh's Cape",waist="Hachirin-no-Obi",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+        back="Lugh's Cape",waist="Eschan Stone",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+	
+	sets.WeatherObi = {waist="Hachirin-no-Obi"}
 	
     sets.midcast.Kaustra = sets.midcast['Elemental Magic']
 

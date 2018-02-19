@@ -17,13 +17,14 @@ function user_setup()
 	gear.capes.pet_phys = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10',}}
     gear.perp_staff = {name=""}
 	send_command('bind ^` gs c cycle AvatarMode')
+	send_command('bind !` input /ja Convert <me>')
 end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
 	sets.max_acc = {head="Convoker's Horn +3",neck="Shulmanu Collar",ear1="Enmerkar Earring",ear2="Lugalbanda Earring",
-		body="Convoker's Doublet +3",hands="Convoker's Bracers +3",ring1="Evoker's Ring",ring2="Thurandaut Ring +1",
-		back=gear.capes.pet_phys,waist="Klouskap Sash",legs="Convoker's Spats +3",feet="Convo. Pigaches +3"}
+		body="Convoker's Doublet +3",hands="Convoker's Bracers +3",ring1="Varar Ring +1",ring2="Thurandaut Ring +1",
+		back=gear.capes.pet_phys,waist="Regal Belt",legs="Convoker's Spats +3",feet="Convo. Pigaches +3"}
 
 	sets.skill = {main="Kirin's Pole",sub="Elan Strap +1",ammo="Sancus Sachet +1",
 		head="Convoker's Horn +3",neck="Incanter's Torque",ear1="Andoaa Earring",ear2="Lugalbanda Earring",
@@ -109,7 +110,7 @@ function init_gear_sets()
 	sets.precast.WS['Myrkr'] = {
 		head="Beckoner's Horn +1",neck="Sanctity Necklace",ear1="Evans Earring",ear2="Etiolation Earring",
 		body="Convoker's Doublet +3",hands="Lamassu Mitts +1",ring1="Evoker's Ring",ring2="Sangoma Ring",
-		back=gear.capes.skill,waist="Mujin Obi",legs="Beckoner's Spats +1",feet="Beckoner's Pigaches +1"}
+		back=gear.capes.skill,waist="Fucho-no-Obi",legs="Beckoner's Spats +1",feet="Beckoner's Pigaches +1"}
 
 	--------------------------------------
 	-- Midcast sets
@@ -148,23 +149,23 @@ function init_gear_sets()
 	
 	sets.midcast.Pet.PhysicalBloodPactRage = set_combine(sets.skill, {main="Nirvana",sub="Elan Strap +1",ammo="Sancus Sachet +1",
 		head="Apogee Crown +1",neck="Shulmanu Collar",ear1="Gelos Earring",ear2="Lugalbanda Earring",
-		body="Convoker's Doublet +3",hands="Merlinic Dastanas",ring1="Varar Ring",ring2="Thurandaut Ring +1",
-		back=gear.capes.pet_phys,waist="Klouskap Sash",legs="Apogee Slacks +1",feet="Convo. Pigaches +3"})
+		body="Convoker's Doublet +3",hands="Merlinic Dastanas",ring1="Varar Ring +1",ring2="Thurandaut Ring +1",
+		back=gear.capes.pet_phys,waist="Regal Belt",legs="Apogee Slacks +1",feet="Convo. Pigaches +3"})
 
 	sets.midcast.Pet.PhysicalBloodPactRageAcc = set_combine(sets.midcast.Pet.PhysicalBloodPactRage, sets.max_acc)
 
 	sets.midcast.Pet.MagicalBloodPactRage = set_combine(sets.skill, {main="Espiritus",sub="Elan Strap +1",ammo="Sancus Sachet +1",
 		head="Apogee Crown +1",neck="Adad Amulet",ear1="Gelos Earring",ear2="Lugalbanda Earring",
-		body="Convoker's Doublet +3",hands="Merlinic Dastanas",ring1="Varar Ring",
-		back=gear.capes.pet_magic,legs="Apogee Slacks +1",feet="Convo. Pigaches +3"})
+		body="Convoker's Doublet +3",hands="Merlinic Dastanas",ring1="Varar Ring +1",
+		back=gear.capes.pet_magic,waist="Regal Belt",legs="Apogee Slacks +1",feet="Convo. Pigaches +3"})
 
 	sets.midcast.Pet.HybridBloodPactRage = set_combine(sets.midcast.Pet.MagicalBloodPactRage, {main="Nirvana",
-		ring1="Varar Ring",ring2="Thurandaut Ring +1",back=gear.capes.pet_magic,waist="Klouskap Sash"})
+		ring1="Varar Ring +1",ring2="Thurandaut Ring +1",back=gear.capes.pet_magic,waist="Regal Belt"})
 	
 	sets.midcast.Pet.HybridBloodPactRageAcc = set_combine(sets.midcast.Pet.HybridBloodPactRage, {
 		head="Convoker's Horn +3",neck="Incanter's Torque",
-		body="Convoker's Doublet +3",hands="Convoker's Bracers +3",ring1="Varar Ring",ring2="Thurandaut Ring +1",
-		back=gear.capes.pet_magic,waist="Klouskap Sash",legs="Convoker's Spats +3",feet="Convo. Pigaches +3"})
+		body="Convoker's Doublet +3",hands="Convoker's Bracers +3",ring1="Varar Ring +1",ring2="Thurandaut Ring +1",
+		back=gear.capes.pet_magic,waist="Regal Belt",legs="Convoker's Spats +3",feet="Convo. Pigaches +3"})
 	
 	-- Spirits cast magic spells, which can be identified in standard ways.
 	

@@ -15,7 +15,7 @@ function user_setup()
 	gear.acc.head = { name="Valorous Mask", augments={'Accuracy+25 Attack+25','STR+10','Accuracy+15','Attack+6',}}
     
 	gear.wsdmg = {}
-	gear.wsdmg.head = { name="Valorous Mask", augments={'Mag. Acc.+25','Weapon skill damage +5%','Accuracy+10','Attack+13',}}
+	gear.wsdmg.head = { name="Valorous Mask", augments={'Weapon skill damage +4%','STR+4','Accuracy+12','Attack+15',}}
 	
     send_command('bind ^f11 gs c cycle MagicalDefenseMode')
     send_command('bind !f11 gs c cycle ExtraDefenseMode')

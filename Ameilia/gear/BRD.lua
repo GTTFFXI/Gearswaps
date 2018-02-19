@@ -62,11 +62,10 @@ function init_gear_sets()
        
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-	sets.precast.WS = {
-		head="Chironic Hat",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-        body="Onca Suit",ring1="Shukuyu Ring",ring2="Cacoethic Ring +1",
-        back="Letalis Mantle",waist="Fotia Belt"}
-
+    sets.precast.WS = {
+	    range="Linos",head="Chironic Hat",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+		body="Ayanmo Corazza +2",hands="Leyline Gloves",ring1="Ilabrat Ring",ring2="Begrudging Ring",
+		back="Intarabus's Cape",waist="Fotia Belt",legs="Lustratio Subligar",feet="Aya. Gambieras +1"}
 
 	-- Midcast Sets
 
@@ -183,9 +182,9 @@ function init_gear_sets()
 	
 	-- Basic set for if no TP weapon is defined.
     sets.engaged = {
-		head="Chironic Hat",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
-        body="Onca Suit",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
-        back="Letalis Mantle",waist="Dynamic Belt +1"}
+	    range="Linos",head="Chironic Hat",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
+		body="Ayanmo Corazza +2",hands="Leyline Gloves",ring1="Ilabrat Ring",ring2="Chirich Ring",
+		back="Intarabus's Cape",waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +1"}
 
 	-- Sets with weapons defined.
 	sets.engaged.Dagger = sets.engaged
