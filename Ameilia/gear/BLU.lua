@@ -64,7 +64,7 @@ function init_gear_sets()
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {ammo="Falcon Eye",
 		head="Carmine Mask +1",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Assimilator's Jubbah +3",hands="Assimilator's Bazubands +3",ring1="Chirich Ring",ring2="Cacoethic Ring +1",
+		body="Assimilator's Jubbah +3",hands="Assimilator's Bazubands +3",ring1="Ilabrat Ring",ring2="Cacoethic Ring +1",
 		legs="Carmine Cuisses +1",feet="Assimilator's Charuqs +2"
 	})
 
@@ -78,7 +78,7 @@ function init_gear_sets()
 		back="Toro Cape",legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"})
 	
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {ammo="Falcon Eye",
-		head="Adhemar Bonnet +1",ear1="Mache Earring",body="Adhemar Jacket +1",ring1="Begrudging Ring",ring2="Ramuh Ring +1",legs="Samnuha Tights",feet="Thereoid Greaves"})
+		head="Adhemar Bonnet +1",ear1="Mache Earring",body="Adhemar Jacket +1",ring1="Ilabrat Ring",ring2="Begrudging Ring",legs="Samnuha Tights",feet="Thereoid Greaves"})
 		
 	sets.precast.WS['Chant du Cygne'].Acc = sets.precast.WS.Acc
 	sets.precast.WS['Requiescat'].Acc = sets.precast.WS.Acc
@@ -95,12 +95,12 @@ function init_gear_sets()
 	
 	sets.midcast['Blue Magic'].Physical = {
 		head="Luh. Keffiyeh +1",neck="Incanter's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Assimilator's Jubbah +3",hands="Rawhide Gloves",ring1="Chirich Ring",ring2="Ifrit Ring +1",
+		body="Assimilator's Jubbah +3",hands="Rawhide Gloves",ring1="Ilabrat Ring",ring2="Ifrit Ring +1",
 		back="Cornflower Cape",waist="Olseni Belt",legs="Hashishin Tayt +1",feet="Luhlaza Charuqs +1"}
 
 	sets.midcast['Blue Magic'].PhysicalAcc = {
 		head="Carmine Mask +1",neck="Incanter's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Assimilator's Jubbah +3",hands="Assimilator's Bazubands +3",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
+		body="Assimilator's Jubbah +3",hands="Assimilator's Bazubands +3",ring1="Ilabrat Ring",ring2="Cacoethic Ring +1",
 		back="Cornflower Cape",waist="Olseni Belt",legs="Hashishin Tayt +1",feet="Assimilator's Charuqs +2"}
 
 	sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
@@ -113,7 +113,7 @@ function init_gear_sets()
 		{})
 
 	sets.midcast['Blue Magic'].PhysicalAgi = set_combine(sets.midcast['Blue Magic'].Physical,
-		{})
+		{ring1="Ilabrat Ring"})
 
 	sets.midcast['Blue Magic'].PhysicalInt = set_combine(sets.midcast['Blue Magic'].Physical,
 		{back="Toro Cape"})
@@ -189,6 +189,8 @@ function init_gear_sets()
 	sets.midcast.Shell = {neck="Incanter's Torque",ring1="Sheltered Ring"}
 	sets.midcast.Shellra = {neck="Incanter's Torque",ring1="Sheltered Ring"}
 	
+	sets.midcast['Elemental Magic'] = sets.midcast['Blue Magic'].Magical
+	
 	-- Sets to return to when not performing an action.
 	-- Gear for learning spells: +skill and AF hands.
 	sets.Learning = {
@@ -246,7 +248,7 @@ function init_gear_sets()
 			
 	sets.engaged.Acc = set_combine(sets.engaged, {ammo="Falcon Eye",
 		head="Carmine Mask +1",neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Assimilator's Jubbah +3",hands="Assimilator's Bazubands +3",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
+		body="Assimilator's Jubbah +3",hands="Assimilator's Bazubands +3",ring1="Ilabrat Ring",ring2="Cacoethic Ring +1",
 		waist="Olseni Belt",legs="Carmine Cuisses +1",feet="Assimilator's Charuqs +2"})
 
 	sets.engaged.PDT = set_combine(sets.engaged, sets.defense.PDT)	
@@ -261,4 +263,6 @@ function init_gear_sets()
 	
 	sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
 	sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
+	
+	sets.WeatherObi = {waist="Hachirin-no-obi"}
 end
