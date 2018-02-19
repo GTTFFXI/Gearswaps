@@ -189,6 +189,14 @@ end
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
 
+function job_post_midcast(spell, action, spellMap, eventArgs)
+	if spell.skill == 'Elemental Magic' then 
+		if spell.element == world.weather_element or spell.element == world.day_element then 
+			equip(sets.WeatherObi)
+		end
+	end
+end
+
 function job_aftercast(spell, action, spellMap, eventArgs)
     if not spell.interrupted then
         if spell.english:startswith('Indi') then

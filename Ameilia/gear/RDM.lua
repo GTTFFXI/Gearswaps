@@ -96,6 +96,8 @@ function init_gear_sets()
         body="Amalric Doublet",hands="Hagondes Gloves",ring1="Shiva Ring +1",ring2="Acumen Ring",
         back="Toro Cape",waist=gear.ElementalObi,legs="Merlinic Shalwar",feet="Helios Boots"}
         
+	sets.WeatherObi = {waist="Hachirin-no-Obi"}
+	
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {head=empty,body="Twilight Cloak"})
 
     sets.midcast['Dark Magic'] = {main="Lehbrailg +2",sub="Niobid Strap",ammo="Kalboron Stone",

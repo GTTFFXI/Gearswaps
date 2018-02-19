@@ -235,7 +235,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         end
     elseif spellMap == 'Cure' and spell.target.type == 'SELF' then
         equip(sets.midcast.CureSelf)
-    end
+	elseif spell.skill == 'Elemental Magic' then 
+		if spell.element == world.weather_element or spell.element == world.day_element then 
+			equip(sets.WeatherObi)
+		end
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
