@@ -121,7 +121,7 @@ function init_gear_sets()
 	sets.engaged.Ragnarok = set_combine(sets.engaged, {legs="Argosy Breeches +1"})
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Valorous Mail",ring1="Niqmaddu Ring",ring2="Cacoethic Ring +1"
+		body="Valorous Mail",ring1="Niqmaddu Ring",ring2="Cacoethic Ring +1",
 		waist="Olseni Belt",legs="Pummeler's Cuisses +3"})
 	sets.engaged.Twilight = set_combine(sets.engaged, sets.Twilight)
 	sets.engaged.Acc.Twilight = set_combine(sets.engaged.Acc, sets.Twilight)
