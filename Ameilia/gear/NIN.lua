@@ -54,11 +54,11 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-        body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Ifrit Ring +1",ring2="Epona's Ring",
-        back="Yokaze Mantle",waist="Fotia Belt",legs="Hizamaru Hizayoroi +1",feet="Herculean Boots"}
+        body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Ilabrat Ring",ring2="Shukuyu Ring",
+        back="Yokaze Mantle",waist="Fotia Belt",legs="Hizamaru Hizayoroi +2",feet="Herculean Boots"}
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		ear1="Telos Earring",ear2="Dignitary's Earring",
-		hands="Herculean Gloves",ring1="Rufescent Ring",ring2="Cacoethic Ring +1"
+		hands="Herculean Gloves",ring1="Ramuh Ring +1",ring2="Cacoethic Ring +1"
 	})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -72,7 +72,7 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, 
 		{head="Herculean Helm",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Crematio Earring",
-		body="Samnuha Coat",ring1="Rufescent Ring",ring2="Acumen Ring",
+		body="Samnuha Coat",ring1="Ilabrat Ring",ring2="Shukuyu Ring",
 		back="Toro Cape"})
     
     --------------------------------------
@@ -94,8 +94,8 @@ function init_gear_sets()
     -- Idle/resting/defense/etc sets
     --------------------------------------
 	sets.acc = {neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Herculean Vest",hands="Herculean Gloves",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
-		back="Yokaze Mantle",waist="Olseni Belt",legs="Hizamaru Haramaki +1",feet="Herculean Boots"}
+		body="Herculean Vest",hands="Herculean Gloves",ring1="Ramuh Ring +1",ring2="Cacoethic Ring +1",
+		back="Yokaze Mantle",waist="Olseni Belt",legs="Hizamaru Haramaki +2",feet="Herculean Boots"}
 	
 	sets.engaged = {
 		head="Adhemar Bonnet +1",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
@@ -107,7 +107,7 @@ function init_gear_sets()
 
 	sets.idle = set_combine(sets.engaged, {
 		head="Ocelomeh Headpiece +1",neck="Bathy Choker +1",ear1="Infused Earring",
-		body="Hizamaru Haramaki +1",ring1="Sheltered Ring",ring2="Defending Ring",
+		body="Hizamaru Haramaki +2",ring1="Sheltered Ring",ring2="Defending Ring",
 		back="Moonbeam Cape",waist="Flume Belt",legs="Rao Haidate",feet=gear.MovementFeet})
 
 	sets.idle.Town = set_combine(sets.idle, {})

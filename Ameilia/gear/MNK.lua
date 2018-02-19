@@ -53,16 +53,16 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {ammo="Knobkierrie",
-		head="Adhemar Bonnet +1,neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
-		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Hetairoi Ring",ring2="Epona's Ring",
+		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
+		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back="Letalis Mantle",waist="Fotia Belt",legs="Hizamaru Hizayoroi +2",feet="Herculean Boots"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Herculean Vest",hands="Herculean Gloves",ring1="Rufescent Ring",ring2="Cacoethic Ring +1"
+		body="Herculean Vest",hands="Herculean Gloves",ring1="Niqmaddu Ring",ring2="Ilabrat Ring"
 	})
 	
 	sets.precast.WS['Victory Smite'] = set_combine(sets.precast.WS, {
-		ring1="Begrudging Ring"
+		ring2="Begrudging Ring"
 	})
 	
 	sets.precast.WS['Cataclysm'] = set_combine(sets.precast.WS, {
@@ -78,7 +78,7 @@ function init_gear_sets()
 		
 	sets.engaged = {ammo="Ginsen",
 		head="Adhemar Bonnet +1",neck="Combatant's Torque",ear1="Sherida Earring",ear2="Cessance Earring",
-		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Hetairoi Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back="Letalis Mantle",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet="Herculean Boots"}
 	
 	-- Sets to return to when not performing an action.
@@ -124,7 +124,7 @@ function init_gear_sets()
 
 	sets.engaged.Acc = {ammo="Falcon Eye",
 		head="Dampening Tam",neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Herculean Vest",hands="Herculean Gloves",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
+		body="Herculean Vest",hands="Herculean Gloves",ring1="Niqmaddu Ring",ring2="Cacoethic Ring +1",
 		back="Letalis Mantle",waist="Olseni Belt",legs="Herculean Trousers",feet="Herculean Boots"}
 	sets.engaged.Trivial = set_combine(sets.engaged, {})
 		

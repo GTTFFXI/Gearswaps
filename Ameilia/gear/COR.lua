@@ -57,7 +57,7 @@ function init_gear_sets()
     sets.precast.JA['Wild Card'] = {feet="Lanun Bottes"}
     sets.precast.JA['Random Deal'] = {body="Lanun Frac"}
     
-    sets.precast.CorsairRoll = {head="Lanun Tricorne",hands="Chasseur's Gants +1",ring1="Barataria Ring",back=gear.rng.back}
+    sets.precast.CorsairRoll = {head="Lanun Tricorne",neck="Regal Necklace",hands="Chasseur's Gants +1",back=gear.rng.back}
     
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chasseur's Bottes +1"})
@@ -85,19 +85,19 @@ function init_gear_sets()
 
 
     sets.precast.RA = {ammo=gear.RAbullet,
-		hands="Iuitl Wristbands +1",ring2="Cacoethic Ring +1",
+		body="Laksamana's Frac +2",hands="Iuitl Wristbands +1",ring2="Cacoethic Ring +1",
 		waist="Impulse Belt",legs="Nahtirah Trousers",feet="Meghanada Jambeaux +2"}
 
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo=gear.WSbullet,
-		head=gear.rng.head,neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-		body="Meghanada Cuirie +2",hands=gear.rng.hands,ring1="Ifrit Ring +1",ring2="Rufescent Ring",
-		back=gear.rng.back,waist="Fotia Belt",legs=gear.rng.legs,feet=gear.rng.feet }
+		head="Meghanada Visor +2",neck="Iskur Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+		body="Laksamana's Frac +2",hands="Meghanada Gloves +2",ring1="Garuda Ring",ring2="Ilabrat Ring",
+		back=gear.rng.back,waist="Eschan Stone",legs=gear.rng.legs,feet=gear.rng.feet }
 
 	sets.meleeWS = set_combine(sets.engaged, {
-		neck="Fotia Gorget",waist="Fotia Belt"
+		neck="Fotia Gorget",waist="Fotia Belt",ring1="Shukuyu Ring",ring2="Ilabrat Ring"
 	})	
 		
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -106,7 +106,7 @@ function init_gear_sets()
     sets.precast.WS['Requiescat'] = sets.meleeWS
 	sets.precast.WS['Savage Blade'] = sets.meleeWS
 	
-    sets.precast.WS['Last Stand'] = sets.precast.WS
+    sets.precast.WS['Last Stand'] = set_combine(sets.precast.WS, {neck="Fotia Gorget",waist="Fotia Belt"})
 
     sets.precast.WS['Last Stand'].Acc = sets.precast.WS
 
@@ -146,8 +146,8 @@ function init_gear_sets()
 
     -- Ranged gear
 	sets.midcast.RA = {ammo=gear.RAbullet,
-		head=gear.rng.head,neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
-		body="Meghanada Cuirie +2",hands=gear.rng.hands,ring1="Hajduk Ring +1",ring2="Cacoethic Ring +1",
+		head="Meghanada Visor +2",neck="Iskur Gorget",ear1="Telos Earring",ear2="Enervating Earring",
+		body="Laksamana's Frac +2",hands=gear.rng.hands,ring1="Hajduk Ring +1",ring2="Cacoethic Ring +1",
 		back=gear.rng.back,waist="Eschan Stone",legs=gear.rng.legs,feet=gear.rng.feet}
 	
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA)
@@ -159,7 +159,7 @@ function init_gear_sets()
 	-- Idle sets
 	sets.idle = {
 		head="Oce. Headpiece +1",neck="Bathy Choker +1",ear1="Telos Earring",ear2="Infused Earring",
-		body="Meghanada Cuirie +2",hands=gear.rng.hands,ring1="Sheltered Ring",ring2="Defending Ring",
+		body="Laksamana's Frac +2",hands=gear.rng.hands,ring1="Sheltered Ring",ring2="Defending Ring",
 		back="Moonbeam Cape",waist="Flume Belt",legs="Carmine Cuisses +1",feet=gear.rng.feet}
 	sets.idle.Town = set_combine(sets.idle, {})
 	

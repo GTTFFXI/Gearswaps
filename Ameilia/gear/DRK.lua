@@ -2,13 +2,15 @@
 function init_gear_sets()
 	gear.melee = {}
 	gear.melee.back = { name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+	gear.melee.feet = { name="Argosy Sollerets +1", augments={'HP+65','"Dbl.Atk."+3','"Store TP"+5',}}
 	
 	gear.acc = {}
 	gear.acc.head = { name="Valorous Mask", augments={'Accuracy+25 Attack+25','STR+10','Accuracy+15','Attack+6',}}
     
 	gear.wsdmg = {}
-	gear.wsdmg.head = { name="Valorous Mask", augments={'Mag. Acc.+25','Weapon skill damage +5%','Accuracy+10','Attack+13',}}
+	gear.wsdmg.head = { name="Valorous Mask", augments={'Weapon skill damage +4%','STR+4','Accuracy+12','Attack+15',}}
 	gear.wsdmg.back = { name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.wsdmg.feet = { name="Argosy Sollerets +1", augments={'STR+12','DEX+12','Attack+20',}}
 
 	sets.precast.FC = {head="Carmine Mask +1",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
 		body="Odyssean Chestplate",hands="Leyline Gloves",ring1="Prolix Ring",ring2="Veneficium Ring",
@@ -28,11 +30,11 @@ function init_gear_sets()
 	
 	sets.precast.WS = {ammo="Knobkierrie",
 		head="Argosy Celata +1",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-		body="Dagon Breastplate",hands="Argosy Mufflers +1",ring1="Ifrit Ring +1",ring2="Shukuyu Ring",
-		back=gear.melee.back,waist="Fotia Belt",legs="Argosy Breeches +1",feet="Argosy Sollerets +1"}
+		body="Dagon Breastplate",hands="Argosy Mufflers +1",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
+		back=gear.melee.back,waist="Fotia Belt",legs="Argosy Breeches +1",feet=gear.wsdmg.feet}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		ear1="Telos Earring",ear2="Dignitary's Earring",
-		ring1="Cacoethic Ring +1",ring2="Shukuyu Ring",
+		ring1="Niqmaddu Ring",ring2="Cacoethic Ring +1",
 		legs="Valorous Hose"})
 	
 
@@ -41,14 +43,14 @@ function init_gear_sets()
 	sets.precast.WS['Resolution'].Acc = sets.precast.WS.Acc
 	
 	sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
-		head=gear.wsdmg.head,body="Valorous Mail",hands="Valorous Mitts",back=gear.wsdmg.back,legs="Valorous Hose",feet="Sulevia's Leggings +2"
+		head=gear.wsdmg.head,body="Ignominy Cuirass +3",hands="Valorous Mitts",back=gear.wsdmg.back,legs="Valorous Hose",feet="Sulevia's Leggings +2"
 	})
 	sets.precast.WS['Torcleaver'].Acc = sets.precast.WS.Acc
 	sets.precast.WS['Scourge'] = sets.precast.WS['Torcleaver']
 	sets.precast.WS['Scourge'].Acc = sets.precast.WS['Torcleaver'].Acc
 	
-	--sets.precast.WS['Cross Reaper'] = sets.precast.WS['Torcleaver']
-	--sets.precast.WS['Cross Reaper'].Acc = sets.precast.WS['Torcleaver'].Acc
+	sets.precast.WS['Cross Reaper'] = sets.precast.WS['Torcleaver']
+	sets.precast.WS['Cross Reaper'].Acc = sets.precast.WS['Torcleaver'].Acc
 	sets.precast.WS['Quietus'] = sets.precast.WS['Torcleaver']
 	sets.precast.WS['Quietus'].Acc = sets.precast.WS['Torcleaver'].Acc
 	
@@ -58,13 +60,16 @@ function init_gear_sets()
 		hands="Founder's Gauntlets",ring1="Prolix Ring",
 		feet="Founder's Greaves"}
 	
-	sets.midcast.Drain = {head="Fallen's Burgeonet +1",neck="Erra Pendant",ear1="Gwati Earring",ear2="Dignitary's Earring",
+	sets.midcast['Dark Magic'] = {head="Flamma Zucchetto +2",neck="Erra Pendant",ear1="Gwati Earring",ear2="Dignitary's Earring",
 		body="Carmine Scale Mail",hands="Fallen's Finger Gauntlets +1",ring1="Evanescence Ring",ring2="Archon Ring",
-		back="Niht Mantle",waist="Eschan Stone",legs="Heathen's Flanchard +1",feet="Odyssean Greaves"
+		back="Niht Mantle",waist="Eschan Stone",legs="Eschite Cuisses",feet="Ratri Sollerets"
 	}
-	sets.midcast.Aspir = sets.midcast.Drain
-	sets.midcast.Stun = set_combine(sets.midcast.Drain, {
-		head="Flamma Zucchetto +2",hands="Flamma Manopolas +2",ring2="Stikini Ring"
+	
+	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {head="Fallen's Burgeonet +1",legs="Heathen's Flanchard +1"})
+	
+	sets.midcast.Aspir = sets.midcast['Dark Magic']
+	sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
+		head="Flamma Zucchetto +2",hands="Flamma Manopolas +2",ring2="Stikini Ring",feet="Flamma Gambieras +2"
 	})
 	
 	sets.midcast['Elemental Magic'] = {
@@ -98,12 +103,12 @@ function init_gear_sets()
 
 	-- Defense sets
 
-	sets.defense.PDT = {
-		head="Loess Barbuta +1",neck="Loricate Torque +1",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Chozoron Coselete",hands="Sulevia's Gauntlets +2",ring1="Patricius Ring",ring2="Defending Ring",
-		back="Moonbeam Cape",waist="Flume Belt",legs="Valorous Hose",feet="Sulevia's Leggings +2"}
+	sets.defense.PDT = {ammo="Staunch Tathlum",
+		head="Loess Barbuta +1",neck="Loricate Torque +1",
+		body="Chozoron Coselete",hands="Sulevia's Gauntlets +2",ring2="Defending Ring",
+		back="Moonbeam Cape",feet="Sulevia's Leggings +2"}
 	sets.defense.Twilight = set_combine(sets.defense.PDT, sets.Twilight)
-	sets.defense.MDT = set_combine(sets.defense.PDT, {head="Loess Barbuta +1",feet="Sulevia's Leggings +2"})
+	sets.defense.MDT = set_combine(sets.defense.PDT, {})
 
 	sets.Kiting = {legs="Carmine Cuisses +1"}
 
@@ -117,12 +122,12 @@ function init_gear_sets()
 	-- Normal melee group
 	sets.engaged = {ammo="Ginsen",
 		head="Flamma Zucchetto +2",neck="Ganesha's Mala",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Dagon Breastplate",hands="Argosy Mufflers +1",ring1="Petrov Ring",ring2="Flamma Ring",
-		back=gear.melee.back,waist="Ioskeha Belt",legs="Argosy Breeches +1",feet="Argosy Sollerets +1"}
+		body="Dagon Breastplate",hands="Argosy Mufflers +1",ring1="Niqmaddu Ring",ring2="Petrov Ring",
+		back=gear.melee.back,waist="Ioskeha Belt",legs="Argosy Breeches +1",feet=gear.melee.feet}
 	sets.engaged.Ragnarok = set_combine(sets.engaged, {legs="Argosy Breeches +1"})
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		head="Carmine Mask +1",neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		hands="Odyssean Gauntlets",ring1="Cacoethic Ring +1",
+		body="Ignominy Cuirass +3",hands="Odyssean Gauntlets",ring2="Cacoethic Ring +1",
 		waist="Olseni Belt",legs="Carmine Cuisses +1"})
 	sets.engaged.Twilight = set_combine(sets.engaged, sets.Twilight)
 	sets.engaged.Acc.Twilight = set_combine(sets.engaged.Acc, sets.Twilight)

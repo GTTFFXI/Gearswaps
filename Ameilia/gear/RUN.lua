@@ -43,11 +43,11 @@ function init_gear_sets()
 	-- Weaponskill sets
 	sets.precast.WS = {ammo="Knobkierrie",
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Rufescent Ring",ring2="Ifrit Ring +1",
+		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Niqmaddu Ring",ring2="Shukuyu Ring",
 		back="Letalis Mantle",waist="Fotia Belt",legs="Herculean Trousers",feet="Herculean Boots"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		head="Carmine Mask +1",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Rufescent Ring",ring2="Cacoethic Ring +1",
+		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Niqmaddu Ring",ring2="Cacoethic Ring +1",
 		legs="Carmine Cuisses +1"
 	})
     sets.precast.WS['Herculean Slash'] = set_combine(sets.precast['Lunge'], {})
@@ -96,12 +96,12 @@ function init_gear_sets()
 		back="Moonbeam Cape", waist="Flume Belt", legs="Erilaz Leg Guards +1", feet="Erilaz Greaves +1"}
 	sets.engaged.DD = {ammo="Ginsen",
 		head="Adhemar Bonnet +1",neck="Combatant's Torque",ear1="Telos Earring",ear2="Sherida Earring",
-		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Petrov Ring",ring2="Epona's Ring",
+		body="Adhemar Jacket +1",hands="Herculean Gloves",ring1="Niqmaddu Ring",ring2="Epona's Ring",
 		back="Letalis Mantle",waist="Windbuffet Belt +1",legs="Carmine Cuisses +1",feet="Herculean Boots"}
 	sets.engaged.Trivial = set_combine(sets.engaged, {})
 	sets.engaged.Acc = set_combine(sets.engaged.DD, {
 		head="Carmine Mask +1",neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Herculean Vest",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
+		body="Herculean Vest",ring1="Niqmaddu Ring",ring2="Cacoethic Ring +1",
 		back="Letalis Mantle",waist="Olseni Belt",legs="Carmine Cuisses +1"})
     sets.engaged.PDT = sets.defense.PDT
     sets.engaged.MDT = sets.defense.MDT

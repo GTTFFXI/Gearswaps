@@ -70,7 +70,9 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = {main="Idris",sub="Culminus",ammo="Pemphredo Tathlum",
 		head="Merlinic Hood",neck="Incanter's Torque",ear1="Crematio Earring",ear2="Barkarole Earring",
         body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Nantosuelta's Cape",waist="Hachirin-no-Obi",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+        back="Nantosuelta's Cape",waist="Eschan Stone",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+	
+	sets.WeatherObi = {waist="Hachirin-no-Obi"}
 	
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
 		ear1="Gwati Earring",ear2="Dignitary's Earring",ring1="Stikini Ring",ring2="Sangoma Ring"})

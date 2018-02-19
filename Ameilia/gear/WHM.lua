@@ -57,7 +57,7 @@ function init_gear_sets()
 	sets.precast.WS['Myrkr'] = {
 		head="Vanya Hood",neck="Sanctity Necklace",ear1="Evans Earring",ear2="Etiolation Earring",
 		body="Witching Robe",hands="Revealer's Mitts",ring1="Sangoma Ring",ring2="Stikini Ring",
-		back="Pahtli Cape",waist="Mujin Obi",legs="Helios Spats",feet="Regal Pumps +1"}
+		back="Pahtli Cape",waist="Fucho-no-Obi",legs="Helios Spats",feet="Regal Pumps +1"}
 
     -- Midcast Sets
     

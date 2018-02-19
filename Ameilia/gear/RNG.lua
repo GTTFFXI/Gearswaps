@@ -54,7 +54,7 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
 		head="Arcadian beret +1",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-		body="Amini Caban +1",hands=gear.rng.hands,ring1="Ifrit Ring +1",ring2="Rufescent Ring",
+		body="Amini Caban +1",hands=gear.rng.hands,ring1="Ifrit Ring +1",ring2="Ilabrat Ring",
 		back="Belenus's Cape",waist="Fotia Belt",legs=gear.rng.legs,feet=gear.rng.feet }
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
@@ -63,7 +63,7 @@ function init_gear_sets()
 	})
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS["Jishnu's Radiance"] = set_combine(sets.precast.WS, {head="Meghanada Visor +1",ear1="Sherida Earring"})
+	sets.precast.WS["Jishnu's Radiance"] = set_combine(sets.precast.WS, {head="Meghanada Visor +2",ear1="Sherida Earring"})
 
 	--------------------------------------
 	-- Midcast sets
@@ -89,7 +89,7 @@ function init_gear_sets()
 		{neck="Iskur Gorget",ear1="Telos Earring",waist="Eschan Stone"})
 
 	sets.midcast.RA.SuperAcc = set_combine(sets.midcast.RA.Acc,
-		{head="Meghanada Visor +1",body="Meghanada Cuirie +2"})
+		{head="Meghanada Visor +2",body="Meghanada Cuirie +2"})
 
 		
 	sets.midcast.RA.Annihilator = set_combine(sets.midcast.RA)

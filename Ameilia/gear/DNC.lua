@@ -75,16 +75,16 @@ function init_gear_sets()
 	
 	sets.precast.WS = {
 		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
-		body="Meghanada Cuirie +2",hands="Herculean Gloves",ring1="Rufescent Ring",ring2="Ramuh Ring +1",
+		body="Meghanada Cuirie +2",hands="Herculean Gloves",ring1="Ramuh Ring +1",ring2="Ilabrat Ring",
 		back="Letalis Mantle",waist="Fotia Belt",legs="Lustratio Subligar",feet="Rawhide Boots"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		ear1="Telos Earring",ear2="Dignitary's Earring",
-		body="Herculean Vest",ring1="Rufescent Ring",ring2="Cacoethic Ring +1"
+		body="Herculean Vest",ring2="Cacoethic Ring +1"
 	})
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, 
-		{head="Herculean Helm",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Crematio Earring",ring1="Shiva Ring +1",ring2="Acumen Ring",back="Toro Cape",waist="Chaac Belt"})
+		{head="Herculean Helm",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Crematio Earring",ring1="Ilabrat Ring",ring2="Shiva Ring +1",back="Toro Cape",waist="Chaac Belt"})
 	
 	
 	-- Midcast Sets
@@ -143,7 +143,7 @@ function init_gear_sets()
 	sets.engaged.Trivial = set_combine(sets.engaged, {})
 	sets.engaged.Acc = set_combine(sets.engaged, 
 		{neck="Combatant's Torque",ear1="Telos Earring",ear2="Dignitary's Earring",
-		ring1="Patricius Ring",ring2="Cacoethic Ring +1",
+		ring1="Ramuh Ring +1",ring2="Cacoethic Ring +1",
 		back="Letalis Mantle",waist="Olseni Belt",legs="Herculean Trousers"})
 
 	sets.engaged.Evasion = set_combine(sets.engaged, sets.defense.Evasion)

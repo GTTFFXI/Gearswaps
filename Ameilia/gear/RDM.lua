@@ -38,7 +38,7 @@ function init_gear_sets()
     -- No other FC sets necessary.
 	sets.precast.FC = {
 		head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquac. Earring",hands="Gendewitha Gages",
-		body="Anhur Robe",back="Swith Cape",ring1="Prolix Ring",legs="Lengo Pants"}
+		body="Anhur Robe",back="Perimede Cape",waist="Witful Belt",ring1="Prolix Ring",legs="Lengo Pants",feet="Merlinic Crackows"}
 
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {back="Pahtli Cape",feet="Vanya Clogs"})
 		

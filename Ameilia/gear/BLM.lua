@@ -72,7 +72,7 @@ function init_gear_sets()
 	sets.precast.WS['Myrkr'] = {
 		head="Vanya Hood",neck="Sanctity Necklace",ear1="Evans Earring",ear2="Etiolation Earring",
 		body="Witching Robe",hands="Revealer's Mitts",ring1="Sangoma Ring",ring2="Stikini Ring",
-		back="Pahtli Cape",waist="Mujin Obi",legs="Helios Spats",feet="Regal Pumps +1"}
+		back="Pahtli Cape",waist="Fucho-no-Obi",legs="Helios Spats",feet="Regal Pumps +1"}
 
     ---- Midcast Sets ----
 
@@ -112,10 +112,11 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
 		head="Merlinic Hood",neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Barkarole Earring",
         body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Taranus's Cape",waist="Hachirin-no-Obi",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+        back="Taranus's Cape",waist="Eschan Stone",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
 	sets.midcast['Elemental Magic'].Burst = set_combine(sets.midcast['Elemental Magic'], {
 		neck="Mizukage-no-Kubikazari",ring2="Mujin Band"
 	})
+	sets.WeatherObi = {waist="Hachirin-no-Obi"}
 	
 	sets.midcast.Comet = set_combine(sets.midcast['Elemental Magic'].Burst, {
 		head="Pixie Hairpin +1",ear1="Static Earring",ring2="Archon Ring"
@@ -146,7 +147,7 @@ function init_gear_sets()
         back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
 	sets.idle.Death = set_combine(sets.idle, {ammo="Psilomene",
-		head="Amalric Coif",ear2="Halasz Earring",neck="Loricate Torque +1",hands="Amalric Gages",ring1="Mephitas's Ring +1",back="Pahtli Cape",waist="Mujin Obi",legs="Amalric Slops"
+		head="Amalric Coif",ear2="Halasz Earring",neck="Loricate Torque +1",hands="Amalric Gages",ring1="Mephitas's Ring +1",back="Pahtli Cape",waist="Fucho-no-Obi",legs="Amalric Slops"
 	})	
 		
     -- Town gear.
