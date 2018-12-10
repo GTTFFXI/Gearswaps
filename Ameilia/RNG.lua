@@ -16,6 +16,7 @@ function job_setup()
 	state.Buff.Barrage = buffactive.Barrage or false
 	state.Buff.Camouflage = buffactive.Camouflage or false
 	state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
+	state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
 end
 
 -------------------------------------------------------------------------------------------------------------------

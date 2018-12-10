@@ -120,11 +120,11 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function update_combat_form()
-    if areas.Adoulin:contains(world.area) and buffactive.ionis then
-        state.CombatForm:set('Adoulin')
+    if player.equipment.main == 'Norifusa' then
+        state.CombatForm:set('Norifusa')
     else
-        state.CombatForm:reset()
-    end
+		state.CombatForm:reset()
+	end
 end
 
 -- Select default macro book on initial load or subjob change.

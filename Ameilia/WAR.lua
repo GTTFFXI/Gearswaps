@@ -47,8 +47,8 @@ end
  
 function update_combat_form()
     -- Check Weapontype
-	if player.equipment.main == 'Ragnarok' then
-        state.CombatForm:set('Ragnarok')
+	if player.equipment.main == 'Ragnarok' or player.equipment.main == 'Chango' then
+        state.CombatForm:set(player.equipment.main)
     else
 		state.CombatForm:reset()
 	end

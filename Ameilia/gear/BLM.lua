@@ -16,7 +16,7 @@ function user_setup()
 		
     -- Additional local binds
     send_command('bind ^` input /ma Stun <t>')
-    send_command('bind !` gs c cycle Nuke')
+	send_command('bind !` eh cycle')
 end
 
 -- Define sets and vars used by this job file.
@@ -25,16 +25,16 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 	sets.magicAcc = {
-		head="Merlinic Hood",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Dignitary's Earring",
-		body="Merlinic Jubbah",hands="Amalric Gages",ring1="Stikini Ring",ring2="Sangoma Ring",
-		back="Taranus's Cape",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+		head="Ea Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Dignitary's Earring",
+		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Stikini Ring",ring2="Sangoma Ring",
+		back="Taranus's Cape",legs="Ea Slops",feet="Amalric Nails +1"}
 
 	sets.FC = {head="Nahtirah Hat",ear1="Etiolation Earring",ear2="Loquacious Earring", neck="Orunmila's Torque",
-        body="Anhur Robe",hands="Repartie Gloves",ring1="Prolix Ring",ring2="Veneficium Ring",
+        body="Zendik Robe",ring1="Kishar Ring",ring2="Veneficium Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"}
 
 	sets.FCmAcc = set_combine(sets.FC, {
-		head="Merlinic Hood",body="Merlinic Jubbah",hands="Amalric Gages",ring2="Sangoma Ring",legs="Merlinic Shalwar"})
+		head="Ea Hat",body="Ea Houppelande",hands="Amalric Gages +1",ring2="Sangoma Ring",legs="Ea Slops"})
 		
     ---- Precast Sets ----
     
@@ -59,15 +59,15 @@ function init_gear_sets()
     sets.precast.FC.Curaga = sets.precast.FC.Cure
 	
 	sets.precast.Death = set_combine(sets.precast.FC, {ammo="Psilomene",
-		head="Amalric Coif",ear2="Halasz Earring",hands="Amalric Gages",ring1="Mephitas's Ring +1",ring2="Prolix Ring",back="Taranus's Cape",waist="Hachirin-no-Obi",legs="Psycloth Lappas"
+		head="Amalric Coif",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Kishar Ring",back="Taranus's Cape",waist="Hachirin-no-Obi",legs="Psycloth Lappas"
 	})
 
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Merlinic Hood",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-        body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shukuyu Ring",ring2="Cacoethic Ring +1",
-        back="Taranus's Cape",waist="Fotia Belt",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+        head="Ea Hat",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+        body="Ea Houppelande",hands="Amalric Gages +1",ring1="Shukuyu Ring",ring2="Cacoethic Ring +1",
+        back="Taranus's Cape",waist="Fotia Belt",legs="Ea Slops",feet="Amalric Nails +1"}
 
 	sets.precast.WS['Myrkr'] = {
 		head="Vanya Hood",neck="Sanctity Necklace",ear1="Evans Earring",ear2="Etiolation Earring",
@@ -78,7 +78,7 @@ function init_gear_sets()
 
     sets.midcast.FastRecast = set_combine(sets.precast.FC, {
         head="Nahtirah Hat",ear2="Loquacious Earring",
-        body="Merlinic Jubbah",ring1="Prolix Ring",
+        body="Ea Houppelande",ring1="Kishar Ring",
         back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"
 	})
 
@@ -110,9 +110,9 @@ function init_gear_sets()
     -- Elemental Magic sets
     
     sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
-		head="Merlinic Hood",neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Barkarole Earring",
-        body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Taranus's Cape",waist="Eschan Stone",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+		head="Ea Hat",neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Barkarole Earring",
+        body="Ea Houppelande",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Acumen Ring",
+        back="Taranus's Cape",waist="Eschan Stone",legs="Ea Slops",feet="Amalric Nails +1"}
 	sets.midcast['Elemental Magic'].Burst = set_combine(sets.midcast['Elemental Magic'], {
 		neck="Mizukage-no-Kubikazari",ring2="Mujin Band"
 	})
@@ -122,7 +122,7 @@ function init_gear_sets()
 		head="Pixie Hairpin +1",ear1="Static Earring",ring2="Archon Ring"
 	})
 	sets.midcast.Death = set_combine(sets.midcast.Comet, {ammo="Psilomene",
-		ear2="Halasz Earring",ring1="Mephitas's Ring +1",legs="Amalric Slops"
+		ring1="Mephitas's Ring +1",legs="Amalric Slops"
 	})
 
 	sets.midcast.Comet = sets.midcast.Death
@@ -142,12 +142,12 @@ function init_gear_sets()
     
     -- Normal refresh idle set
     sets.idle = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
-        head="Befouled Crown",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
+        head="Volte Beret",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
         body="Jhakri Robe +2",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Defending Ring",
         back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
 	sets.idle.Death = set_combine(sets.idle, {ammo="Psilomene",
-		head="Amalric Coif",ear2="Halasz Earring",neck="Loricate Torque +1",hands="Amalric Gages",ring1="Mephitas's Ring +1",back="Pahtli Cape",waist="Fucho-no-Obi",legs="Amalric Slops"
+		head="Amalric Coif",neck="Loricate Torque +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",back="Pahtli Cape",waist="Fucho-no-Obi",legs="Amalric Slops"
 	})	
 		
     -- Town gear.
@@ -159,7 +159,7 @@ function init_gear_sets()
 
     sets.defense.PDT = {
         head="Nahtirah Hat",neck="Loricate Torque +1",
-        body="Merlinic Jubbah",hands="Merlinic Dastanas",ring1="Patricius Ring",ring2="Defending Ring",
+        body="Ea Houppelande",hands="Merlinic Dastanas",ring1="Patricius Ring",ring2="Defending Ring",
         back="Moonbeam Cape",waist="Fucho-no-obi"}
 
     sets.defense.MDT = sets.defense.PDT
@@ -186,48 +186,4 @@ function init_gear_sets()
         body="Onca Suit",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
         back="Taranus's Cape",waist="Goading Belt"}
 
-end
-
-function job_post_midcast(spell, action, spellMap, eventArgs)
-	if spell.skill == 'Elemental Magic' and sets.midcast[spell.element] then
-		equip(sets.midcast[spell.element])
-	end
-end
-
-function job_self_command(cmdParams, eventArgs)
-    if cmdParams[1]:lower() == 'nuke' then
-        handle_nuke(cmdParams)
-        eventArgs.handled = true
-     end
-end
-
-function handle_nuke(cmdParams)
-    if not cmdParams[3] then
-        add_to_chat(123,'No nuke tier given.')
-        return
-    end
-    
-	local nukestr = state.Nuke.current
-	local nuketype = cmdParams[2]:lower()
-	local tier = cmdParams[3]:upper()
-	
-	send_command('ank setnuke '..nukestr)
-	
-	if(nuketype == 'ga' or nuketype == 'ja') then
-		if(nukestr == 'Fire') then 
-			nukestr = 'Fira'
-		elseif (nukestr == 'Blizzard') then
-			nukestr = 'Blizza'
-		elseif (nukestr == 'Thunder') then
-			nukestr = 'Thunda'
-		end
-		nukestr = nukestr .. nuketype
-	end
-    
-	if(tier == 'I') then
-		tier = ''
-	end
-	
-	local nuke = nukestr..' '..tier	
-	send_command('@input /ma "'..nuke..'" <t>')
 end

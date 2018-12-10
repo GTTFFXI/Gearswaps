@@ -4,7 +4,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT')
 	
 	send_command('bind ^` input /ja "Entrust" <me>')
-	send_command('bind !` input /ja "Blaze of Glory" <me>')
+	send_command('bind !` eh cycle')
 end
 
 -- Define sets and vars used by this job file.
@@ -22,7 +22,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
 
     sets.precast.FC = {main="Idris",sub="Genbu's Shield",head="Nahtirah Hat",ear2="Loquacious Earring", neck="Orunmila's Torque",
-        body="Anhur Robe",hands="Repartie Gloves",ring1="Prolix Ring",ring2="Veneficium Ring",
+        body="Zendik Robe",ring1="Kishar Ring",ring2="Veneficium Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"}
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {ear1="Mendicant's Earring",back="Pahtli Cape",legs="Gyve Trousers",feet="Vanya Clogs"})
@@ -33,14 +33,14 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-		head="Merlinic Hood",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-        body="Merlinic Jubbah",hands="Amalric Gages",ring1="Chirich Ring",ring2="Cacoethic Ring +1",
-        back="Kumbira Cape",waist="Fotia Belt",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+		head="Ea Hat",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+        body="Ea Houppelande",hands="Amalric Gages +1",ring1="Chirich Ring",ring2="Cacoethic Ring +1",
+        back="Kumbira Cape",waist="Fotia Belt",legs="Ea Slops",feet="Amalric Nails +1"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS, {
-        head="Merlinic Hood",ear1="Friomisi Earring",ear2="Barkarole Earring",
-        body="Merlinic Jubbah",ring1="Acumen Ring",ring2="Shiva Ring +1",
+        head="Ea Hat",ear1="Friomisi Earring",ear2="Barkarole Earring",
+        body="Ea Houppelande",ring1="Acumen Ring",ring2="Shiva Ring +1",
         back="Toro Cape"})
 
 
@@ -50,7 +50,7 @@ function init_gear_sets()
 
     -- Base fast recast for spells
     sets.midcast.FastRecast = set_combine(sets.FC, {
-        body="Merlinic Jubbah",hands="Bagua Mitaines",
+        body="Ea Houppelande",hands="Bagua Mitaines",
         waist="Goading Belt"})
 
     sets.midcast.Geomancy = sets.skill
@@ -67,22 +67,25 @@ function init_gear_sets()
 
     sets.midcast.Shellra = {neck="Incanter's Torque",ring1="Sheltered Ring"}
 
-    sets.midcast['Elemental Magic'] = {main="Idris",sub="Culminus",ammo="Pemphredo Tathlum",
-		head="Merlinic Hood",neck="Incanter's Torque",ear1="Crematio Earring",ear2="Barkarole Earring",
-        body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Nantosuelta's Cape",waist="Eschan Stone",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+    sets.midcast['Elemental Magic'] = {main="Idris",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
+		head="Ea Hat",neck="Incanter's Torque",ear1="Crematio Earring",ear2="Barkarole Earring",
+        body="Ea Houppelande",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Acumen Ring",
+        back="Nantosuelta's Cape",waist="Eschan Stone",legs="Ea Slops",feet="Amalric Nails +1"}
 	
 	sets.WeatherObi = {waist="Hachirin-no-Obi"}
 	
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
 		ear1="Gwati Earring",ear2="Dignitary's Earring",ring1="Stikini Ring",ring2="Sangoma Ring"})
 	
+	sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Elemental Magic'].Resistant, {
+		head="Jhakri Coronal +2",body="Zendik Robe",hands="Jhakri Cuffs +2",legs="Jhakri Slops +2",feet="Medium's Sabots"})
+	
     --------------------------------------
     -- Idle/resting/defense/etc sets
     --------------------------------------
 
     sets.idle = {main="Idris",sub="Genbu's Shield",range="Dunna",
-        head="Befouled Crown",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
+        head="Volte Beret",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
         body="Jhakri Robe +2",hands="Bagua Mitaines",ring1="Sheltered Ring",ring2="Defending Ring",
         back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
@@ -137,12 +140,13 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-		head="Nahtirah Hat",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
-        body="Onca Suit",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
-        waist="Goading Belt"}
+		head="Jhakri Coronal +2",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
+        body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
+        waist="Goading Belt",legs="Jhakri Slops +2"}
 
     --------------------------------------
     -- Custom buff sets
     --------------------------------------
 
+	sets.buff.Doom = {ring1="Purity Ring",ring2="Saida Ring",waist="Gishdubar Sash"}
 end

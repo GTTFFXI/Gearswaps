@@ -128,7 +128,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
         if spell.english == "Wild Flourish" then
             state.SkillchainPending:set()
             send_command('wait 5;gs c unset SkillchainPending')
-        elseif spell.type:lower() == "weaponskill" then
+        elseif spell.type == "WeaponSkill" then
             state.SkillchainPending:toggle()
             send_command('wait 6;gs c unset SkillchainPending')
         end
