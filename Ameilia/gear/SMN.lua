@@ -7,6 +7,12 @@ function user_setup()
 	
 	gear.avatar_legs = {name="Helios Spats", augments={'Pet: Haste+6%','Pet: Accuracy+27 Pet: Rng. Acc.+27','Pet: "Dbl. Atk."+5'}}
 	
+	gear.hands = {}
+	
+	gear.hands.magical = { name="Merlinic Dastanas", augments={'Pet: "Mag.Atk.Bns."+27','Blood Pact Dmg.+10','Pet: DEX+10','Pet: Mag. Acc.+9',}}
+    gear.hands.physical = { name="Merlinic Dastanas", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Blood Pact Dmg.+10','Pet: Mag. Acc.+15','Pet: "Mag.Atk.Bns."+15',}}
+
+	
 	gear.capes = {}
 	
 	gear.capes.timer = {name="Conveyance Cape", augments={'Summoning magic skill +1','Pet: Enmity+11','Blood Pact Dmg.+2','Blood Pact ab. del. II -2',}}
@@ -22,7 +28,7 @@ end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
-	sets.max_acc = {head="Convoker's Horn +3",neck="Shulmanu Collar",ear1="Enmerkar Earring",ear2="Lugalbanda Earring",
+	sets.max_acc = {head="Convoker's Horn +3",neck="Summoner's Collar +1",ear1="Enmerkar Earring",ear2="Lugalbanda Earring",
 		body="Convoker's Doublet +3",hands="Convoker's Bracers +3",ring1="Varar Ring +1",ring2="Thurandaut Ring +1",
 		back=gear.capes.pet_phys,waist="Regal Belt",legs="Convoker's Spats +3",feet="Convo. Pigaches +3"}
 
@@ -38,7 +44,7 @@ function init_gear_sets()
 
 	
 	sets.idle.Avatar = {main="Nirvana",sub="Elan Strap +1",ammo="Sancus Sachet +1",
-		head="Convoker's Horn +3",neck="Shulmanu Collar",ear1="Enmerkar Earring",ear2="Lugalbanda Earring",
+		head="Convoker's Horn +3",neck="Summoner's Collar +1",ear1="Enmerkar Earring",ear2="Lugalbanda Earring",
 		body="Witching Robe",hands="Asteria Mitts +1",ring1="Evoker's Ring",ring2="Thurandaut Ring +1",
 		back=gear.capes.pet_phys,waist="Fucho-no-Obi",legs="Assiduity Pants +1",feet="Convo. Pigaches +3"}
 
@@ -62,7 +68,7 @@ function init_gear_sets()
 		main="Nirvana",head="Beckoner's Horn +1",ear1="Enmerkar Earring",ear2="Lugalbanda Earring",
 		body="Witching Robe",hands="Asteria Mitts +1",
 		legs="Assiduity Pants +1"})
-	sets.idle.Avatar.Melee = set_combine(sets.idle.Avatar, {ear1="Enmerkar Earring",ear2="Lugalbanda Earring",hands="Convoker's Bracers +3",back=gear.capes.pet_phys,waist="Klouskap Sash",legs=gear.avatar_legs})
+	sets.idle.Avatar.Melee = set_combine(sets.idle.Avatar, {neck="Summoner's Collar +1",ear1="Enmerkar Earring",ear2="Lugalbanda Earring",hands="Convoker's Bracers +3",back=gear.capes.pet_phys,waist="Klouskap Sash",legs=gear.avatar_legs})
 	sets.idle.Avatar.Melee.Acc = set_combine(sets.idle.Avatar.Melee, sets.max_acc)
 	
 	sets.idle.Avatar.Favor.Melee = set_combine(sets.idle.Avatar.Melee, {head="Beckoner's Horn +1"})
@@ -89,8 +95,8 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 	
 	sets.precast.FC = {
-		head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquac. Earring",hands="Repartie Gloves",
-		body="Baayami Robe",ring1="Prolix Ring",ring2="Veneficium Ring",
+		head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquac. Earring",
+		body="Baayami Robe",ring1="Kishar Ring",ring2="Veneficium Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"}
 
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC)
@@ -104,7 +110,7 @@ function init_gear_sets()
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Garland of Bliss'] = {
 		head="Merlinic Hood",neck="Fotia Gorget",ear1="Crematio Earring",ear2="Friomisi Earring",
-		body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Acumen Ring",
+		body="Witching Robe",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Acumen Ring",
 		back="Toro Cape",waist="Fotia Belt",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
 
 	sets.precast.WS['Myrkr'] = {
@@ -117,12 +123,12 @@ function init_gear_sets()
 	--------------------------------------
 
 	sets.midcast.FastRecast = {
-		head="Nahtirah Hat",ear2="Loquac. Earring",hands="Repartie Gloves",
-		body="Baayami Robe",waist="Witful Belt",ring1="Prolix Ring"}
+		head="Nahtirah Hat",ear2="Loquac. Earring",
+		body="Baayami Robe",waist="Witful Belt",ring1="Kishar Ring"}
 
 	sets.midcast.Cure = {sub="Elan Strap +1",
 		head="Vanya Hood",neck="Incanter's Torque",ear1="Mendicant's Earring",ear2="Loquacious Earring",
-		hands="Revealer's Mitts",ring1="Prolix Ring",
+		hands="Revealer's Mitts",ring1="Kishar Ring",
 		back="Oretania's Cape +1",legs="Gyve Trousers",feet="Vanya Clogs"}
 
 	sets.midcast.Stoneskin = {neck="Incanter's Torque"}
@@ -131,7 +137,7 @@ function init_gear_sets()
 	
 	sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Niobid Strap",
 		head="Merlinic Hood",neck="Incanter's Torque",ear1="Friomisi Earring",ear2="Crematio Earring",
-		body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Acumen Ring",
+		body="Witching Robe",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Acumen Ring",
 		back=gear.capes.pet_magic,waist="Chaac Belt",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
 
 	
@@ -148,19 +154,19 @@ function init_gear_sets()
 	sets.midcast.Pet.DebuffBloodPactWard = sets.skill
 	
 	sets.midcast.Pet.PhysicalBloodPactRage = set_combine(sets.skill, {main="Nirvana",sub="Elan Strap +1",ammo="Sancus Sachet +1",
-		head="Apogee Crown +1",neck="Shulmanu Collar",ear1="Gelos Earring",ear2="Lugalbanda Earring",
-		body="Convoker's Doublet +3",hands="Merlinic Dastanas",ring1="Varar Ring +1",ring2="Thurandaut Ring +1",
+		head="Apogee Crown +1",neck="Summoner's Collar +1",ear1="Gelos Earring",ear2="Lugalbanda Earring",
+		body="Convoker's Doublet +3",hands=gear.hands.physical,ring1="Varar Ring +1",ring2="Thurandaut Ring +1",
 		back=gear.capes.pet_phys,waist="Regal Belt",legs="Apogee Slacks +1",feet="Convo. Pigaches +3"})
 
 	sets.midcast.Pet.PhysicalBloodPactRageAcc = set_combine(sets.midcast.Pet.PhysicalBloodPactRage, sets.max_acc)
 
 	sets.midcast.Pet.MagicalBloodPactRage = set_combine(sets.skill, {main="Espiritus",sub="Elan Strap +1",ammo="Sancus Sachet +1",
-		head="Apogee Crown +1",neck="Adad Amulet",ear1="Gelos Earring",ear2="Lugalbanda Earring",
-		body="Convoker's Doublet +3",hands="Merlinic Dastanas",ring1="Varar Ring +1",
+		head="Apogee Crown +1",neck="Summoner's Collar +1",ear1="Gelos Earring",ear2="Lugalbanda Earring",
+		body="Convoker's Doublet +3",hands=gear.hands.magical,ring1="Varar Ring +1",
 		back=gear.capes.pet_magic,waist="Regal Belt",legs="Apogee Slacks +1",feet="Convo. Pigaches +3"})
 
 	sets.midcast.Pet.HybridBloodPactRage = set_combine(sets.midcast.Pet.MagicalBloodPactRage, {main="Nirvana",
-		ring1="Varar Ring +1",ring2="Thurandaut Ring +1",back=gear.capes.pet_magic,waist="Regal Belt"})
+		hands=gear.hands.physical,ring1="Varar Ring +1",ring2="Thurandaut Ring +1",back=gear.capes.pet_magic,waist="Regal Belt"})
 	
 	sets.midcast.Pet.HybridBloodPactRageAcc = set_combine(sets.midcast.Pet.HybridBloodPactRage, {
 		head="Convoker's Horn +3",neck="Incanter's Torque",

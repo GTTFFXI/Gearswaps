@@ -63,6 +63,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             equip({waist=obi})
         end
     end
+	
+	if spell.skill == 'Enhancing Magic' and state.CastingMode.value == 'Interrupt' then 
+		equip(sets.spell_interrupt)
+	end
+
+	
 end
 
 

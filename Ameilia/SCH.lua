@@ -49,7 +49,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Resistant')
+    state.CastingMode:options('Normal', 'Resistant', 'Burst')
     state.IdleMode:options('Normal', 'PDT')
 
 
@@ -62,6 +62,7 @@ function user_setup()
     gear.macc_hagondes = {name="Hagondes Cuffs", augments={'Phys. dmg. taken -3%','Mag. Acc.+29'}}
 
     send_command('bind ^` input /ma Stun <t>')
+	send_command('bind !` eh cycle')
 end
 
 function user_unload()

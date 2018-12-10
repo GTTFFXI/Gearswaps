@@ -15,7 +15,7 @@ function init_gear_sets()
 
     sets.precast.FC = {
         head="Nahtirah Hat",neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
-        body="Anhur Robe",hands="Gendewitha Gages",ring1="Prolix Ring",ring2="Veneficium Ring",
+        body="Zendik Robe",hands="Gendewitha Gages",ring1="Kishar Ring",ring2="Veneficium Ring",
         back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"}
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC)
@@ -43,7 +43,7 @@ function init_gear_sets()
 
     -- Midcast Sets
 
-    sets.midcast.FastRecast = set_combine(sets.precast.FC, {body="Merlinic Jubbah"})
+    sets.midcast.FastRecast = set_combine(sets.precast.FC, {body="Zendik Robe"})
 
     sets.midcast.Cure = {
         head="Vanya Hood",neck="Incanter's Torque",ear1="Mendicant's Earring",
@@ -59,8 +59,8 @@ function init_gear_sets()
     sets.midcast.Cursna = {neck="Malison Medallion",ring1="Ephedra Ring",ring2="Ephedra Ring",back="Oretania's Cape +1",feet="Vanya Clogs"}
 
     sets.midcast['Enhancing Magic'] = {
-        head="Befouled Crown",neck="Incanter's Torque",ear1="Andoaa Earring",
-        body="Anhur Robe",hands="Chironic Gloves",
+        neck="Incanter's Torque",ear1="Andoaa Earring",
+        body="Manasa Chasuble",hands="Chironic Gloves",ring1="Stikini Ring",
         legs="Lengo Pants",feet="Regal Pumps +1"}
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'])
@@ -77,7 +77,7 @@ function init_gear_sets()
     -- Custom spell classes
 	sets.midcast['Enfeebling Magic'] = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
 		head="Befouled Crown",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Dignitary's Earring",
-		body="Merlinic Jubbah",hands="Chironic Gloves",ring1="Stikini Ring",ring2="Sangoma Ring",
+		body="Chironic Doublet",hands="Chironic Gloves",ring1="Stikini Ring",ring2="Sangoma Ring",
 		back="Lugh's Cape",waist="Hachirin-no-Obi",legs="Chironic Hose",feet="Medium's Sabots"
 	}
 	
@@ -90,9 +90,13 @@ function init_gear_sets()
     sets.midcast['Dark Magic'] = sets.midcast['Enfeebling Magic']
 
 	sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
-        head="Merlinic Hood",neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Barkarole Earring",
-        body="Merlinic Jubbah",hands="Chironic Gloves",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Lugh's Cape",waist="Eschan Stone",legs="Merlinic Shalwar",feet="Merlinic Crackows"}
+        head="Jhakri Coronal +2",neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Barkarole Earring",
+        body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Acumen Ring",
+        back="Lugh's Cape",waist="Eschan Stone",legs="Jhakri Slops +2",feet="Amalric Nails +1"}
+	
+	sets.midcast['Elemental Magic'].Burst = set_combine(sets.midcast['Elemental Magic'], {
+		neck="Mizukage-no-Kubikazari",ring2="Mujin Band"
+	})
 	
 	sets.WeatherObi = {waist="Hachirin-no-Obi"}
 	
@@ -110,7 +114,7 @@ function init_gear_sets()
 
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
-		body="Merlinic Jubbah",ear1="Gwati Earring",ear2="Dignitary's Earring",
+		body="Jhakri Robe +2",ear1="Gwati Earring",ear2="Dignitary's Earring",
 		ring1="Stikini Ring",ring2="Sangoma Ring"})
 
     -- Custom refinements for certain nuke tiers
@@ -125,7 +129,7 @@ function init_gear_sets()
 
     -- Resting sets
     sets.idle = {main="Grioavolr",sub="Niobid Strap",ammo="Homiliary",
-        head="Befouled Crown",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
+        head="Volte Beret",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
         body="Jhakri Robe +2",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Defending Ring",
         back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 	
@@ -147,7 +151,7 @@ function init_gear_sets()
 
     sets.defense.PDT = {
         head="Nahtirah Hat",neck="Loricate Torque +1",ear2="Loquacious Earring",
-        body="Merlinic Jubbah",ring1="Patricius Ring",ring2="Defending Ring",
+        body="Jhakri Robe +2",ring1="Patricius Ring",ring2="Defending Ring",
         back="Moonbeam Cape"}
 
     sets.defense.MDT = {

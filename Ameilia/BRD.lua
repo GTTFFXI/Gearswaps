@@ -65,7 +65,7 @@ function user_setup()
     
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
-    send_command('bind !` input /ma "Chocobo Mazurka" <me>')
+    send_command('bind !` eh cycle')
 
     select_default_macro_book()
 end
@@ -75,6 +75,7 @@ end
 function user_unload()
     send_command('unbind ^`')
     send_command('unbind !`')
+	send_command('unbind !=')
 end
 
 

@@ -15,7 +15,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
 		head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquac. Earring",
-		body="Inyanga Jubbah +2",hands="Gendewitha Gages",ring1="Prolix Ring",ring2="Veneficium Ring",
+		body="Zendik Robe",hands="Gendewitha Gages",ring1="Kishar Ring",ring2="Veneficium Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"
 	}
         
@@ -61,7 +61,7 @@ function init_gear_sets()
 
     -- Midcast Sets
     
-    sets.midcast.FastRecast = set_combine(sets.precast.FC, {body="Inyanga Jubbah +2",waist="Goading Belt"})
+    sets.midcast.FastRecast = set_combine(sets.precast.FC, {body="Zendik Robe",waist="Goading Belt"})
     
     -- Cure sets
     gear.default.obi_waist = "Goading Belt"
@@ -69,7 +69,7 @@ function init_gear_sets()
 
     sets.midcast.Cure = {
 		main="Queller Rod",sub="Genbu's Shield",ammo="Esper Stone +1",
-        head="Vanya Hood",neck="Incanter's Torque",ear1="Halasz Earring",ear2="Glorious Earring",
+        head="Vanya Hood",neck="Incanter's Torque",ear2="Glorious Earring",
         body="Ebers Bliaud +1",hands="Revealer's Mitts",ring1="Ephedra Ring",ring2="Sirona's Ring",
         back="Vates Cape +1",waist="Hachirin-no-Obi",legs="Ebers Pantaloons +1",feet="Vanya Clogs"}
 
@@ -89,8 +89,8 @@ function init_gear_sets()
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
-		head="Befouled Crown",neck="Incanter's Torque",ear1="Andoaa Earring",
-        body="Anhur Robe",hands="Inyanga Dastanas +2",
+		neck="Incanter's Torque",ear1="Andoaa Earring",
+        body="Manasa Chasuble",hands="Inyanga Dastanas +2",ring1="Stikini Ring",
         legs="Piety Pantaloons +1",feet="Regal Pumps +1"
 	}
 
@@ -127,8 +127,8 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
     
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-    sets.idle = {main="Bolelabunga", sub="Genbu's Shield",ammo="Homiliary",
-		head="Befouled Crown",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
+    sets.idle = {main="Queller Rod", sub="Genbu's Shield",ammo="Homiliary",
+		head="Volte Beret",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
 		body="Witching Robe",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Defending Ring",
 		back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 

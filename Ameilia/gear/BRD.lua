@@ -17,7 +17,9 @@ function user_setup()
     
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
-    send_command('bind !` input /ma "Chocobo Mazurka" <me>')
+    send_command('bind !` eh cycle')
+	send_command('bind !- input /ma "Goddess\'s Hymnus" Sulia')
+	send_command('bind != input /ma "Chocobo Mazurka" <me>')
 end
 
 -- Define sets and vars used by this job file.
@@ -30,7 +32,7 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 	sets.precast.FC = {head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquac. Earring",hands="Gendewitha Gages",
-		body="Inyanga Jubbah +2",back="Perimede Cape",waist="Witful Belt",ring1="Prolix Ring",ring2="Veneficium Ring",legs="Lengo Pants"}
+		body="Zendik Robe",back="Perimede Cape",waist="Witful Belt",ring1="Kishar Ring",ring2="Veneficium Ring",legs="Lengo Pants"}
 
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {ear1="Mendicant's Earring",back="Pahtli Cape",legs="Chironic Hose",feet="Vanya Clogs"})
 
@@ -38,9 +40,9 @@ function init_gear_sets()
 
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC)
 
-	sets.precast.FC.BardSong = {main="Grioavolr",sub="Niobid Strap",range="Gjallarhorn",
-		head="Fili Calot +1",neck="Moonbow Whistle",ear1="Etiolation Earring",ear2="Loquac. Earring",
-		body="Inyanga Jubbah +2",hands="Gendewitha Gages",ring1="Prolix Ring",ring2="Veneficium Ring",
+	sets.precast.FC.BardSong = {main="Oranyan",sub="Niobid Strap",range="Gjallarhorn",
+		head="Fili Calot +1",neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquac. Earring",
+		body="Zendik Robe",hands="Gendewitha Gages",ring1="Kishar Ring",ring2="Veneficium Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Gendewitha Spats",feet="Bihu Slippers"}
 		
 	sets.precast.FC['Honor March'] = set_combine(sets.precast.FC.BardSong, {range="Marsyas"})
@@ -65,14 +67,14 @@ function init_gear_sets()
     sets.precast.WS = {
 	    range="Linos",head="Chironic Hat",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
 		body="Ayanmo Corazza +2",hands="Leyline Gloves",ring1="Ilabrat Ring",ring2="Begrudging Ring",
-		back="Intarabus's Cape",waist="Fotia Belt",legs="Lustratio Subligar",feet="Aya. Gambieras +1"}
+		back="Intarabus's Cape",waist="Fotia Belt",legs="Lustratio Subligar",feet="Ayanmo Gambieras +2"}
 
 	-- Midcast Sets
 
 	-- General set for recast times.
-	sets.midcast.FastRecast = {main="Grioavolr",sub="Niobid Strap",
+	sets.midcast.FastRecast = {main="Oranyan",sub="Niobid Strap",
 		head="Nahtirah Hat",ear2="Loquacious Earring",
-		body="Inyanga Jubbah +2",hands="Gendewitha Gages",ring1="Prolix Ring",ring2="Veneficium Ring",
+		body="Zendik Robe",hands="Gendewitha Gages",ring1="Kishar Ring",ring2="Veneficium Ring",
 		back="Perimede Cape",waist="Witful Belt",legs="Gendewitha Spats",feet="Chironic Slippers"}
 		
 	-- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
@@ -96,13 +98,13 @@ function init_gear_sets()
 	-- For song buffs (duration and AF3 set bonus)
 	sets.midcast.SongEffect = {range="Gjallarhorn",
 		head="Fili Calot +1",neck="Moonbow Whistle",ear2="Loquacious Earring",
-		body="Fili Hongreline +1",hands="Fili Manchettes +1",ring1="Prolix Ring",
+		body="Fili Hongreline +1",hands="Fili Manchettes +1",ring1="Kishar Ring",
 		back="Kumbira Cape",waist="Kobo Obi",legs="Inyanga Shalwar +2",feet="Brioso Slippers +2"}
 
 	sets.midcast['Honor March'] = set_combine(sets.midcast.SongEffect, {range="Marsyas"})
 		
 	-- For song defbuffs (duration primary, accuracy secondary)
-	sets.midcast.SongDebuff = {main="Grioavolr",sub="Niobid Strap",range="Gjallarhorn",
+	sets.midcast.SongDebuff = {main="Oranyan",sub="Niobid Strap",range="Gjallarhorn",
 		head="Chironic Hat",neck="Moonbow Whistle",ear1="Gwati Earring",ear2="Dignitary's Earring",
 		body="Chironic Doublet",hands="Inyanga Dastanas +2",ring1="Stikini Ring",ring2="Sangoma Ring",
 		back="Kumbira Cape",waist="Hachirin-no-Obi",legs="Chironic Hose",feet="Chironic Slippers"}
@@ -112,7 +114,7 @@ function init_gear_sets()
 	
 	-- Song-specific recast reduction
 	sets.midcast.SongRecast = {ear2="Loquacious Earring",
-		ring1="Prolix Ring",
+		ring1="Kishar Ring",
 		back="Kumbira Cape",legs="Fili Rhingrave +1",feet="Chironic Slippers"}
 
 	--sets.midcast.Daurdabla = set_combine(sets.midcast.FastRecast, sets.midcast.SongRecast, {range=info.DaurdablaInstrument})
@@ -122,7 +124,7 @@ function init_gear_sets()
 
 	-- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
 	sets.midcast.DaurdablaDummy = {range=info.ExtraSongInstrument,
-		head="Nahtirah Hat",neck="Orunmila's Torque",hands="Fili Manchettes +1",ring1="Prolix Ring",
+		head="Nahtirah Hat",neck="Orunmila's Torque",hands="Fili Manchettes +1",ring1="Kishar Ring",
 		back="Perimede Cape",legs="Fili Rhingrave +1",feet="Chironic Slippers"}
 
 	-- Other general spells and classes.
@@ -143,7 +145,7 @@ function init_gear_sets()
 	
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		head="Wivre Hairpin",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
+		head="Volte Beret",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
 		body="Ischemia Chasuble",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Defending Ring",
 		back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Fili Cothurnes +1"}
 
@@ -184,7 +186,7 @@ function init_gear_sets()
     sets.engaged = {
 	    range="Linos",head="Chironic Hat",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
 		body="Ayanmo Corazza +2",hands="Leyline Gloves",ring1="Ilabrat Ring",ring2="Chirich Ring",
-		back="Intarabus's Cape",waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Aya. Gambieras +1"}
+		back="Intarabus's Cape",waist="Windbuffet Belt +1",legs="Aya. Cosciales +2",feet="Ayanmo Gambieras +2"}
 
 	-- Sets with weapons defined.
 	sets.engaged.Dagger = sets.engaged

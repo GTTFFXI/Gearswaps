@@ -98,6 +98,8 @@ function job_buff_change(buff, gain)
         state.CombatForm:set('Footwork')
     elseif buff == "Hundred Fists" and not gain and buffactive.footwork then
         state.CombatForm:set('Footwork')
+	elseif buff == "Counterstance" and not gain and buffactive.counterstance then
+        state.CombatForm:set('Counterstance')
     else
         state.CombatForm:reset()
     end

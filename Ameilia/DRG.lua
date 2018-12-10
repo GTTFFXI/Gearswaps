@@ -33,8 +33,6 @@ function user_setup()
 	state.MagicalDefenseMode:options('MDT')
 
 	-- Additional local binds
-	send_command('bind ^` gs c cycle Offense')
-	send_command('bind !` gs c cycle Defense')
 end
 
 
