@@ -17,6 +17,7 @@ function job_setup()
 	state.Buff.Camouflage = buffactive.Camouflage or false
 	state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
 	state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
+	state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 end
 
 -------------------------------------------------------------------------------------------------------------------

@@ -15,6 +15,7 @@ end
 function job_setup()
     state.Buff['Burst Affinity'] = buffactive['Burst Affinity'] or false
     state.Buff['Chain Affinity'] = buffactive['Chain Affinity'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
     state.Buff.Convergence = buffactive.Convergence or false
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
@@ -320,6 +321,10 @@ function update_combat_form()
     else
         state.CombatForm:set('DW')
     end
+		
+	if (player.equipment.main == "Tizona" and buffactive['Aftermath: Lv.3']) then
+		classes.CustomMeleeGroups:append('AM3')
+	end
 end
 
 

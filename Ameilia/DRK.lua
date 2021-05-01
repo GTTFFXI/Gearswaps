@@ -17,14 +17,19 @@ end
  
 -- Setup vars that are user-independent.
 function job_setup()
-	
+	state.Buff['Aftermath'] = buffactive['Aftermath'] or false
+	state.Buff['Aftermath: Lv.1'] = buffactive['Aftermath: Lv.1'] or false
+	state.Buff['Aftermath: Lv.2'] = buffactive['Aftermath: Lv.2'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
+	state.Buff['Hasso'] = buffactive['Hasso'] or false
+	customize_melee_set()
 end
  
  
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-    state.OffenseMode:options('Normal', 'Acc')
+    state.OffenseMode:options('Normal', 'Acc', 'Hybrid')
     state.WeaponskillMode:options('Normal', 'Acc')
     state.HybridMode:options('Normal', 'PDT')
     state.CastingMode:options('Normal', 'Resistant')
@@ -122,10 +127,23 @@ end
 
 function update_combat_form()
     -- Check Weapontype
-	if player.equipment.main == 'Ragnarok' then
-        state.CombatForm:set('Ragnarok')
+	local aftermath = false
+	if S{'Ragnarok','Caladbolg'}:contains(player.equipment.main) then
+        state.CombatForm:set(player.equipment.main)
+	elseif S{'Anguta','Apocalypse','Drepanum'}:contains(player.equipment.main) then 
+		state.CombatForm:set('Scythe')
     else
 		state.CombatForm:reset()
+	end
+	
+	
+	classes.CustomMeleeGroups:clear()
+	if (buffactive['Aftermath'] or buffactive['Aftermath: Lv.3'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.1']) then
+		aftermath = true
+	end
+		
+	if (player.equipment.main == "Caladbolg" and aftermath) then
+		classes.CustomMeleeGroups:append('AM')
 	end
 end
  
