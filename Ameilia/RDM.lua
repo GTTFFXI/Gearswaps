@@ -14,6 +14,7 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff.Saboteur = buffactive.saboteur or false
+	enspells = S{'Enstone','Enwater','Enaero','Enfire','Enblizzard','Enthunder'}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -49,6 +50,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.buff.Saboteur)
 	elseif spellMap == 'Refresh' then
         equip(sets.midcast.Refresh)
+	elseif enspells:contains(spell.name) then
+		equip(sets.midcast.Enspell)
     elseif spell.skill == 'Enhancing Magic' then
         equip(sets.midcast.EnhancingDuration)
         if buffactive.composure and spell.target.type == 'PLAYER' then

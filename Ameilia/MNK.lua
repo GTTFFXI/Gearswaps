@@ -15,6 +15,7 @@ end
 function job_setup()
     state.Buff.Footwork = buffactive.Footwork or false
     state.Buff.Impetus = buffactive.Impetus or false
+	state.Buff.Boost = buffactive.Boost or false
 
     state.FootworkWS = M(false, 'Footwork on WS')
 
@@ -64,14 +65,11 @@ end
 function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' and state.DefenseMode.current ~= 'None' then
         if state.Buff.Impetus and (spell.english == "Ascetic's Fury" or spell.english == "Victory Smite") then
-            -- Need 6 hits at capped dDex, or 9 hits if dDex is uncapped, for Tantra to tie or win.
-            if (state.OffenseMode.current == 'Fodder' and info.impetus_hit_count > 5) or (info.impetus_hit_count > 8) then
-                equip(sets.impetus_body)
-            end
+			equip(sets.impetus_body)
         elseif state.Buff.Footwork and (spell.english == "Dragon's Kick" or spell.english == "Tornado Kick") then
             equip(sets.footwork_kick_feet)
         end
-        
+		
         -- Replace Moonshade Earring if we're at cap TP
         if player.tp == 3000 then
             equip(sets.precast.MaxTP)
@@ -80,9 +78,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_aftercast(spell, action, spellMap, eventArgs)
-    if spell.type == 'WeaponSkill' and not spell.interrupted and state.FootworkWS and state.Buff.Footwork then
-        send_command('cancel Footwork')
-    end
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -103,6 +99,8 @@ function job_buff_change(buff, gain)
     else
         state.CombatForm:reset()
     end
+
+	
     
     -- Hundred Fists and Impetus modify the custom melee groups
     if buff == "Hundred Fists" or buff == "Impetus" then
@@ -118,7 +116,7 @@ function job_buff_change(buff, gain)
     end
 
     -- Update gear if any of the above changed
-    if buff == "Hundred Fists" or buff == "Impetus" or buff == "Footwork" then
+    if S{"Hundred Fists","Impetus","Footwork","Boost"}:contains(buff) then
         handle_equipping_gear(player.status)
     end
 end
@@ -132,7 +130,9 @@ function customize_idle_set(idleSet)
     if player.hpp < 75 then
         idleSet = set_combine(idleSet, sets.ExtraRegen)
     end
-    
+    if buffactive.Boost then
+		idleSet = set_combine(idleSet, sets.buff.Boost)
+	end
     return idleSet
 end
 

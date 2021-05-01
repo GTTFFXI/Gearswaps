@@ -41,6 +41,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
+	state.Buff['Triple Shot'] = buffactive['Triple Shot'] or false
 
     gear.RAbullet = "Adlivun Bullet"
     gear.WSbullet = "Adlivun Bullet"
@@ -279,6 +280,12 @@ function do_bullet_checks(spell, spellMap, eventArgs)
     elseif available_bullets.count > options.ammo_warning_limit and state.warned then
         state.warned:reset()
     end
+end
+
+function job_post_midcast(spell, spellMap, eventArgs)
+	if state.Buff['Triple Shot'] and sets.buff['Triple Shot'] then
+		equip(sets.buff['Triple Shot'])
+	end
 end
 
 -- Select default macro book on initial load or subjob change.
