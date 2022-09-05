@@ -49,7 +49,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Resistant', 'Burst')
+    state.CastingMode:options('Normal', 'Resistant', 'Burst','VagaryProc')
     state.IdleMode:options('Normal', 'PDT')
 
 
@@ -86,7 +86,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         apply_grimoire_bonuses(spell, action, spellMap, eventArgs)
     end
 	
-	if spell.skill == 'Elemental Magic' then 
+	if spell.skill == 'Elemental Magic' and spellMap ~= 'Helix' then 
 		if spell.element == world.weather_element or spell.element == world.day_element then 
 			equip(sets.WeatherObi)
 		end

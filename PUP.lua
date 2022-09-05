@@ -26,7 +26,7 @@ function job_setup()
         ['Stormwaker Head'] = 'Magic',
         ['Soulsoother Head'] = 'Heal',
         ['Spiritreaver Head'] = 'Nuke'
-        }
+	}
 
     -- Subset of modes that use magic
     magicPetModes = S{'Nuke','Heal','Magic'}
@@ -41,7 +41,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Fodder')
+    state.OffenseMode:options('Normal', 'Acc', 'Pet')
     state.HybridMode:options('Normal', 'DT')
     state.WeaponskillMode:options('Normal', 'Acc', 'Fodder')
     state.PhysicalDefenseMode:options('PDT', 'Evasion')
@@ -49,15 +49,17 @@ function user_setup()
     -- Default maneuvers 1, 2, 3 and 4 for each pet mode.
     defaultManeuvers = {
         ['Melee'] = {'Fire Maneuver', 'Thunder Maneuver', 'Wind Maneuver', 'Light Maneuver'},
-        ['Ranged'] = {'Wind Maneuver', 'Fire Maneuver', 'Thunder Maneuver', 'Light Maneuver'},
-        ['Tank'] = {'Earth Maneuver', 'Dark Maneuver', 'Light Maneuver', 'Wind Maneuver'},
-        ['Magic'] = {'Ice Maneuver', 'Light Maneuver', 'Dark Maneuver', 'Earth Maneuver'},
+        --['Ranged'] = {'Wind Maneuver', 'Fire Maneuver', 'Thunder Maneuver', 'Light Maneuver'},
+		['Ranged'] = {'Wind Maneuver', 'Water Maneuver', 'Thunder Maneuver', 'Light Maneuver'},
+        --['Tank'] = {'Earth Maneuver', 'Dark Maneuver', 'Light Maneuver', 'Wind Maneuver'},
+		['Tank'] = {'Earth Maneuver', 'Fire Maneuver', 'Light Maneuver', 'Wind Maneuver'},
+        --['Magic'] = {'Ice Maneuver', 'Light Maneuver', 'Dark Maneuver', 'Earth Maneuver'}, 
+		['Magic'] = {'Wind Maneuver', 'Light Maneuver', 'Dark Maneuver', 'Water Maneuver'}, 
         ['Heal'] = {'Light Maneuver', 'Dark Maneuver', 'Water Maneuver', 'Earth Maneuver'},
         ['Nuke'] = {'Ice Maneuver', 'Dark Maneuver', 'Light Maneuver', 'Earth Maneuver'}
     }
 
     update_pet_mode()
-    select_default_macro_book()
 end
 
 
@@ -323,19 +325,3 @@ function display_pet_status()
         add_to_chat(122,petInfoString)
     end
 end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'DNC' then
-        set_macro_page(2, 9)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(3, 9)
-    elseif player.sub_job == 'THF' then
-        set_macro_page(4, 9)
-    else
-        set_macro_page(1, 9)
-    end
-end
-
-

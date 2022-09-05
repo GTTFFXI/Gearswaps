@@ -17,6 +17,12 @@ function job_setup()
 	state.Buff.Camouflage = buffactive.Camouflage or false
 	state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
 	state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
+	state.Buff['Double Shot'] = buffactive['Double Shot'] or false
+	
+	state.Buff['Aftermath'] = buffactive['Aftermath'] or false
+	state.Buff['Aftermath: Lv.1'] = buffactive['Aftermath: Lv.1'] or false
+	state.Buff['Aftermath: Lv.2'] = buffactive['Aftermath: Lv.2'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -101,6 +107,8 @@ function job_buff_change(buff, gain)
 			enable('body')
 		end
 	end
+	
+	update_combat_form()
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -111,6 +119,27 @@ end
 function display_current_job_state(eventArgs)
 
 end
+
+-- Called when the player's status changes.
+function job_state_change(field, new_value, old_value)
+	update_combat_form()
+end
+
+function update_combat_form()
+    -- Check Weapontype
+	local aftermath = false
+	state.CombatForm:reset()
+	
+	classes.CustomRangedGroups:clear()
+	if (buffactive['Aftermath'] or buffactive['Aftermath: Lv.3'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.1']) then
+		aftermath = true
+	end
+		
+	if (S{'Armageddon'}:contains(player.equipment.range) and aftermath) then
+		classes.CustomRangedGroups:append('AM')
+	end
+end
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.

@@ -14,6 +14,8 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff.Saboteur = buffactive.saboteur or false
+	state.Buff.Stymie = buffactive.Stymie or false
+	enspells = S{'Enstone','Enwater','Enaero','Enfire','Enblizzard','Enthunder'}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -45,10 +47,14 @@ end
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
 function job_post_midcast(spell, action, spellMap, eventArgs)
-    if spell.skill == 'Enfeebling Magic' and state.Buff.Saboteur then
+	if spell.skill == 'Enfeebling Magic' and state.Buff.Stymie then
+		equip(sets.buff.Stymie)
+    elseif spell.skill == 'Enfeebling Magic' and state.Buff.Saboteur then
         equip(sets.buff.Saboteur)
 	elseif spellMap == 'Refresh' then
         equip(sets.midcast.Refresh)
+	elseif enspells:contains(spell.name) then
+		equip(sets.midcast.Enspell)
     elseif spell.skill == 'Enhancing Magic' then
         equip(sets.midcast.EnhancingDuration)
         if buffactive.composure and spell.target.type == 'PLAYER' then
@@ -60,6 +66,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		if spell.element == world.weather_element or spell.element == world.day_element then 
 			equip(sets.WeatherObi)
 		end
+	end
+	
+	if spellMap == 'BoostStat' then
+		equip(sets.Gain)
 	end
 end
 

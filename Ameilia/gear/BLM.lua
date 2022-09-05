@@ -1,6 +1,6 @@
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Burst', 'Resistant', 'Proc', 'Exp')
+    state.CastingMode:options('Normal', 'MPReturn', 'Burst', 'MPReturnBurst', 'ResistantBurst', 'Resistant', 'Proc', 'Ongo')
     state.IdleMode:options('Normal', 'PDT', 'Death')
     state.Nuke = M{['description']='Nuke'}
 	
@@ -13,7 +13,11 @@ function user_setup()
         'Stonega II', 'Waterga II', 'Aeroga II', 'Firaga II', 'Blizzaga II', 'Thundaga II'}
 
 	state.Nuke:options('Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder')
-		
+
+	gear.rings={}
+	gear.rings.left={name="Stikini Ring +1", bag="wardrobe"}
+    gear.rings.right={name="Stikini Ring +1", bag="wardrobe4"}
+	
     -- Additional local binds
     send_command('bind ^` input /ma Stun <t>')
 	send_command('bind !` eh cycle')
@@ -25,16 +29,16 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 	sets.magicAcc = {
-		head="Ea Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Dignitary's Earring",
-		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Stikini Ring",ring2="Sangoma Ring",
-		back="Taranus's Cape",legs="Ea Slops",feet="Amalric Nails +1"}
+		head="Cath Palug Crown",neck="Sorcerer's Stole +2",ear1="Regal Earring",ear2="Malignance Earring",
+		body="Spaekona's Coat +3",hands="Spaekona's Gloves +3",ring1=gear.rings.left,ring2=gear.rings.right,
+		back="Taranus's Cape",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +2"}
 
-	sets.FC = {head="Nahtirah Hat",ear1="Etiolation Earring",ear2="Loquacious Earring", neck="Orunmila's Torque",
+	sets.FC = {head="Cath Palug Crown",ear1="Etiolation Earring",ear2="Malignance Earring", neck="Baetyl Pendant",
         body="Zendik Robe",ring1="Kishar Ring",ring2="Veneficium Ring",
-		back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"}
+		back="Perimede Cape",waist="Embla Sash",legs="Volte Brais",feet="Regal Pumps +1"}
 
-	sets.FCmAcc = set_combine(sets.FC, {
-		head="Ea Hat",body="Ea Houppelande",hands="Amalric Gages +1",ring2="Sangoma Ring",legs="Ea Slops"})
+	sets.FCmAcc = set_combine(sets.FC, sets.magicAcc, {
+		head="Cath Palug Crown",hands="Spaekona's Gloves +3",ring2=gear.rings.right,legs="Spaekona's Tonban +3"})
 		
     ---- Precast Sets ----
     
@@ -53,85 +57,96 @@ function init_gear_sets()
 
     sets.precast.FC['Enhancing Magic'] = sets.precast.FC
 
-    sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {head="Goetia Petasos +2",neck="Sanctity Necklace",ear1="Barkarole Earring"})
+    sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {neck="Baetyl Pendant"})
 
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {ear1="Mendicant's Earring",back="Pahtli Cape",legs="Gyve Trousers",feet="Vanya Clogs"})
     sets.precast.FC.Curaga = sets.precast.FC.Cure
 	
 	sets.precast.Death = set_combine(sets.precast.FC, {ammo="Psilomene",
-		head="Amalric Coif",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Kishar Ring",back="Taranus's Cape",waist="Hachirin-no-Obi",legs="Psycloth Lappas"
+		head="Amalric Coif",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Kishar Ring",back="Taranus's Cape",waist="Hachirin-no-Obi"
 	})
 
+	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Crepuscular Cloak"})
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {
-        head="Ea Hat",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
-        body="Ea Houppelande",hands="Amalric Gages +1",ring1="Shukuyu Ring",ring2="Cacoethic Ring +1",
-        back="Taranus's Cape",waist="Fotia Belt",legs="Ea Slops",feet="Amalric Nails +1"}
+    sets.precast.WS = {ammo="Oshasha's Treatise",
+        head="Nyame Helm",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Shukuyu Ring",ring2="Epaminondas's Ring",
+        back="Taranus's Cape",waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 	sets.precast.WS['Myrkr'] = {
-		head="Vanya Hood",neck="Sanctity Necklace",ear1="Evans Earring",ear2="Etiolation Earring",
-		body="Witching Robe",hands="Revealer's Mitts",ring1="Sangoma Ring",ring2="Stikini Ring",
-		back="Pahtli Cape",waist="Fucho-no-Obi",legs="Helios Spats",feet="Regal Pumps +1"}
+		head="Vanya Hood",neck="Baetyl Pendant",ear1="Evans Earring",ear2="Etiolation Earring",
+		body="Shamash Robe",hands="Regal Cuffs",ring1=gear.rings.left,ring2=gear.rings.right,
+		back="Pahtli Cape",waist="Fucho-no-Obi",legs="Amalric Slops +1",feet="Regal Pumps +1"}
 
     ---- Midcast Sets ----
 
     sets.midcast.FastRecast = set_combine(sets.precast.FC, {
-        head="Nahtirah Hat",ear2="Loquacious Earring",
-        body="Ea Houppelande",ring1="Kishar Ring",
-        back="Perimede Cape",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"
+        head="Cath Palug Crown",ear2="Malignance Earring",
+        body="Ea Houppelande +1",ring1="Kishar Ring",
+        back="Perimede Cape",waist="Embla Sash",legs="Volte Brais",feet="Regal Pumps +1"
 	})
 
     sets.midcast.Cure = {
-        head="Vanya Hood",neck="Incanter's Torque",ear1="Mendicant's Earring",ear2="Loquacious Earring",
-        hands="Revealer's Mitts",ring2="Sirona's Ring",
-        back="Solemnity Cape",feet="Vanya Clogs"}
+        head="Vanya Hood",neck="Incanter's Torque",ear1="Mendicant's Earring",ear2="Malignance Earring",
+        body="Shamash Robe",hands="Regal Cuffs",ring1=gear.rings.left,ring2=gear.rings.right,
+        back="Solemnity Cape",legs="Gyve Trousers",feet="Vanya Clogs"}
 	sets.midcast.Curaga = sets.midcast.Cure
-	sets.midcast.Cursna = {neck="Malison Medallion",ring1="Ephedra Ring",ring2="Ephedra Ring",back="Oretania's Cape +1",feet="Vanya Clogs"}
+	sets.midcast.Cursna = {neck="Debilis Medallion",ring1="Haoma's Ring",ring2="Haoma's Ring",back="Oretania's Cape +1",feet="Vanya Clogs"}
     
-	sets.midcast['Enhancing Magic'] = {neck="Incanter's Torque",ring1="Stikini Ring"}
+	sets.midcast['Enhancing Magic'] = set_combine(sets.precast.FC, {
+		head="Telchine Cap",neck="Incanter's Torque",ear1="Andoaa Earring",ear2="Mimir Earring",
+		body="Telchine Chasuble",ring1=gear.rings.left,ring2=gear.rings.right,
+		waist="Embla Sash",legs="Telchine Braconi",feet="Regal Pumps +1"
+	})
     
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {})
 
     sets.midcast['Enfeebling Magic'] = set_combine(sets.magicAcc, {
-		main="Grioavolr",sub="Niobid Strap"
+		main="Marin Staff +1",sub="Enki Strap"
     })
         
-    sets.midcast.ElementalEnfeeble = sets.midcast['Enfeebling Magic']
+    sets.midcast.ElementalEnfeeble = set_combine(sets.magicAcc, {feet="Archmage's Sabots +3"})
 
     sets.midcast['Dark Magic'] = sets.FCmAcc
 
     sets.midcast.Drain = set_combine(sets.midcast.FastRecast, {neck="Incanter's Torque",waist="Fucho-no-Obi"})
-	sets.midcast.Aspir = set_combine(sets.midcast.Drain, {ring1="Mephitas's Ring +1",legs="Psycloth Lappas"})
+	sets.midcast.Aspir = set_combine(sets.midcast.Drain, {ring1="Mephitas's Ring +1",legs="Volte Brais"})
 
     sets.midcast.Stun = sets.FCmAcc
     sets.midcast.BardSong = sets.FCmAcc
 
     -- Elemental Magic sets
     
-    sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
-		head="Ea Hat",neck="Sanctity Necklace",ear1="Crematio Earring",ear2="Barkarole Earring",
-        body="Ea Houppelande",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Taranus's Cape",waist="Eschan Stone",legs="Ea Slops",feet="Amalric Nails +1"}
+    sets.midcast['Elemental Magic'] = {main="Marin Staff +1",sub="Enki Strap",ammo="Ghastly Tathlum +1",
+		head="Cath Palug Crown",neck="Baetyl Pendant",ear1="Regal Earring",ear2="Malignance Earring",
+        body="Ea Houppelande +1",hands="Amalric Gages +1",ring1="Metamorph Ring +1",ring2="Freke Ring",
+        back="Taranus's Cape",waist="Eschan Stone",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 	sets.midcast['Elemental Magic'].Burst = set_combine(sets.midcast['Elemental Magic'], {
-		neck="Mizukage-no-Kubikazari",ring2="Mujin Band"
+		head="Ea Hat +1",neck="Sorcerer's Stole +2",ring1="Freke Ring",ring2="Mujin Band",waist="Hachirin-no-Obi",legs="Ea Slops +1"
+	})
+	sets.midcast['Elemental Magic'].Ongo = set_combine(sets.midcast['Elemental Magic'].Burst, {
+		ring2="Metamorph Ring +1",
+		hands="Agwu's Gages",feet="Agwu's Pigaches"
 	})
 	sets.WeatherObi = {waist="Hachirin-no-Obi"}
 	
 	sets.midcast.Comet = set_combine(sets.midcast['Elemental Magic'].Burst, {
-		head="Pixie Hairpin +1",ear1="Static Earring",ring2="Archon Ring"
+		head="Pixie Hairpin +1",ring2="Archon Ring"
 	})
 	sets.midcast.Death = set_combine(sets.midcast.Comet, {ammo="Psilomene",
-		ring1="Mephitas's Ring +1",legs="Amalric Slops"
+		ring2="Mephitas's Ring +1",legs="Amalric Slops +1"
 	})
-
-	sets.midcast.Comet = sets.midcast.Death
-	
-    sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], sets.magicAcc)
-	sets.midcast['Elemental Magic'].Exp = set_combine(sets.midcast['Elemental Magic'], {body="Spaekona's Coat +1"})
+	 
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], sets.magicAcc)
+	sets.midcast['Elemental Magic'].MPReturn = set_combine(sets.midcast['Elemental Magic'], {body="Spaekona's Coat +3"})
+	sets.midcast['Elemental Magic'].MPReturnBurst = set_combine(sets.midcast['Elemental Magic'].Burst, {body="Spaekona's Coat +3"})
+	sets.midcast['Elemental Magic'].ResistantBurst = set_combine(sets.midcast['Elemental Magic'].Burst, {neck="Sorcerer's Stole +2",hands="Spaekona's Gloves +3",feet="Archmage's Sabots +3"})
 	
     sets.midcast['Elemental Magic'].HighTierNuke = sets.midcast['Elemental Magic']
     sets.midcast['Elemental Magic'].HighTierNuke.Resistant = sets.midcast['Elemental Magic'].Resistant
+
+	sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'].Resistant, {head=empty,body="Crepuscular Cloak"})
 
     -- Minimal damage gear for procs.
     sets.midcast['Elemental Magic'].Proc = sets.magicAcc
@@ -141,13 +156,13 @@ function init_gear_sets()
     -- Idle sets
     
     -- Normal refresh idle set
-    sets.idle = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
-        head="Volte Beret",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
-        body="Jhakri Robe +2",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Defending Ring",
-        back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
+    sets.idle = {main="Marin Staff +1",sub="Enki Strap",ammo="Ghastly Tathlum +1",
+        head="Volte Beret",neck="Republican Platinum Medal",ear1="Etiolation Earring",ear2="Infused Earring",
+        body="Shamash Robe",hands="Nyame Gauntlets",ring1=gear.rings.left,ring2="Defending Ring",
+        back="Moonlight Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
 	sets.idle.Death = set_combine(sets.idle, {ammo="Psilomene",
-		head="Amalric Coif",neck="Loricate Torque +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",back="Pahtli Cape",waist="Fucho-no-Obi",legs="Amalric Slops"
+		head="Amalric Coif",neck="Loricate Torque +1",hands="Amalric Gages +1",ring2="Mephitas's Ring +1",back="Pahtli Cape",waist="Fucho-no-Obi",legs="Amalric Slops +1"
 	})	
 		
     -- Town gear.
@@ -158,9 +173,9 @@ function init_gear_sets()
 	-- Defense sets
 
     sets.defense.PDT = {
-        head="Nahtirah Hat",neck="Loricate Torque +1",
-        body="Ea Houppelande",hands="Merlinic Dastanas",ring1="Patricius Ring",ring2="Defending Ring",
-        back="Moonbeam Cape",waist="Fucho-no-obi"}
+        head="Nyame Helm",neck="Loricate Torque +1",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Patricius Ring",ring2="Defending Ring",
+        back="Moonlight Cape",waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.defense.MDT = sets.defense.PDT
 
@@ -182,8 +197,8 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
-		head="Nahtirah Hat",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
-        body="Onca Suit",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
-        back="Taranus's Cape",waist="Goading Belt"}
+		head="Blistering Sallet +1",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Patricius Ring",ring2="Chirich Ring +1",
+        back="Taranus's Cape",waist="Witful Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 end
