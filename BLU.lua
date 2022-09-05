@@ -15,6 +15,8 @@ end
 function job_setup()
     state.Buff['Burst Affinity'] = buffactive['Burst Affinity'] or false
     state.Buff['Chain Affinity'] = buffactive['Chain Affinity'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
+	state.Buff['Haste'] = buffactive['Haste'] or false
     state.Buff.Convergence = buffactive.Convergence or false
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
@@ -265,15 +267,11 @@ end
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
 
--- Called when a player gains or loses a buff.
--- buff == buff gained or lost
--- gain == true if the buff was gained, false if it was lost.
-function job_buff_change(buff, gain)
-	if state.Buff[buff] ~= nil then
-		state.Buff[buff] = gain
-    end
-end
-
+function hax_and_cheats(buff, gain)
+	if not state.Buff['Haste'] then
+		windower.send_command('input /ma "Erratic Flutter" <me>')
+	end
+end	
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
@@ -308,6 +306,17 @@ function job_update(cmdParams, eventArgs)
     update_combat_form()
 end
 
+function job_buff_change(buff, gain)
+	update_combat_form()
+	
+	--hax_and_cheats(buff, gain)
+end
+
+-- Called when the player's status changes.
+function job_state_change(field, new_value, old_value)
+	update_combat_form()
+end
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
@@ -320,6 +329,11 @@ function update_combat_form()
     else
         state.CombatForm:set('DW')
     end
+	
+	classes.CustomMeleeGroups:clear()	
+	if (player.equipment.main == "Tizona" and buffactive['Aftermath: Lv.3']) then
+		classes.CustomMeleeGroups:append('AM3')
+	end
 end
 
 

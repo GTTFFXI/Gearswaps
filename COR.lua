@@ -27,6 +27,12 @@ function job_setup()
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
 
+	state.Buff['Aftermath'] = buffactive['Aftermath'] or false
+	state.Buff['Aftermath: Lv.1'] = buffactive['Aftermath: Lv.1'] or false
+	state.Buff['Aftermath: Lv.2'] = buffactive['Aftermath: Lv.2'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
+
+
     define_roll_values()
 end
 
@@ -41,6 +47,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
+	state.Buff['Triple Shot'] = buffactive['Triple Shot'] or false
 
     gear.RAbullet = "Adlivun Bullet"
     gear.WSbullet = "Adlivun Bullet"
@@ -117,6 +124,32 @@ function job_update(cmdParams, eventArgs)
     if newStatus == 'Engaged' and player.equipment.main == 'Chatoyant Staff' then
         state.OffenseMode:set('Ranged')
     end
+end
+
+function job_buff_change(buff, gain)
+	update_combat_form()
+	
+	--hax_and_cheats(buff, gain)
+end
+
+-- Called when the player's status changes.
+function job_state_change(field, new_value, old_value)
+	update_combat_form()
+end
+
+function update_combat_form()
+    -- Check Weapontype
+	local aftermath = false
+	state.CombatForm:reset()
+	
+	classes.CustomRangedGroups:clear()
+	if (buffactive['Aftermath'] or buffactive['Aftermath: Lv.3'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.1']) then
+		aftermath = true
+	end
+		
+	if (S{'Armageddon','Death Penalty'}:contains(player.equipment.range) and aftermath) then
+		classes.CustomRangedGroups:append('AM')
+	end
 end
 
 
@@ -279,6 +312,12 @@ function do_bullet_checks(spell, spellMap, eventArgs)
     elseif available_bullets.count > options.ammo_warning_limit and state.warned then
         state.warned:reset()
     end
+end
+
+function job_post_midcast(spell, spellMap, eventArgs)
+	if state.Buff['Triple Shot'] and sets.buff['Triple Shot'] then
+		equip(sets.buff['Triple Shot'])
+	end
 end
 
 -- Select default macro book on initial load or subjob change.

@@ -47,9 +47,17 @@ end
  
 function update_combat_form()
     -- Check Weapontype
-	if player.equipment.main == 'Ragnarok' or player.equipment.main == 'Chango' then
+	if S{"Ragnarok","Chango","Nandaka","Shining One"}:contains(player.equipment.main) then
         state.CombatForm:set(player.equipment.main)
-    else
+	elseif S{"Drepanum"}:contains(player.equipment.main) then
+		state.CombatForm:set("Scythe")
+	elseif S{"Karambit"}:contains(player.equipment.main) then
+		state.CombatForm:set("H2H")
+	elseif (player.sub_job == 'NIN' or player.sub_job == 'DNC') and 
+		player.equipment.sub and not player.equipment.sub:contains('Shield') 
+		and not player.equipment.sub:contains('Grip') and not player.equipment.sub:contains('empty') then
+			state.CombatForm:set('DW')
+	else
 		state.CombatForm:reset()
 	end
 end
