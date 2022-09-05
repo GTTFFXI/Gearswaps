@@ -35,7 +35,7 @@ function user_setup()
 
     update_defense_mode()
     
-    send_command('bind ^f11 gs c cycle MagicalDefenseMode')
+    send_command('bind ^f11 gs c cycle CastingMode')
     send_command('bind !f11 gs c cycle ExtraDefenseMode')
     send_command('bind @f10 gs c toggle EquipShield')
     send_command('bind @f11 gs c toggle EquipShield')

@@ -37,7 +37,7 @@ function init_gear_sets()
 	sets.precast.Waltz = {
 		head="Horos Tiara",
 		body="Maxixi Casaque",hands="Adhemar Wristbands +1",
-		back="Toetapper Mantle",waist="Flume Belt +1",legs="Herculean Trousers",feet="Maxixi Toe Shoes"}
+		back="Toetapper Mantle",waist="Flume Belt +1",legs="Nyame Flanchard",feet="Maxixi Toe Shoes"}
 		
 	-- Don't need any special gear for Healing Waltz.
 	sets.precast.Waltz['Healing Waltz'] = {}
@@ -51,11 +51,11 @@ function init_gear_sets()
 	sets.precast.Flourish1 = {}
 	sets.precast.Flourish1['Violent Flourish'] = {
 		body="Maxixi Casaque",hands="Adhemar Wristbands +1",ring1=gear.rings.left,ring2=gear.rings.right,
-		waist="Chaac Belt",legs="Herculean Trousers",feet="Herculean Boots"} -- magic accuracy
+		waist="Chaac Belt",legs="Nyame Flanchard",feet="Herculean Boots"} -- magic accuracy
 	sets.precast.Flourish1['Desperate Flourish'] = {
 		neck="Combatant's Torque",
 		body="Maxixi Casaque",hands="Adhemar Wristbands +1",ring1=gear.rings.left,ring2=gear.rings.right,
-		back="Toetapper Mantle",waist="Eschan Stone",legs="Herculean Trousers",feet="Herculean Boots"} -- acc gear
+		back="Toetapper Mantle",waist="Eschan Stone",legs="Nyame Flanchard",feet="Herculean Boots"} -- acc gear
 
 	sets.precast.Flourish2 = {}
 	sets.precast.Flourish2['Reverse Flourish'] = {hands="Charis Bangles +2"}
@@ -66,7 +66,7 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 	
-	sets.precast.FC = {head="Herculean Helm",body="Dread Jupon",hands="Adhemar Wristbands +1",ring1="Kishar Ring",neck="Baetyl Pendant"}
+	sets.precast.FC = {head="Nyame Helm",hands="Adhemar Wristbands +1",ring1="Kishar Ring",neck="Baetyl Pendant"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
 
@@ -74,17 +74,19 @@ function init_gear_sets()
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	
-	sets.precast.WS = {
-		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
-		body="Adhemar Jacket +1",hands="Meghanada Gloves +2",ring1="Regal Ring",ring2="Ilabrat Ring",
-		back="Senuna's Mantle",waist="Fotia Belt",legs="Lustratio Subligar +1",feet="Lustratio Leggings +1"}
+	sets.precast.WS = {ammo="Oshasha's Treatise",
+		head="Nyame Helm",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Regal Ring",ring2="Epaminondas's Ring",
+		back="Senuna's Mantle",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		ear1="Telos Earring",ear2="Dignitary's Earring"
+		ear1="Telos Earring",ear2="Crepuscular Earring"
 	})
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, 
-		{head="Herculean Helm",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Crematio Earring",ring1="Shiva Ring +1",ring2="Ilabrat Ring",back="Toro Cape",waist="Orpheus's Sash"})
+	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+		head="Nyame Helm",neck="Sibyl Scarf",ear1="Friomisi Earring",ear2="Crematio Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Ilabrat Ring",
+		back="Toro Cape",waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	
 	
 	-- Midcast Sets
@@ -105,7 +107,7 @@ function init_gear_sets()
 	-- Idle sets
 
 	sets.idle = {
-		head="Malignance Chapeau",neck="Bathy Choker +1",ear1="Telos Earring",ear2="Infused Earring",
+		head="Malignance Chapeau",neck="Republican Platinum Medal",ear1="Telos Earring",ear2="Infused Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Sheltered Ring",ring2="Defending Ring",
 		back="Moonlight Cape",waist="Flume Belt +1",legs="Malignance Tights",feet="Skadi's Jambeaux +1"}
 

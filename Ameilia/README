@@ -1,4 +1,0 @@
-All the functions are defined in the files named JOB.lua in this level.
-All the gear that I actually use is defined in sidecar files under gear\JOB.lua.
-
-This allows me to only worry about changing the gear around without having to wade through a bunch of functions that don't change.

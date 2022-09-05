@@ -1,9 +1,9 @@
 -- Define sets used by this job file.
 function init_gear_sets()
     sets.engaged = {ammo="Automaton Oil +3",
-        head="Blistering Sallet +1",neck="Shulmanu Collar",ear1="Telos Earring",ear2="Dignitary's Earring",
-        body="Tali'ah Manteel +2",hands="Herculean Gloves",ring1="Gere Ring",ring2="Niqmaddu Ring",
-        back="Visucius's Mantle",waist="Moonbow Belt +1",legs="Samnuha Tights",feet="Herculean Boots"}
+        head="Mpaca's Cap",neck="Shulmanu Collar",ear1="Telos Earring",ear2="Crepuscular Earring",
+        body="Mpaca's Doublet",hands="Mpaca's Gloves",ring1="Gere Ring",ring2="Niqmaddu Ring",
+        back="Visucius's Mantle",waist="Moonbow Belt +1",legs="Mpaca's Hose",feet="Herculean Boots"}
 		
     -- Precast Sets
 
@@ -34,7 +34,10 @@ function init_gear_sets()
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = set_combine(sets.engaged, {head="Mpaca'a Cap",neck="Fotia Gorget",ear2="Moonshade Earring",waist="Fotia Belt"})
+    sets.precast.WS = set_combine(sets.engaged, {
+		head="Mpaca'a Cap",neck="Fotia Gorget",ear2="Moonshade Earring",
+		body="Mpaca's Doublet",hands="Mpaca's Gloves",
+		waist="Fotia Belt",legs="Mpaca's Hose",feet="Nyame Sollerets"})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Stringing Pummel'] = set_combine(sets.precast.WS, {ring1="Begrudging Ring"})
@@ -71,7 +74,7 @@ function init_gear_sets()
     -- Idle sets
 
     sets.idle = {
-        head="Pitre Taj",neck="Wiglen Gorget",ear1="Bladeborn Earring",ear2="Steelflash Earring",
+        head="Pitre Taj",neck="Republican Platinum Medal",ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body="Foire Tobe",hands="Regimen Mittens",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Shadow Mantle",waist="Hurch'lan Sash",legs="Foire Churidars",feet="Hermes' Sandals"}
 

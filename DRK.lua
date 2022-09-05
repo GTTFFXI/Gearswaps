@@ -29,8 +29,8 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-    state.OffenseMode:options('Normal', 'Acc', 'Hybrid')
-    state.WeaponskillMode:options('Normal', 'Acc')
+    state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'Subtle')
+    state.WeaponskillMode:options('Normal', 'Acc', 'Hybrid', 'Subtle')
     state.HybridMode:options('Normal', 'PDT')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal','PDT')
@@ -109,7 +109,23 @@ end
  
 function job_buff_change(buff, gain)
 	update_combat_form()
+	
+	--hax_and_cheats(buff, gain)
 end
+ 
+function hax_and_cheats(buff, gain)
+	if buff == 'Aftermath: Lv.3' then
+		if gain then
+			windower.send_command('asc start')
+		else
+			windower.send_command('asc stop')
+		end
+	end
+	
+	if not state.Buff['Hasso'] then
+		windower.send_command('input /ja "Hasso" <me>')
+	end
+end	 
  
 -- Called when the player's status changes.
 function job_state_change(field, new_value, old_value)
@@ -128,7 +144,7 @@ end
 function update_combat_form()
     -- Check Weapontype
 	local aftermath = false
-	if S{'Ragnarok','Caladbolg'}:contains(player.equipment.main) then
+	if S{'Ragnarok','Caladbolg','Liberator'}:contains(player.equipment.main) then
         state.CombatForm:set(player.equipment.main)
 	elseif S{'Anguta','Apocalypse','Drepanum'}:contains(player.equipment.main) then 
 		state.CombatForm:set('Scythe')
@@ -138,11 +154,11 @@ function update_combat_form()
 	
 	
 	classes.CustomMeleeGroups:clear()
-	if (buffactive['Aftermath'] or buffactive['Aftermath: Lv.3'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.1']) then
+	if (buffactive['Aftermath: Lv.3']) then
 		aftermath = true
 	end
 		
-	if (player.equipment.main == "Caladbolg" and aftermath) then
+	if (S{"Caladbolg","Liberator"}:contains(player.equipment.main) and aftermath) then
 		classes.CustomMeleeGroups:append('AM')
 	end
 end

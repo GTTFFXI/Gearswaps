@@ -3,11 +3,7 @@ function init_gear_sets()
 	gear.melee = {}
 	gear.melee.feet = { name="Argosy Sollerets +1", augments={'HP+65','"Dbl.Atk."+3','"Store TP"+5',}}
 	
-	gear.acc = {}
-	gear.acc.head = { name="Valorous Mask", augments={'Accuracy+25 Attack+25','STR+10','Accuracy+15','Attack+6',}}
-    
 	gear.wsdmg = {}
-	gear.wsdmg.head = { name="Valorous Mask", augments={'Weapon skill damage +4%','STR+4','Accuracy+12','Attack+15',}}
 	gear.wsdmg.feet = { name="Argosy Sollerets +1", augments={'STR+12','DEX+12','Attack+20',}}
 
     --------------------------------------
@@ -55,17 +51,17 @@ function init_gear_sets()
 
     -- WEAPONSKILLS
     -- Default weaponskill set.
-	sets.precast.WS = {
+	sets.precast.WS = {ammo="Oshasha's Treatise",
 		head="Nyame Helm",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Sherida Earring",
-		body="Valorous Mail",hands="Nyame Gauntlets",ring1="Gere Ring",ring2="Regal Ring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Gere Ring",ring2="Regal Ring",
 		back="Artio's Mantle",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.precast.WS.WSAcc = sets.precast.WS
     -- Specific weaponskill sets.
     sets.precast.WS['Primal Rend'] = {ammo="Erlene's Notebook",
-        head="Jumalik Helm",neck="Baetyl Pendant",ear1="Crematio Earring",ear2="Friomisi Earring",
-        body="Valorous Mail",hands="Valorous Mitts",ring1="Shiva Ring +1",ring2="Acumen Ring",
-        back="Toro Cape",waist="Orpheus's Sash",legs="Augury Cuisses +1",feet="Valorous Greaves"}
+        head="Nyame Helm",neck="Baetyl Pendant",ear1="Crematio Earring",ear2="Friomisi Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Acumen Ring",
+        back="Toro Cape",waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'])
 
@@ -106,7 +102,7 @@ function init_gear_sets()
 
     -- IDLE SETS
     sets.idle = {ammo="Demonry Core",
-        head="Twilight Helm",neck="Wiglen Gorget",ear1="Domesticator's Earring",ear2="Sabong Earring",
+        head="Twilight Helm",neck="Republican Platinum Medal",ear1="Domesticator's Earring",ear2="Sabong Earring",
         body="Twilight Mail",hands="Totemic Gloves +1",ring1="Paguroidea Ring",ring2="Sheltered Ring",
         back="Pastoralist's Mantle",waist="Muscle Belt +1",legs="Malignance Tights",feet="Skadi's Jambeaux +1"}
 
@@ -146,7 +142,7 @@ function init_gear_sets()
     -- Engaged sets
     --------------------------------------
 
-    sets.engaged = {ammo="Aurgelmir Orb",
+    sets.engaged = {ammo="Coiste Bodhar",
 		head="Blistering Sallet +1",neck="Anu Torque",ear1="Suppanomimi",ear2="Sherida Earring",
 		body="Tali'ah Manteel +2",hands="Emi. Gauntlets +1",ring1="Gere Ring",ring2="Epona's Ring",
 		back="Artio's Mantle",waist="Sweordfaetels",legs="Meg. Chausses +2",feet="Nyame Sollerets"}

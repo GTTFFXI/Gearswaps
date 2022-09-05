@@ -19,6 +19,12 @@ function job_setup()
 
     state.FootworkWS = M(false, 'Footwork on WS')
 
+	state.Buff['Aftermath'] = buffactive['Aftermath'] or false
+	state.Buff['Aftermath: Lv.1'] = buffactive['Aftermath: Lv.1'] or false
+	state.Buff['Aftermath: Lv.2'] = buffactive['Aftermath: Lv.2'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
+
+
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
 end
@@ -63,8 +69,8 @@ end
 
 -- Run after the general precast() is done.
 function job_post_precast(spell, action, spellMap, eventArgs)
-    if spell.type == 'WeaponSkill' and state.DefenseMode.current ~= 'None' then
-        if state.Buff.Impetus and (spell.english == "Ascetic's Fury" or spell.english == "Victory Smite") then
+    if spell.type == 'WeaponSkill' and state.DefenseMode.current == 'None' then
+        if state.Buff.Impetus and (S{"Ascetic's Fury","Victory Smite"}:contains(spell.english)) then
 			equip(sets.impetus_body)
         elseif state.Buff.Footwork and (spell.english == "Dragon's Kick" or spell.english == "Tornado Kick") then
             equip(sets.footwork_kick_feet)
@@ -119,8 +125,19 @@ function job_buff_change(buff, gain)
     if S{"Hundred Fists","Impetus","Footwork","Boost"}:contains(buff) then
         handle_equipping_gear(player.status)
     end
+	
+	--hax_and_cheats(buff, gain)
 end
 
+function hax_and_cheats(buff, gain)
+	if buff == 'Aftermath: Lv.3' then
+		if gain then
+			windower.send_command('asc start')
+		else
+			windower.send_command('asc stop')
+		end
+	end
+end	 
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.

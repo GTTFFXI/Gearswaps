@@ -1,7 +1,7 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.RangedMode:options('Normal', 'Acc', 'SuperAcc')
-	state.OffenseMode:options('Normal', 'Acc', 'Hybrid')
+	state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'EP')
 	state.WeaponskillMode:options('Normal', 'Acc')
 	
 	gear.default.weaponskill_neck = "Iskur Gorget"
@@ -13,25 +13,23 @@ function user_setup()
 	}
 
 	gear.melee = {}
-    gear.melee.hands = { name="Herculean Gloves", augments={'Attack+17','"Triple Atk."+4','AGI+5','Accuracy+15',}}
     gear.melee.feet = { name="Herculean Boots", augments={'Accuracy+29','"Triple Atk."+4',}}
 	
 	gear.rng = {}
-    gear.rng.hands = {name="Herculean Gloves", augments={'Rng.Acc.+21 Rng.Atk.+21','Sklchn.dmg.+2%','Rng.Acc.+15',}}
-    gear.rng.legs = {name="Herculean Trousers", augments={'Rng.Acc.+19 Rng.Atk.+19','Crit.hit rate+2','Rng.Acc.+14','Rng.Atk.+14',}}
     gear.rng.feet = {name="Herculean Boots", augments={'Rng.Acc.+25 Rng.Atk.+25','Sklchn.dmg.+4%','Rng.Acc.+14',}}
-	gear.rng.back = { name=gear.rng.back, augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Snapshot"+10','Phys. dmg. taken-10%',}}
+	gear.rng.back = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Snapshot"+10','Phys. dmg. taken-10%',}}
 
 	gear.mab = {}
-	gear.mab.head={ name="Herculean Helm", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +4%','INT+5','Mag. Acc.+12',}}
-    gear.mab.legs={ name="Herculean Trousers", augments={'Mag. Acc.+17 "Mag.Atk.Bns."+17','Weapon skill damage +4%','STR+3','"Mag.Atk.Bns."+14',}}
     gear.mab.feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +4%','Mag. Acc.+12',}}
 
 	gear.wsd = {}
-	gear.wsd.back = { name=gear.rng.back, augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
+	gear.wsd.back = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
 	
-	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Achiyalabopa bullet", ['Fomalhaut'] = "Chrono Bullet"}
-	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Achiyalabopa bullet"}
+	gear.crit = {}
+	gear.crit.back= { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Crit.hit rate+10','Phys. dmg. taken-10%',}}
+	
+	DefaultAmmo = {['Yoichinoyumi'] = "Yoichi's Arrow", ['Annihilator'] = "Chrono Bullet", ['Fomalhaut'] = "Chrono Bullet", ['Accipiter'] = "Yoichi's Arrow"}
+	U_Shot_Ammo = {['Yoichinoyumi'] = "Hauksbok Arrow", ['Annihilator'] = "Chrono Bullet", ['Accipiter'] = "Hauksbok Arrow"}
 
 	send_command('bind f9 gs c cycle RangedMode')
 	send_command('bind ^f9 gs c cycle OffenseMode')
@@ -51,13 +49,13 @@ function init_gear_sets()
 	sets.precast.JA['Scavenge'] = {feet="Orion Socks +2"}
 	sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +3"}
 	sets.precast.JA['Sharpshot'] = {}
-	sets.precast.JA['Velocity Shot'] = {head="Amini Gapette +1",body="Amini Caban +1",back=gear.rng.back}
+	sets.precast.JA['Velocity Shot'] = {head="Amini Gapette +1",body="Amini Caban +2",back=gear.rng.back}
 
 
 	-- Fast cast sets for spells
 
 	sets.precast.FC = {head="Carmine Mask +1",neck="Baetyl Pendant",ear1="Etiolation Earring",
-		body="Dread Jupon",hands="Leyline Gloves",ring1="Kishar Ring",
+		hands="Leyline Gloves",ring1="Kishar Ring",
 		legs="Gyve Trousers",feet="Carmine Greaves +1"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
@@ -67,24 +65,28 @@ function init_gear_sets()
 	
 	sets.precast.RA = {
 		head="Amini Gapette +1",
-		body="Amini Caban +1",hands="Carmine Finger Gauntlets +1",ring2="Regal Ring",
+		body="Amini Caban +2",hands="Carmine Finger Gauntlets +1",ring2="Regal Ring",
 		back=gear.rng.back,waist="Yemaya Belt",legs="Adhemar Kecks +1",feet="Meghanada Jambeaux +2"}
 
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		head="Orion Beret +3",neck="Iskur Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
-		body="Arcadian Jerkin +3",hands="Meghanada Gloves +2",ring1="Dingir Ring",ring2="Regal Ring",
-		back=gear.wsd.back,waist="Fotia Belt",legs="Arcadian Braccae +3",feet="Meghanada Jambeaux +2" }
+		head="Nyame Helm",neck="Iskur Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+		body="Amini Caban +2",hands="Nyame Gauntlets",ring1="Dingir Ring",ring2="Epaminondas's Ring",
+		back=gear.wsd.back,waist="Fotia Belt",legs="Arcadian Braccae +3",feet="Nyame Sollerets" }
 
-	sets.precast.WS['Wildfire'] = {
-		head=gear.mab.head,neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Moonshade Earring",
-        body="Herculean Vest",hands="Carmine Finger Gauntlets +1",ring1="Dingir Ring",ring2="Regal Ring",
-        back=gear.wsd.back,waist="Orpheus's Sash",legs=gear.mab.legs,feet=gear.mab.feet}
+	sets.precast.WS['Wildfire'] = {ammo="Devastating Bullet",
+		head="Nyame Helm",neck="Baetyl Pendant",ear1="Friomisi Earring",ear2="Moonshade Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Dingir Ring",ring2="Epaminondas's Ring",
+        back=gear.wsd.back,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS["Trueflight"] = sets.precast.WS['Wildfire']
 	sets.precast.WS["Hot Shot"] = sets.precast.WS['Wildfire']
-		
+	
+	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {ammo="Hauksbok Arrow",
+		neck="Republican Platinum Medal",body="Nyame Mail",ring1="Shukuyu Ring",waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
+	})
+	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		neck="Iskur Gorget",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Cacoethic Ring +1",ring2="Regal Ring",
@@ -101,7 +103,7 @@ function init_gear_sets()
 	-- Fast recast for spells
 	
 	sets.midcast.FastRecast = {
-		head="Arcadian Beret +2",
+		head="Arcadian Beret +3",
 		ring1="Kishar Ring",
 		legs="Arc. Braccae +3",feet="Orion Socks +2"}
 
@@ -110,8 +112,8 @@ function init_gear_sets()
 	-- Ranged sets
 
 	sets.midcast.RA = {
-		head="Arcadian Beret +2",neck="Iskur Gorget",ear1="Telos earring",ear2="Enervating Earring",
-		body="Amini Caban +1",hands="Malignance Gloves",ring1="Dingir Ring",ring2="Regal Ring",
+		head="Arcadian Beret +3",neck="Iskur Gorget",ear1="Telos earring",ear2="Crepuscular Earring",
+		body="Amini Caban +2",hands="Malignance Gloves",ring1="Dingir Ring",ring2="Regal Ring",
 		back=gear.rng.back,waist="Yemaya Belt",legs="Malignance Tights",feet="Malignance Boots"}
 	
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA,
@@ -119,6 +121,13 @@ function init_gear_sets()
 
 	sets.midcast.RA.SuperAcc = set_combine(sets.midcast.RA.Acc,
 		{head="Malignance Chapeau",body="Malignance Tabard"})
+
+	--crit fishing
+	sets.midcast.RA.AM = set_combine(sets.midcast.RA, {
+		head="Meghanada Visor +2",neck="Iskur Gorget",ear1="Telos Earring",ear2="Odr Earring",
+		body="Meghanada Cuirie +2",hands="Mummu Wrists +2",ring1="Mummu Ring",ring2="Begrudging Ring",
+		back=gear.crit.back,waist="Kwahu Kachina Belt +1",legs="Mummu Kecks +2",feet="Oshosi Leggings"
+	})
 
 		
 	sets.midcast.RA.Annihilator = set_combine(sets.midcast.RA)
@@ -140,16 +149,16 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {
-		head="Malignance Chapeau",neck="Bathy Choker +1",ear1="Telos Earring",ear2="Infused Earring",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Sheltered Ring",ring2="Defending Ring",
+		head="Malignance Chapeau",neck="Republican Platinum Medal",ear1="Telos Earring",ear2="Infused Earring",
+		body="Malignance Tabard",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
 		back="Moonlight Cape",waist="Eschan Stone",legs="Carmine Cuisses +1",feet="Malignance Boots"}
 	sets.idle.Town = set_combine(sets.idle, {})
 	
 	-- Defense sets
 	sets.defense.PDT = {
-		head="Malignance Chapeau",neck="Loricate Torque +1",
-		body="Malignance Tabard",hands="Meghanada Gloves +2",ring1="Patricius Ring",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Flume Belt +1",legs="Malignance Tights",feet="Malignance Boots"}
+		head="Nyame Helm",neck="Loricate Torque +1",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Patricius Ring",ring2="Defending Ring",
+		back="Moonlight Cape",waist="Flume Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 	sets.defense.MDT = set_combine(sets.defense.PDT, {
 		ring1="Purity Ring"})
@@ -173,6 +182,9 @@ function init_gear_sets()
 	})
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
 		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",ring2="Defending Ring",legs="Malignance Tights",feet="Malignance Boots"
+	})
+	sets.engaged.EP = set_combine(sets.engaged.Hybrid, {
+		neck="Iskur Gorget",ring2="Chirich Ring +1",
 	})
 	
 	sets.WeatherObi = {waist="Hachirin-no-obi"}

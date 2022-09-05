@@ -38,7 +38,7 @@ function init_gear_sets()
 	-- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
 	sets.midcast.DaurdablaDummy = {range=info.ExtraSongInstrument,
 		head="Cath Palug Crown",neck="Baetyl Pendant",hands="Fili Manchettes +1",ring1="Kishar Ring",
-		back="Perimede Cape",legs="Fili Rhingrave +1",feet="Chironic Slippers"}
+		back="Perimede Cape",legs="Fili Rhingrave +1",feet="Nyame Sollerets"}
 
 	
 	-- Precast Sets
@@ -71,20 +71,23 @@ function init_gear_sets()
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {range="Gjallarhorn",
 		head="Cath Palug Crown",
-		body="Ischemia Chasuble",hands="Leyline Gloves",
+		hands="Leyline Gloves",
 		legs="Gendewitha Spats"}
 	
        
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {
-	    range="Linos",head="Blistering Sallet +1",neck="Bard's Charm +1",ear1="Telos Earring",ear2="Moonshade Earring",
-		body="Bihu Justaucorps +3",hands="Bunzi's Gloves",ring1="Ilabrat Ring",ring2="Begrudging Ring",
-		back="Intarabus's Cape",waist="Fotia Belt",legs="Lustratio Subligar +1",feet="Lustratio Leggings +1"}
+    sets.precast.WS = {range="Linos",
+		head="Nyame Helm",neck="Bard's Charm +1",ear1="Telos Earring",ear2="Moonshade Earring",
+		body="Bihu Justaucorps +3",hands="Nyame Gauntlets",ring1="Ilabrat Ring",ring2="Epaminondas's Ring",
+		back="Intarabus's Cape",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+		ring1="Shukuyu Ring",waist="Sailfi Belt +1"
+	})
 
 	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
-		head="Cath Palug Crown",neck="Baetyl Pendant",ear1="Friomisi",ear2="Regal Earring",
-		body="Chironic Doublet",hands="Bunzi's Gloves",ring1="Acumen Ring",ring2="Shiva's Ring +1",
+		head="Nyame Helm",neck="Sibyl Scarf",ear1="Friomisi Earring",ear2="Regal Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Acumen Ring",ring2="Epaminondas's Ring",
 		back="Toro Cape",waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"
 	})
 	-- Midcast Sets
@@ -93,7 +96,7 @@ function init_gear_sets()
 	sets.midcast.FastRecast = {
 		head="Cath Palug Crown",
 		body="Zendik Robe",hands="Gendewitha Gages",ring1="Kishar Ring",ring2="Veneficium Ring",
-		back="Perimede Cape",waist="Embla Sash",legs="Gendewitha Spats",feet="Chironic Slippers"}
+		back="Perimede Cape",waist="Embla Sash",legs="Gendewitha Spats",feet="Nyame Sollerets"}
 		
 	-- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
 	sets.midcast.Ballad = {legs="Fili Rhingrave +1"}
@@ -109,7 +112,7 @@ function init_gear_sets()
 		body="Fili Hongreline +1",hands="Mousai Gages +1",
 		legs="Fili Rhingrave +1",feet="Fili Cothurnes +1"}
 	sets.midcast["Sentinel's Scherzo"] = {feet="Fili Cothurnes +1"}
-	sets.midcast['Magic Finale'] = {ring1=gear.rings.left,ring2=gear.rings.right,legs="Fili Rhingrave +1",feet="Chironic Slippers"}
+	sets.midcast['Magic Finale'] = {ring1=gear.rings.left,ring2=gear.rings.right,legs="Fili Rhingrave +1",feet="Nyame Sollerets"}
 
 	sets.midcast.Mazurka = {range=info.DaurdablaInstrument}
 	
@@ -124,22 +127,22 @@ function init_gear_sets()
 		
 	-- For song defbuffs (duration primary, accuracy secondary)
 	sets.midcast.SongDebuff = {range="Gjallarhorn",
-		head="Brioso Roundlet +2",neck="Moonbow Whistle +1",ear1="Regal Earring",ear2="Dignitary's Earring",
-		body="Chironic Doublet",hands="Inyanga Dastanas +2",ring1=gear.rings.left,ring2=gear.rings.right,
+		head="Brioso Roundlet +2",neck="Moonbow Whistle +1",ear1="Regal Earring",ear2="Crepuscular Earring",
+		body="Zendik Robe",hands="Inyanga Dastanas +2",ring1=gear.rings.left,ring2=gear.rings.right,
 		back="Perimede Cape",waist="Hachirin-no-Obi",legs="Chironic Hose",feet="Brioso Slippers +2"}
 
 	-- For song defbuffs (accuracy primary, duration secondary)
 	sets.midcast.ResistantSongDebuff = sets.midcast.SongDebuff
 	
 	-- Song-specific recast reduction
-	sets.midcast.SongRecast = {ring1="Kishar Ring",legs="Fili Rhingrave +1",feet="Chironic Slippers"}
+	sets.midcast.SongRecast = {ring1="Kishar Ring",legs="Fili Rhingrave +1",feet="Nyame Sollerets"}
 
 	--sets.midcast.Daurdabla = set_combine(sets.midcast.FastRecast, sets.midcast.SongRecast, {range=info.DaurdablaInstrument})
 
 	-- Other general spells and classes.
 	sets.midcast.Cure = {
 		head="Vanya Hood",neck="Incanter's Torque",ear1="Mendicant's Earring",
-		body="Chironic Doublet",hands="Revealer's Mitts",ring1=gear.rings.left,ring2=gear.rings.right,
+		body="Zendik Robe",hands="Kaykaus Cuffs +1",ring1=gear.rings.left,ring2=gear.rings.right,
 		back="Solemnity Cape",legs="Gyve Trousers",feet="Vanya Clogs"}
 		
 	sets.midcast.Curaga = sets.midcast.Cure
@@ -156,8 +159,8 @@ function init_gear_sets()
 	
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {
-		head="Volte Beret",neck="Bard's Charm +1",ear1="Etiolation Earring",ear2="Infused Earring",
-		body="Ischemia Chasuble",hands="Inyanga Dastanas +2",ring1=gear.rings.left,ring2="Defending Ring",
+		head="Volte Beret",neck="Republican Platinum Medal",ear1="Etiolation Earring",ear2="Infused Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1=gear.rings.left,ring2="Defending Ring",
 		back="Moonlight Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Fili Cothurnes +1"}
 
 	sets.idle.PDT = set_combine(sets.idle, {
@@ -192,9 +195,9 @@ function init_gear_sets()
 	-- EG: sets.engaged.Dagger.Accuracy.Evasion
 	
 	-- Basic set for if no TP weapon is defined.
-    sets.engaged = {
-	    range="Linos",head="Blistering Sallet +1",neck="Bard's Charm +1",ear1="Telos Earring",ear2="Cessance Earring",
-		body="Ayanmo Corazza +2",hands="Bunzi's Gloves",ring1="Ilabrat Ring",ring2="Chirich Ring +1",
+    sets.engaged = {range="Linos",
+		head="Blistering Sallet +1",neck="Bard's Charm +1",ear1="Telos Earring",ear2="Cessance Earring",
+		body="Nyame Mail",hands="Bunzi's Gloves",ring1="Ilabrat Ring",ring2="Chirich Ring +1",
 		back="Intarabus's Cape",waist="Windbuffet Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 	-- Sets with weapons defined.
