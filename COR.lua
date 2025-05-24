@@ -143,7 +143,7 @@ function update_combat_form()
 	state.CombatForm:reset()
 	
 	classes.CustomRangedGroups:clear()
-	if (buffactive['Aftermath'] or buffactive['Aftermath: Lv.3'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.1']) then
+	if (buffactive['Aftermath: Lv.3']) then
 		aftermath = true
 	end
 		
@@ -319,9 +319,3 @@ function job_post_midcast(spell, spellMap, eventArgs)
 		equip(sets.buff['Triple Shot'])
 	end
 end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    set_macro_page(1, 19)
-end
-

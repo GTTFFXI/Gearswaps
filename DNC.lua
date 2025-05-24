@@ -46,11 +46,8 @@ function job_setup()
     state.UseAltStep = M(false, 'Use Alt Step')
     state.SelectStepTarget = M(false, 'Select Step Target')
     state.IgnoreTargetting = M(false, 'Ignore Targetting')
-
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
     state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
-    state.SkillchainPending = M(false, 'Skillchain Pending')
-
-    determine_haste_group()
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -71,13 +68,12 @@ function user_setup()
 
     -- Additional local binds
     send_command('bind ^= gs c cycle mainstep')
-    send_command('bind != gs c cycle altstep')
     send_command('bind ^- gs c toggle selectsteptarget')
     send_command('bind !- gs c toggle usealtstep')
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
 
-    select_default_macro_book()
+	update_combat_form()
 end
 
 
@@ -86,7 +82,6 @@ function user_unload()
     send_command('unbind ^`')
     send_command('unbind !`')
     send_command('unbind ^=')
-    send_command('unbind !=')
     send_command('unbind ^-')
     send_command('unbind !-')
 end
@@ -114,9 +109,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if state.Buff['Climactic Flourish'] then
             equip(sets.buff['Climactic Flourish'])
         end
-        if state.SkillchainPending.value == true then
-            equip(sets.precast.Skillchain)
-        end
     end
 end
 
@@ -124,15 +116,7 @@ end
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
 function job_aftercast(spell, action, spellMap, eventArgs)
-    if not spell.interrupted then
-        if spell.english == "Wild Flourish" then
-            state.SkillchainPending:set()
-            send_command('wait 5;gs c unset SkillchainPending')
-        elseif spell.type == "WeaponSkill" then
-            state.SkillchainPending:toggle()
-            send_command('wait 6;gs c unset SkillchainPending')
-        end
-    end
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -145,18 +129,17 @@ end
 function job_buff_change(buff,gain)
     -- If we gain or lose any haste buffs, adjust which gear set we target.
     if S{'haste','march','embrava','haste samba'}:contains(buff:lower()) then
-        determine_haste_group()
         handle_equipping_gear(player.status)
     elseif buff == 'Saber Dance' or buff == 'Climactic Flourish' then
         handle_equipping_gear(player.status)
     end
+	
+	update_combat_form()
 end
 
 
 function job_status_change(new_status, old_status)
-    if new_status == 'Engaged' then
-        determine_haste_group()
-    end
+	update_combat_form()
 end
 
 
@@ -166,7 +149,7 @@ end
 
 -- Called by the default 'update' self-command.
 function job_update(cmdParams, eventArgs)
-    determine_haste_group()
+	update_combat_form()
 end
 
 
@@ -274,36 +257,6 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
-function determine_haste_group()
-    -- We have three groups of DW in gear: Charis body, Charis neck + DW earrings, and Patentia Sash.
-
-    -- For high haste, we want to be able to drop one of the 10% groups (body, preferably).
-    -- High haste buffs:
-    -- 2x Marches + Haste
-    -- 2x Marches + Haste Samba
-    -- 1x March + Haste + Haste Samba
-    -- Embrava + any other haste buff
-    
-    -- For max haste, we probably need to consider dropping all DW gear.
-    -- Max haste buffs:
-    -- Embrava + Haste/March + Haste Samba
-    -- 2x March + Haste + Haste Samba
-
-    classes.CustomMeleeGroups:clear()
-    
-    if buffactive.embrava and (buffactive.haste or buffactive.march) and buffactive['haste samba'] then
-        classes.CustomMeleeGroups:append('MaxHaste')
-    elseif buffactive.march == 2 and buffactive.haste and buffactive['haste samba'] then
-        classes.CustomMeleeGroups:append('MaxHaste')
-    elseif buffactive.embrava and (buffactive.haste or buffactive.march or buffactive['haste samba']) then
-        classes.CustomMeleeGroups:append('HighHaste')
-    elseif buffactive.march == 1 and buffactive.haste and buffactive['haste samba'] then
-        classes.CustomMeleeGroups:append('HighHaste')
-    elseif buffactive.march == 2 and (buffactive.haste or buffactive['haste samba']) then
-        classes.CustomMeleeGroups:append('HighHaste')
-    end
-end
-
 
 -- Automatically use Presto for steps when it's available and we have less than 3 finishing moves
 function auto_presto(spell)
@@ -319,18 +272,12 @@ function auto_presto(spell)
     end
 end
 
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'WAR' then
-        set_macro_page(3, 20)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(1, 20)
-    elseif player.sub_job == 'SAM' then
-        set_macro_page(2, 20)
-    else
-        set_macro_page(5, 20)
-    end
+function update_combat_form()
+	classes.CustomMeleeGroups:clear()	
+	if S{'Terpsichore','Twashtar'}:contains(player.equipment.main) then
+		state.CombatForm:set(player.equipment.main)
+		if buffactive['Aftermath: Lv.3'] then
+			classes.CustomMeleeGroups:append('AM')
+		end
+	end
 end
-

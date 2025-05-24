@@ -66,8 +66,6 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
     send_command('bind !` eh cycle')
-
-    select_default_macro_book()
 end
 
 
@@ -75,7 +73,6 @@ end
 function user_unload()
     send_command('unbind ^`')
     send_command('unbind !`')
-	send_command('unbind !=')
 end
 
 
@@ -342,13 +339,6 @@ function reset_timers()
     end
     custom_timers = {}
 end
-
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    set_macro_page(2, 18)
-end
-
 
 windower.raw_register_event('zone change',reset_timers)
 windower.raw_register_event('logout',reset_timers)

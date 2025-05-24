@@ -39,7 +39,6 @@ function user_setup()
     gear.NightFeet = "Hachiya Kyahan"
     
     select_movement_feet()
-    select_default_macro_book()
 end
 
 
@@ -194,17 +193,3 @@ function select_movement_feet()
         gear.MovementFeet.name = gear.DayFeet
     end
 end
-
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'DNC' then
-        set_macro_page(4, 3)
-    elseif player.sub_job == 'THF' then
-        set_macro_page(5, 3)
-    else
-        set_macro_page(1, 3)
-    end
-end
-

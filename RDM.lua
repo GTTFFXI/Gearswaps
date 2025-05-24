@@ -30,8 +30,6 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT', 'MDT')
 
     gear.default.obi_waist = "Sekhmet Corset"
-    
-    select_default_macro_book()
 end
 
 
@@ -110,8 +108,3 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-end
-

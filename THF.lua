@@ -29,7 +29,7 @@ function job_setup()
     state.Buff['Trick Attack'] = buffactive['trick attack'] or false
     state.Buff['Feint'] = buffactive['feint'] or false
 	state.Buff["Assassin's Charge"] = buffactive["assassin's charge"] or false
-    
+    state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
     include('Mote-TreasureHunter')
 
     -- For th_action_check():
@@ -54,14 +54,13 @@ function user_setup()
 
     gear.default.weaponskill_neck = "Asperity Necklace"
     gear.default.weaponskill_waist = "Caudata Belt"
-    gear.AugQuiahuiz = {name="Quiahuiz Trousers", augments={'Haste+2','"Snapshot"+2','STR+8'}}
 
     -- Additional local binds
     send_command('bind ^` input /ja "Flee" <me>')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !- gs c cycle targetmode')
-
-    select_default_macro_book()
+	
+	update_combat_form()
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -126,6 +125,8 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
+	
+	update_combat_form()
 end
 
 
@@ -181,6 +182,11 @@ end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
     th_update(cmdParams, eventArgs)
+	update_combat_form()
+end
+
+function job_status_change(new_status, old_status)
+	update_combat_form()
 end
 
 -- Function to display the current relevant user state when doing an update.
@@ -262,19 +268,12 @@ function check_range_lock()
     end
 end
 
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'DNC' then
-        set_macro_page(2, 5)
-    elseif player.sub_job == 'WAR' then
-        set_macro_page(3, 5)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(4, 5)
-    else
-        set_macro_page(2, 5)
-    end
+function update_combat_form()
+	classes.CustomMeleeGroups:clear()	
+	if S{'Twashtar'}:contains(player.equipment.main) then
+		state.CombatForm:set(player.equipment.main)
+		if buffactive['Aftermath: Lv.3'] then
+			classes.CustomMeleeGroups:append('AM3')
+		end
+	end
 end
-
-

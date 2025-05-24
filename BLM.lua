@@ -34,8 +34,6 @@ function user_setup()
         'Stonega', 'Waterga', 'Aeroga', 'Firaga', 'Blizzaga', 'Thundaga',
         'Stonega II', 'Waterga II', 'Aeroga II', 'Firaga II', 'Blizzaga II', 'Thundaga II'}
 
-    gear.macc_hagondes = {name="Hagondes Cuffs", augments={'Phys. dmg. taken -3%','Mag. Acc.+29'}}
-    
     -- Additional local binds
     send_command('bind ^` input /ma Stun <t>')
     send_command('bind @` gs c activate MagicBurst')
@@ -63,7 +61,6 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spellMap == 'Cure' or spellMap == 'Curaga' then
         gear.default.obi_waist = "Goading Belt"
     elseif spell.skill == 'Elemental Magic' then
-        gear.default.obi_waist = "Sekhmet Corset"
         if state.CastingMode.value == 'Proc' then
             classes.CustomClass = 'Proc'
         end
@@ -84,6 +81,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spell.skill == 'Elemental Magic' then 
 		if spell.element == world.weather_element or spell.element == world.day_element then 
 			equip(sets.WeatherObi)
+		end
+		
+		if S{'Stoneja','Waterja','Aeroja','Firaja','Blizzaja','Thundaja'}:contains(spell.name) then
+			equip(sets.JAs)
 		end
 	end
 end

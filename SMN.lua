@@ -144,8 +144,6 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT')
 
     gear.perp_staff = {name=""}
-    
-    select_default_macro_book()
 end
 
 

@@ -36,8 +36,6 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')
-
-    select_default_macro_book()
 end
 
 
@@ -126,20 +124,3 @@ function update_combat_form()
 		state.CombatForm:reset()
 	end
 end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'WAR' then
-        set_macro_page(1, 11)
-    elseif player.sub_job == 'DNC' then
-        set_macro_page(2, 11)
-    elseif player.sub_job == 'THF' then
-        set_macro_page(3, 11)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(4, 11)
-    else
-        set_macro_page(1, 11)
-    end
-end
-
