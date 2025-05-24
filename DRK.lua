@@ -29,8 +29,8 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-    state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'Subtle')
-    state.WeaponskillMode:options('Normal', 'Acc', 'Hybrid', 'Subtle')
+    state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'Subtle', 'Schere')
+    state.WeaponskillMode:options('Normal', 'Acc', 'Hybrid', 'PDL', 'Subtle')
     state.HybridMode:options('Normal', 'PDT')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal','PDT')
@@ -144,7 +144,7 @@ end
 function update_combat_form()
     -- Check Weapontype
 	local aftermath = false
-	if S{'Ragnarok','Caladbolg','Liberator'}:contains(player.equipment.main) then
+		if S{'Ragnarok','Caladbolg','Liberator','Foenaria','Redemption'}:contains(player.equipment.main) then
         state.CombatForm:set(player.equipment.main)
 	elseif S{'Anguta','Apocalypse','Drepanum'}:contains(player.equipment.main) then 
 		state.CombatForm:set('Scythe')
@@ -158,7 +158,7 @@ function update_combat_form()
 		aftermath = true
 	end
 		
-	if (S{"Caladbolg","Liberator"}:contains(player.equipment.main) and aftermath) then
+	if (S{"Caladbolg","Liberator","Redemption"}:contains(player.equipment.main) and aftermath) then
 		classes.CustomMeleeGroups:append('AM')
 	end
 end
@@ -167,10 +167,4 @@ end
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
     update_combat_form()
-end
- 
-function select_default_macro_book()
-	-- Default macro set/book
-	-- I realize this will be better used with different /subs per book,
-	-- but I won't worry about that till I get this working properly.
 end

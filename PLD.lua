@@ -192,7 +192,7 @@ function update_defense_mode()
     
     if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
         if player.equipment.sub and not player.equipment.sub:contains('Shield') and
-           player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' then
+           player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Priwen' then
             state.CombatForm:set('DW')
         else
             state.CombatForm:reset()

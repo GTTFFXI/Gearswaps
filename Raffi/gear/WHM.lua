@@ -23,7 +23,7 @@ function init_gear_sets()
 
     sets.precast.FC.Stoneskin = sets.precast.FC['Enhancing Magic']
 
-    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pantaloons +1"})
+    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pantaloons +2"})
 
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
 
@@ -70,10 +70,10 @@ function init_gear_sets()
     sets.midcast.Cure = {
 		main="Queller Rod",sub="Genbu's Shield",ammo="Esper Stone +1",
         head="Vanya Hood",neck="Incanter's Torque",ear2="Glorious Earring",
-        body="Ebers Bliaut +1",hands="Telchine Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
-        back="Vates Cape +1",waist="Hachirin-no-Obi",legs="Ebers Pantaloons +1",feet="Vanya Clogs"}
+        body="Ebers Bliaut +2",hands="Telchine Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
+        back="Vates Cape +1",waist="Hachirin-no-Obi",legs="Ebers Pantaloons +2",feet="Vanya Clogs"}
 
-    sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaut +1",back="Alaunus's Cape"})
+    sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaut +2",back="Alaunus's Cape"})
 
     sets.midcast.Curaga = sets.midcast.Cure
 
@@ -81,11 +81,11 @@ function init_gear_sets()
 
     sets.midcast.Cursna = {
         head="Ebers Cap +1",neck="Malison Medallion",
-        body="Ebers Bliaut +1",hands="Ebers Mitts +1",ring1="Ephedra Ring",ring2="Ephedra Ring",
+        body="Ebers Bliaut +2",hands="Ebers Mitts +1",ring1="Ephedra Ring",ring2="Ephedra Ring",
         back="Alaunus's Cape",waist="Goading Belt",legs="Theophany Pantaloons +1",feet="Vanya Clogs"}
 
-    sets.midcast.StatusRemoval = {
-        head="Ebers Cap +1",hands="Ebers Mitts +1",legs="Ebers Pantaloons +1"}
+    sets.midcast.StatusRemoval = {main="Yagrush",
+        head="Ebers Cap +1",hands="Ebers Mitts +1",legs="Ebers Pantaloons +2"}
 	sets.midcast.Erase = set_combine(sets.midcast.StatusRemoval, {neck="Cleric's Torque"})
 	
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
@@ -100,7 +100,7 @@ function init_gear_sets()
     sets.midcast.Auspice = sets.midcast['Enhancing Magic']
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
-		head="Ebers Cap +1",body="Ebers Bliaut +1",hands="Ebers Mitts +1",legs="Piety Pantaloons +1"
+		head="Ebers Cap +1",body="Ebers Bliaut +2",hands="Ebers Mitts +1",legs="Piety Pantaloons +2"
 	})
 
     sets.midcast.Regen = {main="Bolelabunga",
@@ -128,10 +128,10 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
     
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-    sets.idle = {main="Bolelabunga", sub="Genbu's Shield",ammo="Homiliary",
-		head="Nyame Helm",neck="Bathy Choker +1",ear1="Etiolation Earring",ear2="Infused Earring",
-		body="Artsieq Jubbah",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Inyanga Ring",
-		back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
+    sets.idle = {main="Bolelabunga", sub="Culminus",ammo="Crepuscular Pebble",
+		head="Nyame Helm",neck="Null Loop",ear1="Etiolation Earring",ear2="Infused Earring",
+		body="Ebers Bliaut +2",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
+		back="Moonbeam Cape",waist="Platinum Moogle Belt",legs="Ebers Pantaloons +2",feet="Herald's Gaiters"}
 
     sets.idle.PDT = set_combine(sets.idle, {
         neck="Loricate Torque +1",ring1="Defending Ring",ring2="Patricius Ring",back="Moonbeam Cape"})
@@ -170,8 +170,8 @@ function init_gear_sets()
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
         head="Nyame Helm",neck="Combatant's Torque",ear1="Telos Earring",ear2="Cessance Earring",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Patricius Ring",ring2="Cacoethic Ring +1",
-        waist="Goading Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Chirich Ring",ring2="Cacoethic Ring +1",
+        waist="Cornelia's Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.

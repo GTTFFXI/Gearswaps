@@ -1,6 +1,6 @@
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Resistant')
+    state.CastingMode:options('Normal', 'Resistant', 'Burst')
     state.IdleMode:options('Normal', 'PDT')
 	
 	send_command('bind ^` input /ja "Entrust" <me>')
@@ -68,9 +68,9 @@ function init_gear_sets()
     sets.midcast.Shellra = {neck="Incanter's Torque",ring1="Sheltered Ring"}
 
     sets.midcast['Elemental Magic'] = {main="Idris",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Ea Hat",neck="Incanter's Torque",ear1="Friomisi Earring",ear2="Regal Earring",
-        body="Ea Houppelande",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
-        back="Nantosuelta's Cape",waist="Eschan Stone",legs="Ea Slops",feet="Amalric Nails +1"}
+		head="Agwu's Cap",neck="Incanter's Torque",ear1="Friomisi Earring",ear2="Malignance Earring",
+        body="Agwu's Robe",hands="Agwu's Gages",ring1="Stikini Ring",ring2="Freke Ring",
+        back="Nantosuelta's Cape",waist="Eschan Stone",legs="Agwu's Slops",feet="Agwu's Pigaches"}
 	
 	sets.WeatherObi = {waist="Hachirin-no-Obi"}
 	

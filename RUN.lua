@@ -31,6 +31,12 @@ function job_setup()
     else
         max_runes = 0
     end
+	
+	state.Buff.Doom = buffactive.Doom or false
+	state.Buff['Aftermath'] = buffactive['Aftermath'] or false
+	state.Buff['Aftermath: Lv.1'] = buffactive['Aftermath: Lv.1'] or false
+	state.Buff['Aftermath: Lv.2'] = buffactive['Aftermath: Lv.2'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -128,7 +134,16 @@ function get_obi(element)
     end
 end
 
+-- Called when the player's status changes.
+function job_state_change(field, new_value, old_value)
+    classes.CustomDefenseGroups:clear()
+    classes.CustomDefenseGroups:append(state.ExtraDefenseMode.current)
 
+    classes.CustomMeleeGroups:clear()
+    classes.CustomMeleeGroups:append(state.ExtraDefenseMode.current)
+	
+	update_combat_form()
+end
 ------------------------------------------------------------------
 -- Timer manipulation
 ------------------------------------------------------------------
@@ -230,6 +245,60 @@ function prune(rune)
     return cmd_queue
 end
 
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+    if player.mpp < 51 then
+        idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
+    
+    return idleSet
+end
+
+-- Modify the default melee set after it was constructed.
+function customize_melee_set(meleeSet)
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
+    
+    return meleeSet
+end
+
+function customize_defense_set(defenseSet)
+    if state.ExtraDefenseMode.value ~= 'None' then
+        defenseSet = set_combine(defenseSet, sets[state.ExtraDefenseMode.value])
+    end
+    
+    if state.Buff.Doom then
+        defenseSet = set_combine(defenseSet, sets.buff.Doom)
+    end
+    
+    return defenseSet
+end
+
+function update_combat_form()
+    -- Check Weapontype
+	local aftermath = false
+	
+	classes.CustomMeleeGroups:clear()
+	if (buffactive['Aftermath: Lv.3']) then
+		aftermath = true
+	end
+		
+	if (S{"Epeolatry"}:contains(player.equipment.main) and aftermath) then
+		classes.CustomMeleeGroups:append('AM')
+	end
+end
+
+function job_update(cmdParams, eventArgs)
+    update_combat_form()
+end
+
+function job_buff_change(buff, gain)
+	update_combat_form()
+end
 
 ------------------------------------------------------------------
 -- Reset events

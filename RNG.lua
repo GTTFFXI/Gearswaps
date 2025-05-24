@@ -40,8 +40,6 @@ function user_setup()
 	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Achiyalabopa bullet"}
 	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Achiyalabopa bullet"}
 
-	select_default_macro_book()
-
 	send_command('bind f9 gs c cycle RangedMode')
 	send_command('bind ^f9 gs c cycle OffenseMode')
 end
@@ -91,6 +89,12 @@ function job_midcast(spell, action, spellMap, eventArgs)
 	end
 end
 
+function job_post_midcast(spell, action, spellMap, eventArgs)
+	if spell.action_type == 'Ranged Attack' and state.Buff['Double Shot'] then
+		equip(sets.buff['Double Shot'])
+	end
+end
+
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
@@ -135,7 +139,7 @@ function update_combat_form()
 		aftermath = true
 	end
 		
-	if (S{'Armageddon'}:contains(player.equipment.range) and aftermath) then
+	if (S{'Armageddon','Gandiva','Gastraphetes'}:contains(player.equipment.range) and aftermath) then
 		classes.CustomRangedGroups:append('AM')
 	end
 end
@@ -190,11 +194,3 @@ function check_ammo(spell, action, spellMap, eventArgs)
 		end
 	end
 end
-
-
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	set_macro_page(1, 7)
-end
-

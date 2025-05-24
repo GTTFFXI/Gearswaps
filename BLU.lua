@@ -157,14 +157,14 @@ function job_setup()
     -- Buffs that depend on blue magic skill
     blue_magic_maps.SkillBasedBuff = S{
         'Barrier Tusk','Diamondhide','Magic Barrier','Metallic Body','Plasma Charge',
-        'Pyric Bulwark','Reactor Cool',
+        'Pyric Bulwark','Reactor Cool','Occultation'
     }
 
     -- Other general buffs
     blue_magic_maps.Buff = S{
         'Amplification','Animating Wail','Battery Charge','Carcharian Verve','Cocoon',
         'Erratic Flutter','Exuviation','Fantod','Feather Barrier','Harden Shell',
-        'Memento Mori','Nat. Meditation','Occultation','Orcish Counterstance','Refueling',
+        'Memento Mori','Nat. Meditation','Orcish Counterstance','Refueling',
         'Regeneration','Saline Coat','Triumphant Roar','Warm-Up','Winds of Promyvion',
         'Zephyr Mantle'
     }
@@ -197,7 +197,6 @@ function user_setup()
     send_command('bind @` input /ja "Burst Affinity" <me>')
 
     update_combat_form()
-    select_default_macro_book()
 end
 
 
@@ -335,16 +334,3 @@ function update_combat_form()
 		classes.CustomMeleeGroups:append('AM3')
 	end
 end
-
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'DNC' then
-        set_macro_page(2, 7)
-    else
-        set_macro_page(1, 7)
-    end
-end
-
-

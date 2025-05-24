@@ -15,8 +15,11 @@ end
 -- Setup vars that are user-independent.
 function job_setup()
 --	state.CombatForm = get_combat_form()
-	
 	state.Buff = {}
+	state.Buff['Aftermath'] = buffactive['Aftermath'] or false
+	state.Buff['Aftermath: Lv.1'] = buffactive['Aftermath: Lv.1'] or false
+	state.Buff['Aftermath: Lv.2'] = buffactive['Aftermath: Lv.2'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
   end
 
 
@@ -156,9 +159,6 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-	if player.sub_job == 'WHM' or player.sub_job == 'RDM' then
-		idleSet.body = 'Twilight Mail'
-	end
 	return idleSet
 end
 
@@ -185,11 +185,11 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-
+	update_combat_form()
 end
 
 function job_update(cmdParams, eventArgs)
-	--state.CombatForm = get_combat_form()
+	update_combat_form()
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
@@ -209,9 +209,7 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
-	classes.CustomMeleeGroups:clear()
-	if areas.Adoulin:contains(world.area) and buffactive.ionis then
-	end
+	update_combat_form()
 end
 
 -- Job-specific toggles.
@@ -238,7 +236,7 @@ end
 
 -- Handle notifications of user state values being changed.
 function job_state_change(stateField, newValue)
-
+	update_combat_form()
 end
 
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.
@@ -249,6 +247,22 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-function select_default_macro_book()
-
+function update_combat_form()
+    -- Check Weapontype
+	local aftermath = false
+	if S{'Rhongomiant','Ryunohige'}:contains(player.equipment.main) then
+        state.CombatForm:set(player.equipment.main)
+    else
+		state.CombatForm:reset()
+	end
+	
+	
+	classes.CustomMeleeGroups:clear()
+	if (buffactive['Aftermath: Lv.3']) then
+		aftermath = true
+	end
+		
+	if (S{"Rhongomiant","Ryunohige"}:contains(player.equipment.main) and aftermath) then
+		classes.CustomMeleeGroups:append('AM')
+	end
 end

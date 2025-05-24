@@ -86,9 +86,3 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.midcast.CureSelf)
     end
 end
- 
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-
-end
-

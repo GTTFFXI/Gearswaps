@@ -28,8 +28,6 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT')
 
     gear.default.weaponskill_waist = "Windbuffet Belt"
-
-    select_default_macro_book()
 end
 
 
@@ -142,7 +140,3 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    set_macro_page(1, 6)
-end

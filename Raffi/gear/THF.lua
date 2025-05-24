@@ -57,10 +57,10 @@ function init_gear_sets()
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Collaborator'] = {}
 	sets.precast.JA['Accomplice'] = {}
-	sets.precast.JA['Flee'] = {feet="Rogue's Poulaines"}
+	sets.precast.JA['Flee'] = {feet="Pillager's Poulaines +3"}
 	sets.precast.JA['Hide'] = {}
 	sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
-	sets.precast.JA['Steal'] = {}
+	sets.precast.JA['Steal'] = {ammo="Barathrum",neck="Pentalagus Charm",feet="Pillager's Poulaines +3"}
 	sets.precast.JA['Despoil'] = {feet="Raider's Poulaines +2"}
 	sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +1"}
 	sets.precast.JA['Feint'] = {} -- {legs="Assassin's Culottes +2"}
@@ -79,7 +79,7 @@ function init_gear_sets()
 
 
 	-- Fast cast sets for spells
-	sets.precast.FC = {head="Herculean Helm",body="Dread Jupon",ear2="Loquacious Earring",hands="Leyline Gloves",ring1="Kishar Ring",neck="Orunmila's Torque"}
+	sets.precast.FC = {head="Herculean Helm",body="Taeon Tabard",ear2="Loquacious Earring",hands="Leyline Gloves",ring1="Kishar Ring",neck="Orunmila's Torque"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
 
@@ -93,9 +93,9 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 	
 	sets.precast.WS = {
-		head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
-		body="Meghanada Cuirie +1",hands="Meghanada Gloves +2",ring1="Regal Ring",ring2="Ilabrat Ring",
-		back="Toutatis's Cape",waist="Fotia Belt",legs="Samnuha Tights",feet="Meghanada Jambeaux +1"}
+		head="Nyame Helm",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Moonshade Earring",
+		body="Meghanada Cuirie +1",hands="Nyame Gauntlets",ring1="Regal Ring",ring2="Ilabrat Ring",
+		back="Toutatis's Cape",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 		head="Adhemar Bonnet +1",ear1="Telos Earring",ear1="Dignitary's Earring",
 		body="Meghanada Cuirie +1",hands="Meghanada Gloves +2",ring1="Regal Ring",ring2="Ilabrat Ring"
@@ -104,7 +104,7 @@ function init_gear_sets()
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
 	sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,
-		{neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Crematio Earring",body="Samnuha Coat",hands="Adhemar Wristbands +1",ring1="Shiva Ring +1",ring2="Acumen Ring",back="Toro Cape"})
+		{neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Crematio Earring",body="Nyame Mail",hands="Adhemar Wristbands +1",ring1="Shiva Ring +1",ring2="Acumen Ring",back="Toro Cape"})
 
 	--------------------------------------
 	-- Midcast sets
