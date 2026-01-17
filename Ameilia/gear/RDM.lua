@@ -1,6 +1,6 @@
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'DW', 'Hybrid', 'StoreTP')
+    state.OffenseMode:options('Normal', 'DW', 'Hybrid', 'StoreTP')
     state.HybridMode:options('Normal', 'PhysicalDef', 'MagicalDef')
     state.CastingMode:options('Normal', 'Resistant', 'Burst')
     state.IdleMode:options('Normal', 'PDT', 'MDT')
@@ -9,7 +9,7 @@ function user_setup()
 	gear.capes = {}
 	gear.capes.magic = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}}
 	gear.capes.melee = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	gear.capes.wsdmg = { name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.wsdmg = { name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 	gear.capes.magicws = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
 	
 	gear.rings={}
@@ -54,11 +54,12 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo="Oshasha's Treatise",
-        head="Nyame Helm",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        head="Vitiation Chapeau +4",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Ilabrat Ring",
         back=gear.capes.wsdmg,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Lethargy Houseaux +3"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
+
     sets.precast.WS['Burning Blade'] = set_combine(sets.precast.WS, {ammo="Sroda Tathlum",
         head="Nyame Helm",neck="Sibyl Scarf",ear1="Regal Earring",
         body="Nyame Mail",ring1="Epaminondas's Ring",ring2="Freke Ring",
@@ -71,6 +72,9 @@ function init_gear_sets()
 
 	sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {ring1="Begrudging Ring",ring2="Lehko's Ring",feet="Lethargy Houseaux +3"})
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {neck="Republican Platinum Medal",ring2="Sroda Ring",waist="Sailfi Belt +1"})
+	sets.precast.WS['Death Blossom'] = set_combine(sets.precast.WS['Savage Blade'], {
+		ammo="Coiste Bodhar",ear1="Sherida Earring",ear2="Regal Earring"		
+	})
 	sets.precast.WS['Fast Blade II'] = set_combine(sets.precast.WS['Savage Blade'], {
 		head="Bunzi's Hat",ear1="Sherida Earring",
 		hands="Bunzi's Gloves",ring2="Hetairoi Ring",
@@ -82,8 +86,8 @@ function init_gear_sets()
     sets.midcast.FastRecast = set_combine(sets.precast.FC, {})
 
     sets.midcast.Cure = {
-        head="Vanya Hood",neck="Incanter's Torque",ear1="Etiolation Earring",ear2="Malignance Earring",
-        body="Shamash Robe",hands="Kaykaus Cuffs +1",ring1=gear.rings.left,ring2=gear.rings.right,
+        head="Vanya Hood",neck="Incanter's Torque",ear1="Mendicant's Earring",ear2="Malignance Earring",
+        body="Kaykaus Bliaut +1",hands="Kaykaus Cuffs +1",ring1=gear.rings.left,ring2=gear.rings.right,
         back=gear.capes.magic,waist="Embla Sash",legs="Volte Brais",feet="Vanya Clogs"}
 	sets.midcast.Cursna = {neck="Debilis Medallion",body="Vitiation Tabard +3",ring1="Haoma's Ring",ring2="Haoma's Ring",back="Oretania's Cape +1",feet="Vanya Clogs"}
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {})
@@ -97,7 +101,7 @@ function init_gear_sets()
 	sets.midcast.Enspell = set_combine(sets.midcast['Enhancing Magic'], {main="Pukulatmuj +1",sub="Pukulatmuj",
 		head="Befouled Crown",neck="Incanter's Torque",ear2="Andoaa Earring",
 		hands="Vitiation Gloves +3",
-		legs="Atrophy Tights +2",back="Ghostfyre Cape",waist="Olympus Sash"})
+		legs="Atrophy Tights +3",back="Ghostfyre Cape",waist="Olympus Sash"})
 	
 	sets.midcast.Temper = set_combine(sets.midcast.Enspell, {})
 	sets.midcast['Temper II'] = set_combine(sets.midcast.Temper, {})
@@ -107,18 +111,18 @@ function init_gear_sets()
     sets.midcast.Stoneskin = {}
     
     sets.midcast['Enfeebling Magic'] = {ammo="Regal Gem",
-        head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Crepuscular Earring",ear2="Snotra Earring",
+        head="Vitiation Chapeau +4",neck="Duelist's Torque +2",ear1="Crepuscular Earring",ear2="Snotra Earring",
         body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Kishar Ring",ring2=gear.rings.right,
-        back=gear.capes.magic,waist="Obstinate Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
+        back=gear.capes.magic,waist="Obstinate Sash",legs="Chironic Hose",feet="Vitiation Boots +4"}
 
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {range="Ullr",
 		ear1="Regal Earring",body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1=gear.rings.left,back="Null Shawl"
 	})
 	
 	sets.midcast.Dispel = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
-    sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Vitiation Chapeau +3"})
+    sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Vitiation Chapeau +4"})
 
-    sets.midcast['Slow II'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Vitiation Chapeau +3", back=gear.capes.magicws})
+    sets.midcast['Slow II'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Vitiation Chapeau +4", back=gear.capes.magicws})
 	sets.midcast['Paralyze II'] = set_combine(sets.midcast['Slow II'], {})
 	sets.midcast['Addle II'] = set_combine(sets.midcast['Slow II'], {})
     sets.midcast['Frazzle II'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {neck="Null Loop",ring1="Metamorph Ring +1"})
@@ -168,6 +172,7 @@ function init_gear_sets()
     sets.midcast.Aspir = set_combine(sets.midcast.Drain, {})
 
 	sets.Gain = {hands="Vitiation Gloves +3"}
+	sets.BoostStat = {hands="Vitiation Gloves +3"}
 
     -- Sets for special buff conditions on spells.
 
@@ -189,24 +194,24 @@ function init_gear_sets()
     
     -- Resting sets
     sets.resting = {
-        head="Vitiation Chapeau +3",neck="Bathy Choker +1",ear2="Infused Earring",
-        body="Lethargy Sayon +3",ring1=gear.rings.left,ring2="Defending Ring",
+        head="Vitiation Chapeau +4",neck="Bathy Choker +1",ear2="Infused Earring",
+        body="Lethargy Sayon +3",ring1=gear.rings.left,ring2="Murky Ring",
         waist="Fucho-no-Obi"}
     
     -- Idle sets
     sets.idle = {ammo="Homiliary",
-        head="Vitiation Chapeau +3",neck="Republican Platinum Medal",ear1="Etiolation Earring",ear2="Infused Earring",
-        body="Lethargy Sayon +3",hands="Nyame Gauntlets",ring1=gear.rings.left,ring2="Defending Ring",
-        back="Moonlight Cape",waist="Fucho-no-Obi",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}
+        head="Vitiation Chapeau +4",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+        body="Lethargy Sayon +3",hands="Nyame Gauntlets",ring1=gear.rings.left,ring2="Murky Ring",
+        back=gear.capes.wsdmg,waist="Null Belt",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}
 	sets.idle.Town = set_combine(sets.idle, {})
     
     -- Defense sets
-    sets.defense.PDT = {ammo="Staunch Tathlum +1",
-        head="Null Masque",
-        body="Lethargy Sayon +3",hands="Nyame Gauntlets",ring2="Defending Ring",
-        back="Null Shawl",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+    sets.defense.PDT = {
+        head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
-    sets.defense.MDT = set_combine(sets.defense.PDT, {ring1="Purity Ring"})
+    sets.defense.MDT = set_combine(sets.defense.PDT, {ring1="Defending Ring"})
 
     sets.Kiting = {legs="Carmine Cuisses +1"}
 
@@ -222,8 +227,8 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {ammo="Sroda Tathlum",
         head="Bunzi's Hat",neck="Sibyl Scarf",ear1="Sherida Earring",ear2="Lethargy Earring +1",
-        body="Nyame Mail",hands="Ayanmo Manopolas +2",ring1="Chirich Ring +1",ring2="Lehko's Ring",
-        back="Null Shawl",waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+        body="Malignance Tabard",hands="Ayanmo Manopolas +2",ring1="Chirich Ring +1",ring2="Lehko's Ring",
+        back="Null Shawl",waist="Orpheus's Sash",legs="Malignance Tights",feet="Malignance Boots"}
 
 
 	sets.engaged.DW = set_combine(sets.engaged, {
@@ -231,7 +236,7 @@ function init_gear_sets()
 	})
 	
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
-		head="Malignance Chapeau",body="Malignance Tabard",ring2="Defending Ring",legs="Malignance Tights",feet="Malignance Boots"
+		head="Malignance Chapeau",body="Malignance Tabard",ring2="Murky Ring",legs="Malignance Tights",feet="Malignance Boots"
 	})
 	sets.engaged.StoreTP = set_combine(sets.engaged, {ammo="Coiste Bodhar",
 		head="Malignance Chapeau",neck="Anu Torque",ear2="Suppanomimi",

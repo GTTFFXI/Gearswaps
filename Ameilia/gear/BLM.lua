@@ -34,15 +34,15 @@ function init_gear_sets()
     --------------------------------------
 	sets.magicAcc = {
 		head="Cath Palug Crown",neck="Null Loop",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Wicce Coat +3",hands="Spaekona's Gloves +3",ring1=gear.rings.left,ring2=gear.rings.right,
+		body="Wicce Coat +3",hands="Spaekona's Gloves",ring1=gear.rings.left,ring2=gear.rings.right,
 		back="Null Shawl",waist="Acuity Belt +1",legs="Wicce Chausses +3",feet="Wicce Sabots +3"}
 
-	sets.FC = {head="Merlinic Hood",ear1="Etiolation Earring",ear2="Malignance Earring", neck="Baetyl Pendant",
+	sets.FC = {head="Merlinic Hood",neck="Baetyl Pendant",ear2="Malignance Earring",
         body="Zendik Robe",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Embla Sash",legs="Volte Brais",feet="Regal Pumps +1"}
 
 	sets.FCmAcc = set_combine(sets.FC, sets.magicAcc, {
-		head="Cath Palug Crown",hands="Spaekona's Gloves +3",ring2=gear.rings.right})
+		head="Cath Palug Crown",hands="Spaekona's Gloves",ring2=gear.rings.right})
 		
     ---- Precast Sets ----
     
@@ -74,13 +74,13 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo="Oshasha's Treatise",
-        head="Nyame Helm",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+        head="Nyame Helm",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Shukuyu Ring",ring2="Epaminondas's Ring",
         back=gear.back.nuke,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 	sets.precast.WS['Myrkr'] = {
-		head="Null Masque",neck="Baetyl Pendant",ear1="Halasz Earring",ear2="Etiolation Earring",
-		body="Wicce Coat +3",hands="Spaekona's Gloves +3",ring1="Metamorph Ring +1",ring2="Lebeche Ring",
+		head="Null Masque",neck="Baetyl Pendant",ear1="Mendicant's Earring",ear2="Andoaa Earring",
+		body="Wicce Coat +3",hands="Spaekona's Gloves",ring1="Metamorph Ring +1",ring2="Lebeche Ring",
 		back="Fi Follet Cape +1",waist="Acuity Belt +1",legs="Wicce Chausses +3",feet="Wicce Sabots +3"}
 
 	sets.precast.WS['Cataclysm'] = set_combine(sets.precast.WS, {ammo="Sroda Tathlum",
@@ -119,7 +119,7 @@ function init_gear_sets()
 		main="Bunzi's Rod",sub="Ammurapi Shield",
     })
         
-    sets.midcast.ElementalEnfeeble = set_combine(sets.magicAcc, {head="Wicce Petasos +3",body="Archmage's Coat +3",legs="Agwu's Slops",feet="Archmage's Sabots +3"})
+    sets.midcast.ElementalEnfeeble = set_combine(sets.magicAcc, {head="Wicce Petasos +3",body="Archmage's Coat +3",legs="Agwu's Slops",feet="Archmage's Sabots +4"})
 
     sets.midcast['Dark Magic'] = set_combine(sets.FCmAcc, {})
 
@@ -151,9 +151,9 @@ function init_gear_sets()
 	})
 	 
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], sets.magicAcc)
-	sets.midcast['Elemental Magic'].MPReturn = set_combine(sets.midcast['Elemental Magic'], {body="Spaekona's Coat +3"})
-	sets.midcast['Elemental Magic'].MPReturnBurst = set_combine(sets.midcast['Elemental Magic'].Burst, {body="Spaekona's Coat +3"})
-	sets.midcast['Elemental Magic'].ResistantBurst = set_combine(sets.midcast['Elemental Magic'].Burst, {neck="Sorcerer's Stole +2",hands="Spaekona's Gloves +3",back=gear.back.nuke,feet="Archmage's Sabots +3"})
+	sets.midcast['Elemental Magic'].MPReturn = set_combine(sets.midcast['Elemental Magic'], {body="Spaekona's Coat +4"})
+	sets.midcast['Elemental Magic'].MPReturnBurst = set_combine(sets.midcast['Elemental Magic'].Burst, {body="Spaekona's Coat +4"})
+	sets.midcast['Elemental Magic'].ResistantBurst = set_combine(sets.midcast['Elemental Magic'].Burst, {neck="Sorcerer's Stole +2",hands="Spaekona's Gloves",back=gear.back.nuke,feet="Archmage's Sabots +4"})
 	
     sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {})
     sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {})
@@ -169,12 +169,12 @@ function init_gear_sets()
     
     -- Normal refresh idle set
     sets.idle = {main="Bunzi's Rod",sub="Ammurapi Shield",ammo="Staunch Tathlum +1",
-        head="Null Masque",neck="Republican Platinum Medal",ear1="Etiolation Earring",ear2="Infused Earring",
-        body="Shamash Robe",hands="Nyame Gauntlets",ring1=gear.rings.left,ring2="Defending Ring",
-        back=gear.back.nuke,waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
+        head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+        body="Shamash Robe",hands="Nyame Gauntlets",ring1=gear.rings.left,ring2="Murky Ring",
+        back=gear.back.nuke,waist="Null Belt",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
 	sets.idle.Death = set_combine(sets.idle, {ammo="Psilomene",
-		head="Null Masque",neck="Loricate Torque +1",hands="Agwu's Gages",ring2="Mephitas's Ring +1",waist="Fucho-no-Obi",legs="Wicce Chausses +3"
+		head="Null Masque",neck="Null Loop",hands="Agwu's Gages",ring2="Mephitas's Ring +1",waist="Fucho-no-Obi",legs="Wicce Chausses +3"
 	})	
 		
     -- Town gear.
@@ -185,8 +185,8 @@ function init_gear_sets()
 	-- Defense sets
 
     sets.defense.PDT = {
-        head="Nyame Helm",neck="Loricate Torque +1",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Patricius Ring",ring2="Defending Ring",
+        head="Nyame Helm",neck="Null Loop",ear1="Alabaster Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Murky Ring",
         back=gear.back.nuke,waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.defense.MDT = set_combine(sets.defense.PDT, {})

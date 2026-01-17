@@ -23,9 +23,11 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Tactical Switch'] = {feet="Karagoz Scarpe +1"}
     
-    sets.precast.JA['Repair'] = {hands="Taeon Gloves",legs="Taeon Tights",feet="Foire Babouches +1"}
+    sets.precast.JA['Repair'] = {hands="Taeon Gloves",legs="Taeon Tights",feet="Foire Babouches +3"}
 
-    sets.precast.JA.Maneuver = {body="Karagoz Farsetto +1",hands="Foire Dastanas +1",back=gear.back.pet}
+	sets.precast.JA['Overdrive'] = {body="Pitre Tobe +3"}
+
+    sets.precast.JA.Maneuver = {body="Karagoz Farsetto +1",hands="Foire Dastanas +3",back=gear.back.pet}
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -53,25 +55,25 @@ function init_gear_sets()
         
 
     -- Midcast sets for pet actions
-    sets.midcast.Pet.Cure = {legs="Foire Churidars +1"}
+    sets.midcast.Pet.Cure = {legs="Foire Churidars +3"}
 
-    sets.midcast.Pet['Elemental Magic'] = {feet="Pitre Babouches +1"}
+    sets.midcast.Pet['Elemental Magic'] = {feet="Pitre Babouches +3"}
 
-    sets.midcast.Pet.WeaponSkill = {head="Karagoz Cappello +1", hands="Karagoz Guanti +1", legs="Karagoz Pantaloni +1"}
+    sets.midcast.Pet.WeaponSkill = {head="Karagoz Cappello +1", hands="Mpaca's Gloves", legs="Mpaca's Hose"}
 
     
     -- Sets to return to when not performing an action.
     
     -- Resting sets
-    sets.resting = {head="Pitre Taj +1",
+    sets.resting = {head="Pitre Taj +3",
         ring1="Sheltered Ring"}
     
 
     -- Idle sets
 
     sets.idle = {
-        head="Null Masque",neck="Republican Platinum Medal",ear1="Schere Earring",ear2="Sroda Earring",
-        body="Mpaca's Doublet",hands="Mpaca's Gloves",ring1="Sheltered Ring",ring2="Niqmaddu Ring",
+        head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Sroda Earring",
+        body="Mpaca's Doublet",hands="Mpaca's Gloves",ring1="Sheltered Ring",ring2="Murky Ring",
         back=gear.back.pet,waist="Null Belt",legs="Mpaca's Hose",feet="Hermes' Sandals +1"}
 
     sets.idle.Town = set_combine(sets.idle, {})
@@ -81,9 +83,11 @@ function init_gear_sets()
 
     -- Idle sets to wear while pet is engaged
     sets.idle.Pet.Engaged = {
-        head="Mpaca's Cap",neck="Shulmanu Collar",ear1="Crepuscular Earring",ear2="Karagoz Earring +1",
-        body="Pitre Tobe +1",hands="Mpaca's Gloves",ring1="Cath Palug Ring",ring2="Varar Ring +1",
-        back=gear.back.pet,waist="Klouskap Sash +1",legs="Heyoka Subligar +1",feet="Mpaca's Boots"}
+        head="Taeon Chapeau",neck="Shulmanu Collar",ear1="Crepuscular Earring",ear2="Karagoz Earring +1",
+        body="Pitre Tobe +3",hands="Mpaca's Gloves",ring1="Cath Palug Ring",ring2="Varar Ring +1",
+        back=gear.back.pet,waist="Incarnation Sash",legs="Heyoka Subligar +1",feet="Mpaca's Boots"}
+
+	sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {})
 
     sets.idle.Pet.Engaged.Ranged = set_combine(sets.idle.Pet.Engaged, {})
 
@@ -92,19 +96,19 @@ function init_gear_sets()
     sets.idle.Pet.Engaged.Magic = set_combine(sets.idle.Pet.Engaged, {})
 
 	sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged, {
-		head="Rao Kabuto +1",ear1="Handler's Earring",ear2="Handler's Earring +1",
+		head="Taeon Chapeau",ear1="Handler's Earring",ear2="Handler's Earring +1",
 		body="Rao Togi +1",hands="Rao Kote +1",ring1="Cath Palug Ring",
-		legs="Rao Haidate +1",feet="Rao Sune-Ate +1"	
+		legs="Foire Churidars +3",feet="Rao Sune-Ate +1"
 	})
 
     -- Defense sets
 
     sets.defense.PDT = {
-        head="Null Masque",neck="Loricate Torque +1",
-		body="Malignance Tabard",ring1="Defending Ring",
-        back="Moonlight Cape",waist="Moonbow Belt +1",legs="Malignance Tights",feet="Malignance Boots"}
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
-    sets.defense.MDT = set_combine(sets.defense.PDT, {ring2="Purity Ring"})
+    sets.defense.MDT = set_combine(sets.defense.PDT, {})
 
     sets.Kiting = {feet="Hermes' Sandals +1"}
 

@@ -36,7 +36,7 @@ function user_setup()
 
     gear.MovementFeet = {name="Danzo Sune-ate"}
     gear.DayFeet = "Danzo Sune-ate"
-    gear.NightFeet = "Hachiya Kyahan"
+    gear.NightFeet = "Hachiya Kyahan +3"
     
     select_movement_feet()
 end

@@ -21,7 +21,7 @@ function init_gear_sets()
     sets.precast.FC = {main="Cath Palug Hammer",
 		head="Bunzi's Hat",neck="Cleric's Torque +2",ear2="Malignance Earring",
 		body="Zendik Robe",hands="Gendewitha Gages +1",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",
-		back="Perimede Cape",waist="Embla Sash",legs="Gyve Trousers",feet="Regal Pumps +1"
+		back="Perimede Cape",waist="Embla Sash",legs="Volte Brais",feet="Regal Pumps +1"
 	}
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
@@ -53,7 +53,7 @@ function init_gear_sets()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo="Oshasha's Treatise",
-		head="Nyame Helm",neck="Fotia Gorget",ear1="Telos Earring",ear2="Cessance Earring",
+		head="Nyame Helm",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Shukuyu Ring",ring2="Epaminondas's Ring",
         waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
     
@@ -63,34 +63,34 @@ function init_gear_sets()
         back="Toro Cape",waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 
 	sets.precast.WS['Myrkr'] = {
-		head="Vanya Hood",neck="Cleric's Torque +2",ear1="Halasz Earring",ear2="Etiolation Earring",
+		head="Vanya Hood",neck="Cleric's Torque +2",ear1="Mendicant's Earring",ear2="Andoaa Earring",
 		body="Ebers Bliaut +2",hands="Regal Cuffs",ring1=gear.rings.left,ring2=gear.rings.right,
 		back="Fi Follet Cape +1",waist="Fucho-no-Obi",legs="Inyanga Shalwar +2",feet="Regal Pumps +1"}
 
     -- Midcast Sets
     
-    sets.midcast.FastRecast = set_combine(sets.precast.FC, {body="Zendik Robe",waist="Embla Sash"})
+    sets.midcast.FastRecast = set_combine(sets.precast.FC, {})
     
     -- Cure sets
     gear.default.obi_waist = "Witful Belt"
     gear.default.obi_back = "Mending Cape"
 
     sets.midcast.Cure = {
-		main="Queller Rod",sub="Genmei Shield",ammo="Staunch Tathlum +1",
+		main="Queller Rod",sub="Archduke's Shield",ammo="Staunch Tathlum +1",
         head="Vanya Hood",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Ebers Earring +1",
         body="Ebers Bliaut +2",hands="Kaykaus Cuffs +1",ring1=gear.rings.left,ring2=gear.rings.right,
         back="Alaunus's Cape",waist="Hachirin-no-Obi",legs="Ebers Pantaloons +2",feet="Vanya Clogs"}
 
     sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {body="Ebers Bliaut +2",back="Alaunus's Cape"})
 
-    sets.midcast.Curaga = set_combine(sets.midcast.Cure, {})
+    sets.midcast.Curaga = set_combine(sets.midcast.Cure, {body="Kaykaus Bliaut +1"})
 
     sets.midcast.CureMelee = set_combine(sets.midcast.Cure, {})
 	
     sets.midcast.Cursna = {main="Gambanteinn",
         head="Ebers Cap +1",neck="Debilis Medallion",ear2="Ebers Earring +1",
         body="Ebers Bliaut +2",hands="Fanatic Gloves",ring1="Haoma's Ring",ring2="Haoma's Ring",
-        back="Alaunus's Cape",waist="Gishdubar Sash",legs="Theophany Pantaloons +2",feet="Vanya Clogs"}
+        back="Alaunus's Cape",waist="Gishdubar Sash",legs="Theophany Pantaloons +3",feet="Vanya Clogs"}
 
     sets.midcast.StatusRemoval = {main="Yagrush",
         head="Ebers Cap +1",hands="Ebers Mitts +1",legs="Ebers Pantaloons +2"}
@@ -113,7 +113,7 @@ function init_gear_sets()
 
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {main="Bolelabunga",
         head="Inyanga Tiara +2",body="Piety Bliaut +3",hands="Ebers Mitts +1",ring1=gear.rings.left,ring2=gear.rings.right,
-        legs="Theophany Pantaloons +2"})
+        legs="Theophany Pantaloons +3"})
 
     sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {})
 
@@ -145,13 +145,13 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
     
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-    sets.idle = {main="Queller Rod", sub="Genmei Shield",ammo="Homiliary",
-		head="Null Masque",neck="Republican Platinum Medal",ear1="Etiolation Earring",ear2="Infused Earring",
-		body="Shamash Robe",hands="Bunzi's Gloves",ring1=gear.rings.left,ring2="Defending Ring",
-		back="Moonlight Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
+    sets.idle = {main="Queller Rod", sub="Archduke's Shield",ammo="Homiliary",
+		head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+		body="Shamash Robe",hands="Bunzi's Gloves",ring1=gear.rings.left,ring2="Murky Ring",
+		back="Alaunus's Cape",waist="Null Belt",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
     sets.idle.PDT = set_combine(sets.idle, {
-        neck="Loricate Torque +1",ring1="Defending Ring",ring2="Patricius Ring",back="Moonlight Cape"})
+        neck="Null Loop",ear1="Alabaster Earring"})
 
 	sets.idle.Town = set_combine(sets.idle, {})
 	sets.idle.Weak = set_combine(sets.idle, {})
@@ -162,14 +162,14 @@ function init_gear_sets()
     -- Defense sets
 
     sets.defense.PDT = {
-        neck="Loricate Torque +1",
-        hands="Gendewitha Gages +1",ring1="Patricius Ring",ring2="Defending Ring",
-        back="Moonlight Cape",legs="Gendewitha Spats"}
+        neck="Null Loop",ear1="Alabaster Earring",
+        hands="Gendewitha Gages +1",ring1="Murky Ring",ring2="Murky Ring",
+        back="Alaunus's Cape",legs="Gendewitha Spats"}
 
     sets.defense.MDT = {
-        head="Cath Palug Crown",neck="Loricate Torque +1",
-        ring1="Patricius Ring",ring2="Defending Ring",
-		back="Moonlight Cape"
+        head="Cath Palug Crown",neck="Null Loop",ear1="Alabaster Earring",
+        ring1="Defending Ring",ring2="Murky Ring",
+		back="Alaunus's Cape"
 	}
 
     sets.Kiting = {feet="Crier's Gaiters"}
@@ -185,7 +185,7 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-        head="Bunzi's Hat",neck="Null Loop",ear1="Telos Earring",ear2="Cessance Earring",
+        head="Bunzi's Hat",neck="Null Loop",ear1="Crepuscular Earring",ear2="Dignitary's Earring",
         body="Nyame Mail",hands="Bunzi's Gloves",ring1="Chirich Ring +1",ring2="Lehko's Ring",
         back="Null Shawl",waist="Windbuffet Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 

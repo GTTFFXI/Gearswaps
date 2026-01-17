@@ -1,6 +1,6 @@
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'RetaliationTank', 'Subtle')
+    state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'RetaliationTank', 'Subtle', 'StoreTP')
     state.WeaponskillMode:options('Normal', 'Acc', 'WSD', 'AccWSD', 'Proc', 'Subtle')
     state.HybridMode:options('Normal', 'PDT')
     state.CastingMode:options('Normal', 'Resistant')
@@ -16,7 +16,7 @@ function user_setup()
 	gear.wsdmg.feet = { name="Argosy Sollerets +1", augments={'STR+12','DEX+12','Attack+20',}}
     gear.wsdmg.daback = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.wsdmg.wsdback = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-	gear.wsdmg.vitback = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
+	gear.wsdmg.vitback = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','"Regen"+5',}}
 	gear.wsdmg.critback = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10','Phys. dmg. taken-10%',}}
 
 	gear.rings = {}
@@ -44,8 +44,8 @@ function init_gear_sets()
 	sets.precast.JA['Aggressor'] = {body="Agoge Lorica +3"}
 	sets.precast.JA['Provoke'] = set_combine(sets.enmity, {})
 	sets.precast.JA['Mighty Strikes'] = {hands="Agoge Mufflers +3"}
-	sets.precast.JA['Blood Rage'] = {body="Boii Lorica +2"}
-	sets.precast.JA['Warcry'] = {head="Agoge Mask +3"}
+	sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3"}
+	sets.precast.JA['Warcry'] = {head="Agoge Mask +4"}
 	sets.precast.JA['Tomahawk'] = {ammo="Throwing Tomahawk",feet="Agoge Calligae +3"}
 	
 	
@@ -68,12 +68,12 @@ function init_gear_sets()
 	sets.Lugra = {ear1="Thrud Earring"}
 	
 	sets.WSD = {ammo="Knobkierrie",
-		head="Agoge Mask +3",neck="Warrior's Bead Necklace +2",ear1="Thrud Earring",
+		head="Agoge Mask +4",neck="Warrior's Bead Necklace +2",ear1="Thrud Earring",
 		body="Nyame Mail",hands="Boii Mufflers +3",ring1="Epaminondas's Ring",ring2="Sroda Ring",
 		back=gear.wsdmg.wsdback,legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 	sets.WSCrit = {ammo="Yetshila +1",
-		head="Agoge Mask +3",ear2="Boii Earring +2",
+		head="Agoge Mask +4",ear2="Boii Earring +2",
 		body="Hjarrandi Breastplate",ring1="Lehko's Ring",ring2="Niqmaddu Ring",
 		back=gear.wsdmg.critback,waist="Sailfi Belt +1",feet="Boii Calligae +3"
 	}
@@ -88,8 +88,15 @@ function init_gear_sets()
 		back=gear.wsdmg.wsdback,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"
 	}
 
+	sets.WSProc = set_combine(sets.WSMAcc, {
+		head="Volte Cap",ear2="Dignitary's Earring",
+		hands="Pummeler's Mufflers +3",
+		back="Solemnity Cape",legs="Volte Tights",feet="Flamma Gambieras +2"
+	})
+
+
 	sets.precast.WS = {ammo="Coiste Bodhar",
-		head="Agoge Mask +3",neck="Fotia Gorget",ear1="Thrud Earring",ear2="Moonshade Earring",
+		head="Agoge Mask +4",neck="Fotia Gorget",ear1="Thrud Earring",ear2="Moonshade Earring",
 		body="Dagon Breastplate",hands="Sakpata's Gauntlets",ring1="Niqmaddu Ring",ring2="Regal Ring",
 		back=gear.wsdmg.daback,waist="Fotia Belt",legs="Boii Cuisses +3",feet="Sakpata's Leggings"}
 
@@ -103,10 +110,11 @@ function init_gear_sets()
 
 	sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS.WSD, sets.WSCrit, {ear1="Schere Earring",body="Sakpata's Breastplate",legs="Boii Cuisses +3"})
 	sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS.WSD, {ring1="Niqmaddu Ring",ring2="Regal Ring",legs="Boii Cuisses +3"})
+	sets.precast.WS["King's Justice"].Proc = set_combine(sets.WSProc, {})
 	sets.precast.WS["Metatron Torment"] = set_combine(sets.precast.WS.WSD, {})
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		neck="Warrior's Bead Necklace +2",ear1="Telos Earring",ear2="Boii Earring +2",
+		neck="Warrior's Bead Necklace +2",ear1="Crepuscular Earring",ear2="Boii Earring +2",
 		body="Pummeler's Lorica +3",ring1="Lehko's Ring",ring2="Regal Ring",
 		legs="Sakpata's Cuisses"})
 	sets.precast.WS.AccWSD = set_combine(sets.precast.WS.Acc, sets.WSD)
@@ -117,16 +125,16 @@ function init_gear_sets()
 	sets.precast.WS['True Strike'] = set_combine(sets.precast.WS, sets.WSCrit)
 	sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS, sets.WSD, sets.WSMAB)
 	sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS, sets.WSD, sets.WSMAB)
-	sets.precast.WS['Seraph Strike'].Proc = set_combine(sets.WSMAcc, {})
+	sets.precast.WS['Seraph Strike'].Proc = set_combine(sets.WSProc, {})
 
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS.WSD,{waist="Sailfi Belt +1"})
 	sets.precast.WS['Savage Blade'].Subtle = set_combine(sets.precast.WS['Savage Blade'],{body="Founder's Breastplate"})
 	sets.precast.WS['Circle Blade'] = set_combine(sets.precast.WS.WSD, {})
 	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, sets.WSD, sets.WSMAB)
 	sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS, sets.WSD, sets.WSMAB)
-	sets.precast.WS['Seraph Blade'].Proc = set_combine(sets.WSMAcc, {})
+	sets.precast.WS['Seraph Blade'].Proc = set_combine(sets.WSProc, {})
 	sets.precast.WS['Red Lotus Blade'] = set_combine(sets.precast.WS, sets.WSD, sets.WSMAB)
-	sets.precast.WS['Red Lotus Blade'].Proc = set_combine(sets.WSMAcc, {})
+	sets.precast.WS['Red Lotus Blade'].Proc = set_combine(sets.WSProc, {})
 	sets.precast.WS['Vorpal Blade'] = set_combine(sets.precast.WS, sets.WSCrit)
 	
 	sets.precast.WS['Upheaval'].Acc = set_combine(sets.precast.WS.Acc, {})
@@ -203,9 +211,9 @@ function init_gear_sets()
 	
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {ammo="Coiste Bodhar",
-		head="Null Masque",neck="Republican Platinum Medal",ear1="Telos Earring",ear2="Infused Earring",
-		body="Sacro Breastplate",hands="Sakpata's Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Sakpata's Cuisses",feet="Hermes' Sandals +1"}
+		head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+		body="Sacro Breastplate",hands="Sakpata's Gauntlets",ring1="Sheltered Ring",ring2="Murky Ring",
+		back=gear.wsdmg.vitback,waist="Null Belt",legs="Sakpata's Cuisses",feet="Hermes' Sandals +1"}
 
 	sets.idle.Town = set_combine(sets.idle, {})	
 	sets.idle.Twilight = set_combine(sets.idle.Town, sets.Twilight)
@@ -215,7 +223,7 @@ function init_gear_sets()
 
 	sets.defense.PDT = {
 		head="Sakpata's Helm",
-		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring2="Defending Ring",
+		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring2="Murky Ring",
 		legs="Sakpata's Cuisses",feet="Sakpata's Leggings" }
 	sets.defense.Twilight = set_combine(sets.defense.PDT, sets.Twilight)
 	sets.defense.MDT = set_combine(sets.defense.PDT, {})
@@ -237,9 +245,17 @@ function init_gear_sets()
 	sets.engaged = {ammo="Coiste Bodhar",
 	    head="Sakpata's Helm",neck="Warrior's Bead Necklace +2",ear1="Schere Earring",ear2="Boii Earring +2",
 		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring1="Lehko's Ring",ring2="Chirich Ring +1",
-		back=gear.wsdmg.daback,waist="Ioskeha Belt +1",legs="Agoge Cuisses +3",feet="Boii Calligae +3"}
+		back=gear.wsdmg.daback,waist="Ioskeha Belt +1",legs="Agoge Cuisses +4",feet="Boii Calligae +3"}
+		
+	sets.engaged.StoreTP = {ammo="Coiste Bodhar",
+		head="Hjarrandi Helm",neck="Warrior's Bead Necklace +2",ear1="Schere Earring",ear2="Dedition Earring",
+		body="Boii Lorica +3",hands="Sakpata's Gauntlets",ring1="Lehko's Ring",ring2="Chirich Ring +1",
+		back=gear.melee.back,waist="Gerdr Belt +1",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"
+	}
 	
 	sets.engaged.Chango = set_combine(sets.engaged, {})
+	sets.engaged.Conqueror = set_combine(sets.engaged, {})
+	sets.engaged.Ukonvasara = set_combine(sets.engaged, {})
 	sets.engaged.Scythe = set_combine(sets.engaged, {ear1="Schere Earring"})
 	sets.engaged.H2H = set_combine(sets.engaged, {})
 	sets.engaged.Nandaka = set_combine(sets.engaged, {})
@@ -248,15 +264,15 @@ function init_gear_sets()
 	
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		neck="Warrior's Bead Necklace +2",ear1="Telos Earring",ear2="Boii Earring +2",
+		neck="Warrior's Bead Necklace +2",ear1="Crepuscular Earring",ear2="Boii Earring +2",
 		hands="Emicho Gauntlets +1",
 		legs="Sakpata's Cuisses"})
 
 	sets.engaged.Hybrid = set_combine(sets.engaged, sets.hybrid)
 
 	sets.engaged.RetaliationTank = set_combine(sets.engaged, {ammo="Staunch Tathlum +1",
-		head="Sakpata's Helm",ear1="Odnowa Earring +1",
-		body="Sakpata's Breastplate",hands="Pummeler's Mufflers +3",ring2="Moonlight Ring",
+		head="Sakpata's Helm",
+		body="Sakpata's Breastplate",hands="Pummeler's Mufflers +3",ring2="Murky Ring",
 		legs="Sakpata's Cuisses",feet="Boii Calligae +3"})
 
 	sets.engaged.Ragnarok.Acc = set_combine(sets.engaged.Acc, {})
@@ -265,6 +281,12 @@ function init_gear_sets()
 	sets.engaged.Chango.Acc = set_combine(sets.engaged.Acc, {})
 	sets.engaged.Chango.StoreTP = set_combine(sets.engaged.StoreTP, {})
 	sets.engaged.Chango.Hybrid = set_combine(sets.engaged.Chango, sets.hybrid)
+	sets.engaged.Conqueror.Acc = set_combine(sets.engaged.Acc, {})
+	sets.engaged.Conqueror.StoreTP = set_combine(sets.engaged.StoreTP, {})
+	sets.engaged.Conqueror.Hybrid = set_combine(sets.engaged.Conqueror, sets.hybrid)
+	sets.engaged.Ukonvasara.Acc = set_combine(sets.engaged.Acc, {})
+	sets.engaged.Ukonvasara.StoreTP = set_combine(sets.engaged.StoreTP, {})
+	sets.engaged.Ukonvasara.Hybrid = set_combine(sets.engaged.Ukonvasara, sets.hybrid)
 	sets.engaged.Scythe.Acc = set_combine(sets.engaged.Acc, {})
 	sets.engaged.Scythe.StoreTP = set_combine(sets.engaged.StoreTP, {})
 	sets.engaged.Scythe.Hybrid = set_combine(sets.engaged.Chango, sets.hybrid)
@@ -283,8 +305,13 @@ function init_gear_sets()
 		back=gear.melee.back,waist="Ioskeha Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"
 	})
 	sets.engaged.Chango.Subtle = set_combine(sets.engaged['Shining One'].Subtle, {})
+	sets.engaged.Conqueror.Subtle = set_combine(sets.engaged['Shining One'].Subtle, {})
+	sets.engaged.Ukonvasara.Subtle = set_combine(sets.engaged['Shining One'].Subtle, {})
 	sets.engaged.Subtle = set_combine(sets.engaged['Shining One'].Subtle, {})
 	
+	sets.engaged.Conqueror.AM = set_combine(sets.engaged.Conqueror, sets.engaged.StoreTP)
+	sets.engaged.Ukonvasara.AM = set_combine(sets.engaged.Ukonvasara, {})
+		
 	sets.engaged.DW = set_combine(sets.engaged, sets.DW)
 	sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, sets.DW)
 	sets.engaged.DW.StoreTP = set_combine(sets.engaged.StoreTP, sets.DW)

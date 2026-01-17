@@ -174,7 +174,8 @@ function job_setup()
     unbridled_spells = S{
         'Absolute Terror','Bilgestorm','Blistering Roar','Bloodrake','Carcharian Verve',
         'Droning Whirlwind','Gates of Hades','Harden Shell','Pyric Bulwark','Thunderbolt',
-        'Tourbillion','Mighty Guard'
+        'Tourbillion','Mighty Guard','Tearing Gust','Uproot','Crashing Thunder','Polar Roar',
+		'Cruel Joke','Cesspool'
     }
 end
 

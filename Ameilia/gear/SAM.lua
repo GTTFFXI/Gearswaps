@@ -1,7 +1,7 @@
 
 -- Setup vars that are user-dependent.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'Subtle')
+    state.OffenseMode:options('Normal', 'Acc', 'Hybrid', 'Subtle', 'CP')
     state.HybridMode:options('Normal', 'PDT', 'Reraise')
     state.WeaponskillMode:options('Normal', 'HighBuff', 'Acc', 'Proc')
     state.PhysicalDefenseMode:options('PDT', 'Reraise')
@@ -14,7 +14,7 @@ function user_setup()
 	    
 	gear.wsdmg = {}
 	gear.wsdmg.head = { name="Valorous Mask", augments={'Weapon skill damage +4%','STR+4','Accuracy+12','Attack+15',}}
-	gear.wsdmg.back = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.wsdmg.back = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 	
 	gear.crit = {}
 	gear.crit.feet = { name="Ryuo Sune-Ate +1", augments={'STR+12','Attack+25','Crit. hit rate+4%',}}
@@ -33,9 +33,9 @@ function init_gear_sets()
 	--------------------------------------
 	
 	sets.midcast.RangedAttack = {
-		head="Sakonji Kabuto +3",neck="Null Loop",ear1="Telos Earring",ear2="Crepuscular Earring",
+		head="Sakonji Kabuto +3",neck="Null Loop",ear1="Crepuscular Earring",ear2="Kasuga Earring +1",
 		body="Nyame Mail",hands="Kasuga Kote +3",ring1="Crepuscular Ring",ring2="Regal Ring",
-		back="Null Shawl",waist="Null Belt",legs="Volte Tights",feet="Wakido Sune-Ate +3"}
+		back="Null Shawl",waist="Null Belt",legs="Volte Tights",feet="Wakido Sune-Ate +4"}
 
 	
 	-- Precast Sets
@@ -47,13 +47,13 @@ function init_gear_sets()
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {
 		head="Valorous Mask",
-		body="Sakonji Domaru +3",hands="Leyline Gloves",
-		back="Moonlight Cape",feet="Nyame Sollerets"}
+		body="Sakonji Domaru +4",hands="Leyline Gloves",
+		feet="Nyame Sollerets"}
 		
 	-- Don't need any special gear for Healing Waltz.
 	sets.precast.Waltz['Healing Waltz'] = {}
 
-	sets.precast.FC = {ear1="Etiolation Earring",body="Sacro Breastplate",hands="Leyline Gloves",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",neck="Baetyl Pendant"}
+	sets.precast.FC = {body="Sacro Breastplate",hands="Leyline Gloves",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",neck="Baetyl Pendant"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
 
@@ -62,24 +62,24 @@ function init_gear_sets()
 	-- Default set for any weaponskill that isn't any more specifically defined
 
 	sets.precast.RangedAttack = {
-		head="Nyame Helm",neck="Null Loop",ear1="Telos Earring",ear2="Crepuscular Earring",
+		head="Nyame Helm",neck="Null Loop",ear1="Crepuscular Earring",ear2="Kasuga Earring +1",
 		body="Nyame Mail",hands="Kasuga Kote +3",ring1="Crepuscular Ring",ring2="Regal Ring",
-		back="Null Shawl",waist="Null3555555 Belt",legs="Nyame Flanchard",feet="Wakido Sune-Ate +3"}
+		back="Null Shawl",waist="Null Belt",legs="Nyame Flanchard",feet="Wakido Sune-Ate +4"}
 	
 	sets.Lugra = {}
 	
 	sets.precast.WS = {ammo="Knobkierrie",
 		head="Mpaca's Cap",neck="Samurai's Nodowa +2",ear1="Thrud Earring",ear2="Moonshade Earring",
-		body="Sakonji Domaru +3",hands="Kasuga Kote +3",ring1="Sroda Ring",ring2="Epaminondas's Ring",
+		body="Sakonji Domaru +4",hands="Kasuga Kote +3",ring1="Sroda Ring",ring2="Epaminondas's Ring",
 		back=gear.wsdmg.back,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.HighBuff = set_combine(sets.precast.WS, {hands="Nyame Gauntlets",feet="Nyame Sollerets"})
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		head="Wakido Kabuto +3",neck="Samurai's Nodowa +2",ear1="Telos Earring",ear2="Crepuscular Earring",
-		body="Sakonji Domaru +3",hands="Tatenashi Gote +1",ring1="Niqmaddu Ring",ring2="Regal Ring",
-		back=gear.wsdmg.back,waist="Null Belt",legs="Kasuga Haidate +3",feet="Wakido Sune-Ate +3"})
+		head="Wakido Kabuto +3",neck="Samurai's Nodowa +2",ear1="Crepuscular Earring",ear2="Kasuga Earring +1",
+		body="Sakonji Domaru +4",hands="Tatenashi Gote +1",ring1="Niqmaddu Ring",ring2="Regal Ring",
+		back=gear.wsdmg.back,waist="Null Belt",legs="Kasuga Haidate +3",feet="Wakido Sune-Ate +4"})
 
 	sets.precast.WS.Proc = set_combine(sets.precast.WS.Acc, {ammo="Coiste Bodhar",
-		head="Flamma Zucchetto +2",neck="Null Loop",body="Volte Jupon",hands="Leyline Gloves",ring1="Lehko's Ring",ring2="Chirich Ring +1",
+		head="Null Masque",neck="Null Loop",body="Volte Jupon",hands="Leyline Gloves",ring1="Lehko's Ring",ring2="Chirich Ring +1",
 		back="Null Shawl",legs="Volte Tights",feet="Flamma Gambieras +2"
 	})
 	
@@ -93,7 +93,7 @@ function init_gear_sets()
 	
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 	sets.precast.WS['Apex Arrow'] = set_combine(sets.midcast.RangedAttack, {
-		neck="Null Loop",ear1="Telos Earring",ear2="Thrud Earring",
+		neck="Null Loop",ear1="Crepuscular Earring",ear2="Thrud Earring",
 		back=gear.wsdmg.back,waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	sets.precast.WS['Namas Arrow'] = set_combine(sets.precast.WS['Apex Arrow'], {})
 	
@@ -114,7 +114,7 @@ function init_gear_sets()
 	sets.precast.WS['Stardiver'].HighBuff = set_combine(sets.precast.WS['Stardiver'], {})
 	
 	sets.engaged = {ammo="Coiste Bodhar",
-		head="Flamma Zucchetto +2",neck="Samurai's Nodowa +2",ear1="Dedition Earring",ear2="Kasuga Earring +1",
+		head="Kasuga Kabuto +3",neck="Samurai's Nodowa +2",ear1="Dedition Earring",ear2="Kasuga Earring +1",
 		body="Kasuga Domaru +3",hands="Tatenashi Gote +1",ring1="Lehko's Ring",ring2="Chirich Ring +1",
 		back="Null Shawl",waist="Ioskeha Belt +1",legs="Kasuga Haidate +3",feet=gear.tp.feet}
 
@@ -128,10 +128,10 @@ function init_gear_sets()
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = set_combine(sets.engaged, sets.Reraise, {
-		head="Wakido Kabuto +3",neck="Republican Platinum Medal",ear1="Dedition Earring",ear2="Infused Earring",
-		body="Sacro Breastplate",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
-		back="Moonlight Cape",legs="Nyame Flanchard",feet="Danzo Sune-Ate"})
-	sets.idle = set_combine(sets.idle, {ring1=gear.rings.left,ring2=gear.rings.right})
+		head="Wakido Kabuto +3",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+		body="Sacro Breastplate",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Murky Ring",
+		back=gear.wsdmg.back,waist="Null Belt",legs="Nyame Flanchard",feet="Danzo Sune-Ate"})
+	sets.idle = set_combine(sets.idle, {ring1=gear.rings.left})
 	sets.idle.Town = set_combine(sets.idle, {})
 	sets.idle.Field = set_combine(sets.idle, {})
 	sets.idle.Reraise = set_combine(sets.idle.Town, sets.Reraise)
@@ -139,12 +139,12 @@ function init_gear_sets()
 	
 	-- Defense sets
 	sets.defense.PDT = {ammo="Staunch Tathlum +1",
-		head="Mpaca's Cap",neck="Loricate Torque +1",ear2="Odnowa Earring +1",
-		body="Kasuga Domaru +3",ring2="Defending Ring",
+		head="Mpaca's Cap",
+		body="Kasuga Domaru +3",ring1="Defending Ring",ring2="Murky Ring",
 		back="Null Shawl",waist="Null Belt",legs="Mpaca's Hose"}
 
 	sets.defense.Reraise = set_combine(sets.defense.PDT, sets.Reraise)
-	sets.defense.MDT = set_combine(sets.defense.PDT, {ring1="Purity Ring"})
+	sets.defense.MDT = set_combine(sets.defense.PDT, {ring1="Defending Ring"})
 
 	sets.Kiting = {feet="Danzo Sune-Ate"}
 
@@ -154,10 +154,11 @@ function init_gear_sets()
 	-- Engaged sets
 
 	sets.engaged.Norifusa = set_combine(sets.engaged, {feet="Sakonji Sune-Ate +3"})
+	sets.engaged.CP = set_combine(sets.engaged, {body="Crepuscular Mail"})
 	
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
 		head="Mpaca's Cap",
-		body="Kasuga Domaru +3",ring1="Lehko's Ring",ring2="Defending Ring",
+		body="Kasuga Domaru +3",ring1="Lehko's Ring",ring2="Murky Ring",
 		back="Null Shawl",waist="Ioskeha Belt +1",legs="Kasuga Haidate +3",feet=gear.tp.feet})
 	sets.engaged.Kendatsuba = set_combine(sets.engaged, {head="Mpaca's Cap",legs="Mpaca's Hose"})
 	
@@ -171,9 +172,9 @@ function init_gear_sets()
 	sets.engaged.Norifusa.Kendatsuba = set_combine(sets.engaged.Kendatsuba, {})
 	
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		head="Wakido Kabuto +3",neck="Samurai's Nodowa +2",ear1="Telos Earring",ear2="Crepuscular Earring",
+		head="Wakido Kabuto +3",neck="Samurai's Nodowa +2",ear1="Crepuscular Earring",ear2="Kasuga Earring +1",
 		body="Kasuga Domaru +3",hands="Tatenashi Gote +1",ring2="Regal Ring",
-		back="Null Shawl",waist="Ioskeha Belt +1",legs="Kasuga Haidate +3",feet="Wakido Sune-Ate +3"})
+		back="Null Shawl",waist="Ioskeha Belt +1",legs="Kasuga Haidate +3",feet="Wakido Sune-Ate +4"})
 	sets.engaged.PDT = set_combine(sets.engaged, sets.defense.PDT)
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.defense.PDT)
 	sets.engaged.Reraise = set_combine(sets.engaged, sets.Reraise)

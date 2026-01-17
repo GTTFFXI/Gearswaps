@@ -33,12 +33,12 @@ function init_gear_sets()
 
 	sets.precast.JA['No Foot Rise'] = {body="Horos Casaque +3"}
 
-	sets.precast.JA['Trance'] = {head="Horos Tiara +3"}
+	sets.precast.JA['Trance'] = {head="Horos Tiara +4"}
 	
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {
-		head="Horos Tiara +3",neck="Etoile Gorget +2",ear1="Handler's Earring +1",ear2="Handler's Earring",
+		head="Horos Tiara +4",neck="Etoile Gorget +2",ear1="Handler's Earring +1",ear2="Handler's Earring",
 		body="Maxixi Casaque +3",hands="Gleti's Gauntlets",ring1="Metamorph Ring +1",
 		waist="Chaac Belt",legs="Nyame Flanchard",feet="Maxixi Toe Shoes +3"}
 		
@@ -50,9 +50,9 @@ function init_gear_sets()
 	sets.precast.Jig = {feet="Maxixi Toe Shoes +3"}
 
 	sets.precast.Step = {
-		head="Maxixi Tiara +3",neck="Etoile Gorget +2",ear1="Odr Earring",ear2="Telos Earring",
+		head="Maxixi Tiara +3",neck="Etoile Gorget +2",ear1="Crepuscular Earring",ear2="Odr Earring",
 		body="Volte Jupon",hands="Gleti's Gauntlets",ring1="Lehko's Ring",ring2="Chirich Ring +1",
-		back="Null Shawl",waist="Chaac Belt",legs="Gleti's Breeches",feet="Horos Toe Shoes +3"}
+		back="Null Shawl",waist="Chaac Belt",legs="Gleti's Breeches",feet="Horos Toe Shoes +4"}
 
 	sets.precast.Flourish1 = {}
 	sets.precast.Flourish1['Violent Flourish'] = {
@@ -83,10 +83,10 @@ function init_gear_sets()
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Regal Ring",ring2="Epaminondas's Ring",
 		back=gear.back.ws,waist="Gerdr Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		ear1="Crepuscular Earring",ear2="Telos Earring"
+		ear1="Crepuscular Earring",ear2="Odr Earring"
 	})
 	sets.precast.WS.Proc = {ammo="Staunch Tathlum +1",
-		head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Crepuscular Earring",ear2="Dignitary's Earring",
+		head="Malignance Chapeau",neck="Null Loop",ear1="Crepuscular Earring",ear2="Dignitary's Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Crepuscular Ring",ring2="Chirich Ring +1",
 		back="Repulse Mantle",waist="Platinum Moogle Belt",legs="Malignance Tights",feet="Malignance Boots"}
 	
@@ -113,7 +113,7 @@ function init_gear_sets()
 	
 	-- Resting sets
 	sets.resting = {neck="Bathy Choker +1",
-		ring1="Sheltered Ring",ring2="Defending Ring"}
+		ring1="Sheltered Ring",ring2="Murky Ring"}
 	sets.ExtraRegen = {}
 	
 
@@ -121,8 +121,8 @@ function init_gear_sets()
 
 	sets.idle = {
 		head="Null Masque",neck="Republican Platinum Medal",ear1="Sherida Earring",ear2="Infused Earring",
-		body="Gleti's Cuirass",hands="Gleti's Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Gleti's Breeches",feet="Skadi's Jambeaux +1"}
+		body="Gleti's Cuirass",hands="Gleti's Gauntlets",ring1="Sheltered Ring",ring2="Murky Ring",
+		waist="Null Belt",legs="Gleti's Breeches",feet="Skadi's Jambeaux +1"}
 
 	sets.idle.Town = set_combine(sets.idle, {})
 	sets.idle.Weak = set_combine(sets.idle, {})
@@ -130,13 +130,13 @@ function init_gear_sets()
 	-- Defense sets
 
 	sets.defense.Evasion = {
-		head="Malignance Chapeau",
-		body="Malignance Tabard",hands="Malignance Gloves",ring1="Moonlight Ring",ring2="Defending Ring",
-		back=gear.back.melee,legs="Malignance Tights",feet="Malignance Boots"}
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
 	sets.defense.PDT = set_combine(sets.defense.Evasion, {})
 
-	sets.defense.MDT = set_combine(sets.defense.PDT, {back="Moonlight Cape"})
+	sets.defense.MDT = set_combine(sets.defense.PDT, {})
 	
 	sets.Kiting = {feet="Skadi's Jambeaux +1"}
 
@@ -149,23 +149,23 @@ function init_gear_sets()
 	
 	-- Normal melee group
 	sets.engaged = {ammo="Coiste Bodhar",
-		head="Adhemar Bonnet +1",neck="Etoile Gorget +2",ear1="Sherida Earring",ear2="Telos Earring",
+		head="Adhemar Bonnet +1",neck="Etoile Gorget +2",ear1="Sherida Earring",ear2="Dedition Earring",
 		body="Horos Casaque +3",hands="Adhemar Wristbands +1",ring1="Lehko's Ring",ring2="Gere Ring",
-		back=gear.back.melee,waist="Sailfi Belt +1",legs="Samnuha Tights",feet="Horos Toe Shoes +3"}
+		back=gear.back.melee,waist="Sailfi Belt +1",legs="Samnuha Tights",feet="Horos Toe Shoes +4"}
 		
 	sets.engaged.EP = set_combine(sets.engaged, {head="Maculele Tiara +3",body="Gleti's Cuirass",hands="Gleti's Gauntlets",legs="Gleti's Breeches"})
 	
 	sets.engaged.AM = set_combine(sets.engaged, {
 		head="Maculele Tiara +3",body="Malignance Tabard",hands="Malignance Gloves",ring1="Lehko's Ring",ring2="Chirich Ring +1",
-		waist="Gerdr Belt +1",legs="Malignance Tights",feet="Horos Toe Shoes +3"})
+		waist="Gerdr Belt +1",legs="Malignance Tights",feet="Horos Toe Shoes +4"})
 	
 	sets.engaged.Acc = set_combine(sets.engaged, 
-		{neck="Etoile Gorget +2",ear1="Odr Earring",ear2="Telos Earring",
+		{neck="Etoile Gorget +2",ear1="Crepuscular Earring",ear2="Odr Earring",
 		ring1="Regal Ring",ring2="Ilabrat Ring",
 		back=gear.back.melee,waist="Null Belt",legs="Malignance Tights"})
 	
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
-		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",ring2="Defending Ring",legs="Malignance Tights",feet="Malignance Boots"
+		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",legs="Malignance Tights",feet="Malignance Boots"
 	})
 	
 	sets.engaged.Evasion = set_combine(sets.engaged, sets.defense.Evasion)
@@ -177,7 +177,7 @@ function init_gear_sets()
 	sets.engaged.Terpsichore = set_combine(sets.engaged, {})
 	sets.engaged.Terpsichore.AM = set_combine(sets.engaged.Terpsichore, {
 		head="Maculele Tiara +3",body="Malignance Tabard",hands="Malignance Gloves",ring1="Lehko's Ring",ring2="Chirich Ring +1",
-		waist="Gerdr Belt +1",legs="Malignance Tights",feet="Horos Toe Shoes +3"})
+		waist="Gerdr Belt +1",legs="Malignance Tights",feet="Horos Toe Shoes +4"})
 	
 	sets.engaged.Twashtar = set_combine(sets.engaged, {})
 	sets.engaged.Twashtar.AM = set_combine(sets.engaged.Twashtar, {

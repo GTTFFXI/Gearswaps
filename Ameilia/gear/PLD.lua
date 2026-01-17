@@ -52,8 +52,8 @@ function init_gear_sets()
     sets.MP_Knockback = set_combine(sets.Knockback, sets.MP)
     
 	sets.engaged = {ammo="Staunch Tathlum +1",
-		head="Chevalier's Armet +3",neck="Sacro Gorget",ear1="Tuisto Earring",ear2="Odnowa Earring +1",
-		body="Reverence Surcoat +3",hands="Souveran Handschuhs +1",ring1="Moonlight Ring",ring2="Moonbeam Ring",
+		head="Chevalier's Armet +3",neck="Sacro Gorget",ear1="Tuisto Earring",ear2="Alabaster Earring",
+		body="Reverence Surcoat +3",hands="Souveran Handschuhs +1",ring1="Moonlight Ring",ring2="Supershear Ring",
 		back="Moonlight Cape",waist="Creed Baudrier",legs="Chevalier's Cuisses +2",feet="Souveran Schuhs +1"}
 
 	sets.engaged.Knockback = set_combine(sets.engaged, sets.Knockback)
@@ -65,7 +65,7 @@ function init_gear_sets()
 	
 	sets.SIRD = {ammo="Staunch Tathlum +1",
 		head="Souveran Schaller +1",neck="Moonlight Necklace",
-		body="Chevalier's Cuirass +3",hands="Regal Gauntlets",
+		body="Chevalier's Cuirass +3",hands="Regal Gauntlets",ring1="Murky Ring",
 		back=gear.capes.sird,legs="Founder's Hose"}
 	
 	--------------------------------------
@@ -106,7 +106,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.FC = {
-        head="Chevalier's Armet +3",neck="Baetyl Pendant",ear1="Etiolation Earring",
+        head="Chevalier's Armet +3",neck="Baetyl Pendant",
 		body="Reverence Surcoat +3",hands="Leyline Gloves",ring1="Lebeche Ring",ring2="Weatherspoon Ring +1",
 		back=gear.capes.sird,legs="Founder's Hose",feet="Chevalier's Sabatons +3"}
 
@@ -122,7 +122,7 @@ function init_gear_sets()
 		body="Dagon Breastplate",hands="Sakpata's Gauntlets",ring1="Shukuyu Ring",ring2="Regal Ring",
 		back=gear.capes.wsd,waist="Fotia Belt",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		head="Null Masque",ear1="Telos Earring",ear2="Crepuscular Earring",
+		head="Null Masque",ear1="Dignitary's Earring",ear2="Chevalier's Earring +1",
 		ring1="Lehko's Ring",ring2="Regal Ring",
 		legs="Carmine Cuisses +1"})
 
@@ -140,6 +140,8 @@ function init_gear_sets()
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",
 		back=gear.capes.wsd,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
 	})
+	
+	sets.precast.WS['Atonement'] = set_combine(sets.precast.WS['Savage Blade'], {ear1="Ishvara Earring",ring2="Beithir Ring"})
     
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS['Savage Blade'], {})
 
@@ -188,12 +190,14 @@ function init_gear_sets()
 	sets.Kiting = {legs="Carmine Cuisses +1"}
     -- Idle sets
     sets.idle = set_combine(sets.engaged, {ammo="Homiliary",
-		head="Null Masque",neck="Republican Platinum Medal",body="Crepuscular Mail",hands="Nyame Gauntlets",ring1=gear.rings.left,back=gear.capes.melee,legs="Carmine Cuisses +1",feet="Nyame Sollerets"})
+		head="Null Masque",neck="Republican Platinum Medal",
+		body="Crepuscular Mail",hands="Nyame Gauntlets",ring1="Murky Ring",ring2=gear.rings.right,
+		back=gear.capes.melee,waist="Null Belt",legs="Carmine Cuisses +1",feet="Nyame Sollerets"})
 
 	sets.idle.Town = set_combine(sets.idle, {})	
 	sets.idle.Reraise = set_combine(sets.idle.Town, sets.Reraise)
 	sets.idle.Weak = set_combine(sets.idle.Town, sets.Reraise)
-	sets.idle.DT = set_combine(sets.idle, {neck="Loricate Torque +1",body="Reverence Surcoat +3",ring1="Moonlight Ring",ring2="Defending Ring"})
+	sets.idle.DT = set_combine(sets.idle, {neck="Null Loop",body="Reverence Surcoat +3",ring1="Moonlight Ring",ring2="Defending Ring"})
 	    
     sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
     
@@ -229,7 +233,7 @@ function init_gear_sets()
     --------------------------------------
     
 	sets.engaged.DD = {ammo="Coiste Bodhar",
-		head="Sakpata's Helm",neck="Null Loop",ear1="Telos Earring",ear2="Cessance Earring",
+		head="Sakpata's Helm",neck="Null Loop",ear1="Crepuscular Earring",ear2="Dedition Earring",
 		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring1="Lehko's Ring",ring2="Chirich Ring +1",
 		back=gear.capes.melee,waist="Sailfi Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 
@@ -237,7 +241,7 @@ function init_gear_sets()
 	sets.engaged.DD.MP = set_combine(sets.engaged.DD, sets.MP)
 	sets.engaged.DD.MP_Knockback = set_combine(sets.engaged.DD, sets.MP_Knockback)
 
-	sets.engaged.Acc = set_combine(sets.engaged.DD, {ear2="Crepuscular Earring",waist="Null Belt"})
+	sets.engaged.Acc = set_combine(sets.engaged.DD, {ear1="Crepuscular Earring",ear2="Chevalier's Earring +1",waist="Null Belt"})
 	sets.engaged.Reraise = set_combine(sets.engaged, sets.Reraise)
 	sets.engaged.Acc.Reraise = set_combine(sets.engaged.Acc, sets.Reraise)
 	sets.engaged.PDT = set_combine(sets.engaged, sets.defense.PDT)
@@ -251,6 +255,6 @@ function init_gear_sets()
     -- Custom buff sets
     --------------------------------------
 
-    sets.buff.Doom = {neck="Nicander's Necklace",ring1="Purity Ring",ring2="Saida Ring",waist="Gishdubar Sash"}
+    sets.buff.Doom = {neck="Nicander's Necklace",ring2="Saida Ring",waist="Gishdubar Sash"}
     sets.buff.Cover = {head="Reverence Coronet +1", body="Caballarius Surcoat +3"}
 end

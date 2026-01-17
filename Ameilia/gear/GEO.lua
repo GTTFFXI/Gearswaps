@@ -17,8 +17,8 @@ end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
-	sets.skill = {main="Idris",sub="Genmei Shield",head="Azimuth Hood +2",neck="Incanter's Torque",
-		body="Bagua Tunic +3",hands="Geomancy Mitaines +2",ring1=gear.rings.left,ring2=gear.rings.right,
+	sets.skill = {main="Idris",sub="Ammurapi Shield",head="Azimuth Hood +2",neck="Incanter's Torque",
+		body="Bagua Tunic +3",hands="Geomancy Mitaines +3",ring1=gear.rings.left,ring2=gear.rings.right,
 		back=gear.capes.magic,waist="Kobo Obi"}
 
     -- Precast sets to enhance JAs
@@ -31,7 +31,7 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
 
-    sets.precast.FC = {main="Idris",sub="Genmei Shield",
+    sets.precast.FC = {main="Idris",sub="Ammurapi Shield",
 		head="Merlinic Hood",ear2="Malignance Earring", neck="Baetyl Pendant",
         body="Zendik Robe",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",
 		back="Perimede Cape",waist="Embla Sash",legs="Volte Brais",feet="Regal Pumps +1"}
@@ -45,7 +45,7 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-		head="Nyame Helm",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+		head="Nyame Helm",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Chirich Ring +1",ring2="Epaminondas's Ring",
         back="Null Shawl",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
@@ -109,22 +109,22 @@ function init_gear_sets()
     -- Idle/resting/defense/etc sets
     --------------------------------------
 
-    sets.idle = {main="Idris",sub="Genmei Shield",range="Dunna",
-        head="Null Masque",neck="Republican Platinum Medal",ear1="Etiolation Earring",ear2="Infused Earring",
-        body="Shamash Robe",hands="Bagua Mitaines +3",ring1=gear.rings.left,ring2="Defending Ring",
-        back="Moonlight Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
+    sets.idle = {main="Idris",sub="Ammurapi Shield",range="Dunna",
+        head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+        body="Shamash Robe",hands="Bagua Mitaines +3",ring1=gear.rings.left,ring2="Murky Ring",
+        back=gear.capes.magic,waist="Null Belt",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
     sets.resting = set_combine(sets.idle, {})
 
     sets.idle.PDT = set_combine(sets.idle, {
-        head="Null Masque",neck="Loricate Torque +1",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Patricius Ring",ring2="Defending Ring",
-        back="Moonlight Cape",legs="Nyame Flanchard",feet="Nyame Sollerets"})
+        head="Null Masque",neck="Null Loop",ear1="Alabaster Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Murky Ring",
+        legs="Nyame Flanchard",feet="Nyame Sollerets"})
 
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = set_combine(sets.idle, {main="Idris",
 		head="Azimuth Hood +2",neck="Bagua Charm +2",ear1="Handler's Earring +1",ear2="Handler's Earring",
-		hands="Geomancy Mitaines +2",ring1=gear.rings.left,ring2="Defending Ring",
+		hands="Geomancy Mitaines +3",ring1=gear.rings.left,ring2="Murky Ring",
 		back=gear.capes.magic,legs="Telchine Braconi",feet="Bagua Sandals +3"
 	})
 
@@ -143,9 +143,9 @@ function init_gear_sets()
     -- Defense sets
 
     sets.defense.PDT = {
-        head="Null Masque",neck="Loricate Torque +1",ear2="Malignance Earring",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Patricius Ring",ring2="Defending Ring",
-        back="Moonlight Cape",waist="Witful Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+        head="Null Masque",neck="Null Loop",ear1="Alabaster Earring",ear2="Malignance Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Murky Ring",
+        waist="Witful Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.defense.MDT = {}
 
@@ -165,7 +165,7 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-		head="Azimuth Hood +2",neck="Null Loop",ear1="Telos Earring",ear2="Crepuscular Earring",
+		head="Azimuth Hood +2",neck="Null Loop",ear1="Dignitary's Earring",ear2="Crepuscular Earring",
         body="Azimuth Coat +2",hands="Azimuth Gloves +2",ring1="Chirich Ring +1",ring2="Lehko's Ring",
         back="Null Shawl",waist="Null Belt",legs="Azimuth Tights +2",feet="Azimuth Gaiters +2"}
 
@@ -173,5 +173,5 @@ function init_gear_sets()
     -- Custom buff sets
     --------------------------------------
 
-	sets.buff.Doom = {ring1="Purity Ring",ring2="Saida Ring",waist="Gishdubar Sash"}
+	sets.buff.Doom = {ring2="Saida Ring",waist="Gishdubar Sash"}
 end

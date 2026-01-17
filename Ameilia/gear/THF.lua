@@ -12,7 +12,7 @@ function user_setup()
     gear.AugQuiahuiz = {name="Quiahuiz Trousers", augments={'Haste+2','"Snapshot"+2','STR+8'}}
 	gear.capes = {}
 	gear.capes.tp = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}}
-	gear.capes.ws = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
+	gear.capes.ws = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','"Regen"+5',}}
 
     -- Additional local binds
     send_command('bind ^` input /ja "Flee" <me>')
@@ -33,12 +33,12 @@ function init_gear_sets()
 
 	sets.buff['Sneak Attack'] = {
 		head="Gleti's Mask",neck="Null Loop",ear1="Sherida Earring",ear2="Odr Earring",
-		body="Pillager's Vest +3",hands="Nyame Gauntlets",ring1="Lehko's Ring",ring2="Ilabrat Ring",
+		body="Pillager's Vest +4",hands="Nyame Gauntlets",ring1="Lehko's Ring",ring2="Ilabrat Ring",
 		back=gear.capes.ws,waist="Chaac Belt",legs="Gleti's Breeches",feet="Gleti's Boots"}
 
 	sets.buff['Trick Attack'] = {
 		head="Gleti's Mask",neck="Null Loop",ear1="Sherida Earring",ear2="Odr Earring",
-		body="Pillager's Vest +3",hands="Nyame Gauntlets",ring1="Lehko's Ring",ring2="Ilabrat Ring",
+		body="Pillager's Vest +4",hands="Nyame Gauntlets",ring1="Lehko's Ring",ring2="Ilabrat Ring",
 		back=gear.capes.ws,waist="Chaac Belt",legs="Gleti's Breeches",feet="Gleti's Boots"}
 		
 	sets.buff["Assassin's Charge"] = {}
@@ -57,11 +57,11 @@ function init_gear_sets()
 	sets.precast.JA['Collaborator'] = {}
 	sets.precast.JA['Accomplice'] = {}
 	sets.precast.JA['Flee'] = {feet="Pillager's Poulaines +3"}
-	sets.precast.JA['Hide'] = {body="Pillager's Vest +3"}
+	sets.precast.JA['Hide'] = {body="Pillager's Vest +4"}
 	sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
 	sets.precast.JA['Steal'] = {ammo="Barathrum",neck="Pentalagus Charm",feet="Pillager's Poulaines +3"}
 	sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +2"}
-	sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +1"}
+	sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
 	sets.precast.JA['Feint'] = {} -- {legs="Assassin's Culottes +2"}
 
 	sets.precast.JA['Sneak Attack'] = set_combine(sets.buff['Sneak Attack'], {})
@@ -70,7 +70,7 @@ function init_gear_sets()
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {
-		hands="Plunderer's Armlets +1",
+		hands="Plunderer's Armlets +3",
 		back="Solemnity Cape"}
 
 	-- Don't need any special gear for Healing Waltz.
@@ -91,8 +91,8 @@ function init_gear_sets()
 
 	sets.engaged = {ammo="Coiste Bodhar",
 		head="Skulker's Bonnet +3",neck="Assassin's Gorget +2",ear1="Sherida Earring",ear2="Skulker's Earring +1",
-		body="Pillager's Vest +3",hands="Gleti's Gauntlets",ring1="Gere Ring",ring2="Hetairoi Ring",
-		back=gear.capes.tp,waist="Gerdr Belt +1",legs="Gleti's Breeches",feet="Plunderer's Poulaines +3"}
+		body="Pillager's Vest +4",hands="Gleti's Gauntlets",ring1="Gere Ring",ring2="Hetairoi Ring",
+		back=gear.capes.tp,waist="Gerdr Belt +1",legs="Gleti's Breeches",feet="Plunderer's Poulaines +4"}
 	sets.engaged.Trivial = set_combine(sets.engaged, {})
 	
 	sets.engaged.Acc = set_combine(sets.engaged, {ammo="Coiste Bodhar",
@@ -119,7 +119,7 @@ function init_gear_sets()
 	})
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		head="Malignance Chapeau",ear1="Telos Earring",ear2="Odr Earring",
+		head="Malignance Chapeau",ear1="Crepuscular Earring",ear2="Odr Earring",
 		body="Malignance Tabard",hands="Nyame Gauntlets",ring1="Regal Ring",ring2="Ilabrat Ring"
 	})
 	sets.precast.WS.Hybrid2 = set_combine(sets.engaged.Hybrid, {})
@@ -131,7 +131,7 @@ function init_gear_sets()
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Dingir Ring",
 		back=gear.capes.ws,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	
-	sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
+	sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], {ammo="Perfect Lucky Egg",feet="Skulker's Poulaines +2"})
 	--------------------------------------
 	-- Midcast sets
 	--------------------------------------
@@ -157,9 +157,9 @@ function init_gear_sets()
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
 	sets.idle = {
-		head="Null Masque",neck="Republican Platinum Medal",ear1="Infused Earring",ear2="Skulker's Earring +1",
+		head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
 		body="Gleti's Cuirass",hands="Gleti's Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Gleti's Breeches",feet="Pillager's Poulaines +3"}
+		back=gear.capes.ws,waist="Null Belt",legs="Gleti's Breeches",feet="Pillager's Poulaines +3"}
 
 	sets.idle.HighLvl = set_combine(sets.idle, {})
 		
@@ -168,9 +168,9 @@ function init_gear_sets()
 
 	-- Defense sets
 	sets.defense.Evasion = {
-		head="Nyame Helm",neck="Loricate Torque +1",
-		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Moonlight Ring",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
 	sets.defense.PDT = set_combine(sets.defense.Evasion, {})
 

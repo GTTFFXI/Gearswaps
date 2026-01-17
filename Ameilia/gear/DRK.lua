@@ -19,24 +19,24 @@ function init_gear_sets()
     gear.rings.right={name="Stikini Ring +1", bag="wardrobe4"}
 	
 
-	sets.HP = {head="Hjarrandi Helm",neck="Unmoving Collar +1",ear1="Cryptic Earring",ear2="Etiolation Earring",
-		body="Hjarrandi Breastplate",hands="Sakpata's Gauntlets",ring1="Moonlight Ring",ring2="Regal Ring",
+	sets.HP = {head="Hjarrandi Helm",neck="Unmoving Collar +1",ear1="Alabaster Earring",ear2="Tuisto Earring",
+		body="Hjarrandi Breastplate",hands="Sakpata's Gauntlets",ring1="Moonlight Ring",ring2="Meridian Ring",
 		back="Moonlight Cape",waist="Platinum Moogle Belt",legs="Volte Tights",feet="Ratri Sollerets +1"}
 	
-	sets.precast.FC = {head="Sakpata's Helm",neck="Baetyl Pendant",ear1="Malignance Earring",ear2="Etiolation Earring",
+	sets.precast.FC = {head="Sakpata's Helm",neck="Baetyl Pendant",ear1="Malignance Earring",
 		body="Sacro Breastplate",hands="Leyline Gloves",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",
 		waist="Ioskeha Belt +1",feet="Odyssean Greaves"}
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Crepuscular Cloak"})
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
 
-	sets.precast.JA['Dark Seal'] = {head="Fallen's Burgeonet +3"}
+	sets.precast.JA['Dark Seal'] = {head="Fallen's Burgeonet +4"}
 	sets.precast.JA['Blood Weapon'] = {body="Fallen's Cuirass +3"}
 	sets.precast.JA['Diabolic Eye'] = {body="Fallen's Finger Gauntlets +3"}
-	sets.precast.JA['Arcane Circle'] = {feet="Ignominy Sollerets +2"}
+	sets.precast.JA['Arcane Circle'] = {feet="Ignominy Sollerets +3"}
 	sets.precast.JA['Nether Void'] = {legs="Heathen's Flanchard +1"}
 	sets.precast.JA['Souleater'] = {head="Ignominy Burgeonet +3"}
 	sets.precast.JA['Weapon Bash'] = {}
-	sets.precast.JA['Last Resort'] = {back=gear.wsdmg.back,feet="Fallen's Sollerets +1"}
+	sets.precast.JA['Last Resort'] = {back=gear.wsdmg.back,feet="Fallen's Sollerets +3"}
 	
 	sets.Twilight = {head="Twilight Helm",body="Twilight Mail"}
 	-- Weaponskill sets
@@ -63,9 +63,9 @@ function init_gear_sets()
 	sets.precast.WS.PDL = set_combine(sets.precast.WS, sets.PDL)
 	
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		ear1="Telos Earring",ear2="Crepuscular Earring",
+		ear1="Crepuscular Earring",ear2="Dignitary's Earring",
 		ring1="Niqmaddu Ring",ring2="Regal Ring",
-		legs="Fallen's Flanchard +3"})
+		legs="Nyame Flanchard"})
 	
 	sets.precast.WS['Armor Break'] = set_combine(sets.WSMAcc, {})
 	sets.precast.WS['Shield Break'] = set_combine(sets.WSMAcc, {})
@@ -137,7 +137,7 @@ function init_gear_sets()
 		back="Niht Mantle",waist="Null Belt",legs="Nyame Flanchard",feet="Ratri Sollerets +1"
 	}
 	
-	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {head="Fallen's Burgeonet +3",legs="Heathen's Flanchard +1"})
+	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {head="Fallen's Burgeonet +4",legs="Heathen's Flanchard +1"})
 	
 	sets.midcast.Aspir = set_combine(sets.midcast['Dark Magic'], {})
 	
@@ -173,9 +173,9 @@ function init_gear_sets()
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle = {ammo="Coiste Bodhar",
-		head="Valorous Mask",neck="Republican Platinum Medal",ear1="Telos Earring",ear2="Infused Earring",
-		head="Null Masque",body="Crepuscular Mail",hands="Sakpata's Gauntlets",ring1=gear.rings.left,ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Carmine Cuisses +1",feet="Sakpata's Leggings"}
+		head="Valorous Mask",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+		head="Null Masque",body="Crepuscular Mail",hands="Sakpata's Gauntlets",ring1=gear.rings.left,ring2="Murky Ring",
+		back=gear.wsdmg.back,waist="Null Belt",legs="Carmine Cuisses +1",feet="Sakpata's Leggings"}
 
 	sets.idle.Town = set_combine(sets.idle, {})	
 	sets.idle.Twilight = set_combine(sets.idle.Town, sets.Twilight)
@@ -184,8 +184,8 @@ function init_gear_sets()
 	-- Defense sets
 
 	sets.defense.PDT = {
-		head="Null Masque",
-		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring2="Defending Ring",
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring2="Murky Ring",
 		legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 	sets.defense.Twilight = set_combine(sets.defense.PDT, sets.Twilight)
 	sets.defense.MDT = set_combine(sets.defense.PDT, {})
@@ -201,18 +201,18 @@ function init_gear_sets()
 
 	-- Normal melee group
 	sets.engaged = {ammo="Coiste Bodhar",
-		head="Flamma Zucchetto +2",neck="Abyssal Beads +2",ear1="Telos Earring",ear2="Cessance Earring",
+		head="Hjarrandi Helm",neck="Abyssal Beads +2",ear1="Crepuscular Earring",ear2="Schere Earring",
 		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring1="Niqmaddu Ring",ring2="Lehko's Ring",
 		back="Null Shawl",waist="Ioskeha Belt +1",legs="Sakpata's Cuisses",feet="Flamma Gambieras +2"}
 	sets.engaged.Ragnarok = set_combine(sets.engaged, {})
 	sets.engaged.Caladbolg = set_combine(sets.engaged,{})
 	sets.engaged.Liberator = set_combine(sets.engaged, {ear2="Schere Earring"})
 	sets.engaged.Redemption = set_combine(sets.engaged, {ear2="Schere Earring"})
-	sets.engaged.Foenaria = set_combine(sets.engaged, {ear2="Schere Earring",back="Null Shawl",waist="Sailfi Belt +1"})
+	sets.engaged.Foenaria = set_combine(sets.engaged, {ear2="Schere Earring"})
 	
 	sets.engaged.Scythe = set_combine(sets.engaged, {ear2="Schere Earring"})
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		head="Ignominy Burgeonet +3",neck="Null Loop",ear1="Telos Earring",ear2="Heathen's Earring +1",
+		head="Ignominy Burgeonet +3",neck="Null Loop",ear1="Crepuscular Earring",ear2="Heathen's Earring +1",
 		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring2="Regal Ring",
 		waist="Ioskeha Belt +1",feet="Flamma Gambieras +2"})
 
@@ -279,7 +279,7 @@ function init_gear_sets()
 	sets.engaged.Foenaria.Subtle = set_combine(sets.engaged.Redemption.Subtle, {})
 	sets.engaged.Foenaria.Hybrid = set_combine(sets.engaged.Foenaria, sets.defense.PDT)
 	
-	sets.engaged.Hybrid = set_combine(sets.engaged, sets.defense.PDT, {ear2="Odnowa Earring +1",ring1="Moonlight Ring",ring2="Chirich Ring +1"})
+	sets.engaged.Hybrid = set_combine(sets.engaged, sets.defense.PDT, {ring1="Moonlight Ring",ring2="Chirich Ring +1"})
 
 	sets.engaged.Ragnarok.Hybrid = set_combine(sets.engaged.Ragnarok, sets.defense.PDT)
 	sets.engaged.Scythe.Hybrid = set_combine(sets.engaged.Scythe, sets.defense.PDT)
