@@ -29,7 +29,7 @@ function init_gear_sets()
 	sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +3"}
 	sets.precast.JA['Boost'] = {head="Pixie Hairpin +1",body=empty,hands=empty,waist="Ask Sash",legs=empty,feet="Crier's Gaiters"}
 	sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +3"}
-	sets.precast.JA['Focus'] = {head="Anchorite's Crown +2"}
+	sets.precast.JA['Focus'] = {head="Anchorite's Crown +3"}
 	sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +3"}
 	sets.precast.JA['Footwork'] = {feet="Shukuyu Sune-Ate"}
 	sets.precast.JA['Formless Strikes'] = {body="Hesychast's Cyclas +3"}

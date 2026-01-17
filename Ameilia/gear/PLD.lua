@@ -80,7 +80,7 @@ function init_gear_sets()
     sets.precast.JA['Rampart'] = set_combine(sets.enmity, {head="Caballarius Coronet +3"})
     sets.precast.JA['Fealty'] = set_combine(sets.enmity, {body="Caballarius Surcoat +3"})
     sets.precast.JA['Divine Emblem'] = set_combine(sets.enmity, {feet="Chevalier's Sabatons +3"})
-    sets.precast.JA['Cover'] = set_combine(sets.enmity, {head="Reverence Coronet +1"})
+    sets.precast.JA['Cover'] = set_combine(sets.enmity, {head="Reverence Coronet +3"})
 	sets.precast.JA['Provoke'] = set_combine(sets.enmity, {})
 	sets.precast.JA['Sepulcher'] = set_combine(sets.enmity, {})
 	sets.precast.JA['Palisade'] = set_combine(sets.enmity, {})
@@ -141,7 +141,7 @@ function init_gear_sets()
 		back=gear.capes.wsd,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
 	})
 	
-	sets.precast.WS['Atonement'] = set_combine(sets.precast.WS['Savage Blade'], {ear1="Ishvara Earring",ring2="Beithir Ring"})
+	sets.precast.WS['Atonement'] = set_combine(sets.precast.WS['Savage Blade'], {ear1="Ishvara Earring"})
     
 	sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS['Savage Blade'], {})
 

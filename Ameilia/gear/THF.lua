@@ -70,7 +70,6 @@ function init_gear_sets()
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {
-		hands="Plunderer's Armlets +3",
 		back="Solemnity Cape"}
 
 	-- Don't need any special gear for Healing Waltz.

@@ -46,7 +46,7 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
         head="Cath Palug Crown",
-        legs="Gendewitha Spats"}
+        legs="Gendewitha Spats +1"}
     
     
     -- Weaponskill sets

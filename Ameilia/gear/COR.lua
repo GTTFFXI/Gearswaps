@@ -69,7 +69,6 @@ function init_gear_sets()
     
     sets.precast.CorsairRoll = {main=gear.rollingRostam,head="Lanun Tricorne +3",neck="Regal Necklace",hands="Chasseur's Gants +2",back=gear.rng.back}
     
-    sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chasseur's Culottes +1"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chasseur's Bottes +3"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chasseur's Tricorne +2"})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +3"})
@@ -232,7 +231,7 @@ function init_gear_sets()
 	sets.assault = {ammo="Staunch Tathlum +1",
 		head=empty,neck="Null Loop",ear1="Alabaster Earring",ear2="Infused Earring",
 		body=empty,hands=empty,ring1="Defending Ring",ring2="Murky Ring",
-		back=gear.melee.back,waist="Bullwhip Belt",legs=empty,feet=empty}
+		back=gear.crit.back,waist="Bullwhip Belt",legs=empty,feet=empty}
 	
 	sets.buff['Triple Shot'] = {head="Oshosi Mask +1",body="Chasseur's Frac +3",hands="Lanun Gants +4",legs="Oshosi Trousers +1",feet="Oshosi Leggings +1"}
 end
