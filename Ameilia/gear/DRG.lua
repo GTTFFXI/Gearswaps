@@ -38,21 +38,21 @@ function init_gear_sets()
 	sets.engaged = {ammo="Coiste Bodhar",
 		head="Hjarrandi Helm",neck="Dragoon's Collar +2",ear1="Sroda Earring",ear2="Sherida Earring",
 		body="Gleti's Cuirass",hands="Peltast's Vambraces +3",ring1="Niqmaddu Ring",ring2="Lehko's Ring",
-		back="Null Shawl",waist="Ioskeha Belt +1",legs="Pteroslaver Brais +3",feet="Flamma Gambieras +2"}
+		back="Null Shawl",waist="Ioskeha Belt +1",legs="Pteroslaver Brais +4",feet="Flamma Gambieras +2"}
 	
 	sets.engaged.StoreTP = {ammo="Coiste Bodhar",
-		head="Flamma Zucchetto +2",neck="Dragoon's Collar +2",ear1="Telos Earring",ear2="Sherida Earring",
+		head="Hjarrandi Helm",neck="Dragoon's Collar +2",ear1="Crepuscular Earring",ear2="Sherida Earring",
 		body="Dagon Breastplate",hands="Gleti's Gauntlets",ring1="Niqmaddu Ring",ring2="Lehko's Ring",
-		back="Null Shawl",waist="Ioskeha Belt +1",legs="Pteroslaver Brais +3",feet="Flamma Gambieras +2"}
+		back="Null Shawl",waist="Ioskeha Belt +1",legs="Pteroslaver Brais +4",feet="Flamma Gambieras +2"}
 		
 	sets.engaged.Subtle = set_combine(sets.engaged, {ear2="Peltast's Earring +1"})
 		
 	sets.engaged.Acc = set_combine(sets.engaged, {
-		head="Null Masque",neck="Dragoon's Collar +2",ear1="Telos Earring",ear2="Crepuscular Earring",
+		head="Null Masque",neck="Dragoon's Collar +2",ear1="Crepuscular Earring",ear2="Peltast's Earring +1",
 		body="Dagon Breastplate",hands="Vishap Finger Gauntlets +3",ring1="Niqmaddu Ring",ring2="Chirich Ring +1",
 		back="Null Shawl",legs="Vishap Brais +3",feet="Vishap Greaves +3"})
 		
-	sets.engaged.Hybrid = set_combine(sets.engaged, {head="Nyame Helm",body="Gleti's Cuirass",ring2="Defending Ring",legs="Nyame Flanchard",feet="Nyame Sollerets"})
+	sets.engaged.Hybrid = set_combine(sets.engaged, {head="Nyame Helm",body="Gleti's Cuirass",ring2="Murky Ring",legs="Nyame Flanchard",feet="Nyame Sollerets"})
 	sets.engaged.Arebati = set_combine(sets.engaged.Hybrid, {
 		neck="Bathy Choker +1",ear1="Sherida Earring",ear2="Peltast's Earring +1",
 		body="Dagon Breastplate",ring1="Niqmaddu Ring",ring2="Chirich Ring +1",
@@ -61,21 +61,21 @@ function init_gear_sets()
 	
 	-- Precast Sets
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +3"}
+	sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +4"}
 	sets.precast.JA.Jump = {ammo="Coiste Bodhar",
-		head="Flamma Zucchetto +2",neck="Dragoon's Collar +2",ear1="Sroda Earring",ear2="Sherida Earring",
+		head="Hjarrandi Helm",neck="Dragoon's Collar +2",ear1="Sroda Earring",ear2="Sherida Earring",
 		body="Pteroslaver Mail +3",hands="Vishap Finger Gauntlets +3",ring1="Niqmaddu Ring",ring2="Lehko's Ring",
 		back=gear.melee.back,waist="Ioskeha Belt +1",legs="Peltast's Cuissots +3",feet="Vishap Greaves +3"}
 	sets.precast.JA.Jump.Acc = set_combine(sets.precast.JA.Jump, sets.engaged.Acc)
 	sets.precast.JA['Ancient Circle'] = {legs="Vishap Brais +3"}
-	sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {legs="Pteroslaver Brais +3"})
+	sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {legs="Pteroslaver Brais +4"})
 	sets.precast.JA['Soul Jump'] = set_combine(sets.precast.JA.Jump, {})
 	sets.precast.JA['Spirit Jump'] = set_combine(sets.precast.JA.Jump, {})
 	sets.precast.JA['Super Jump'] = set_combine(sets.precast.JA.Jump, {})
 	sets.precast.JA['Soul Jump'].Acc = set_combine(sets.precast.JA.Jump.Acc, {})
 	sets.precast.JA['Spirit Jump'].Acc = set_combine(sets.precast.JA.Jump.Acc, {})
 	sets.precast.JA['Super Jump'].Acc = set_combine(sets.precast.JA.Jump.Acc, {})
-	sets.precast.JA['Spirit Link'] = {head="Vishap Armet +2",hands="Peltast's Vambraces +3"}
+	sets.precast.JA['Spirit Link'] = {head="Vishap Armet +3",hands="Peltast's Vambraces +3"}
 	sets.precast.JA['Call Wyvern'] = {body="Pteroslaver Mail +3"}
 	sets.precast.JA['Deep Breathing'] = {}
 	sets.precast.JA['Spirit Surge'] = {body="Pteroslaver Mail +3"}
@@ -83,12 +83,12 @@ function init_gear_sets()
 	
 	-- Healing Breath sets
 	sets.HB = {}
-	sets.HB.Pre = {head="Vishap Armet +2",neck="Dragoon's Collar +2",ear1="Eabani Earring",ear2="Etiolation Earring",
-		body="Pteroslaver Mail +3",hands="Pteroslaver Finger Gauntlets +3",ring1="Moonlight Ring",
+	sets.HB.Pre = {head="Vishap Armet +3",neck="Dragoon's Collar +2",ear1="Alabaster Earring",ear2="Tuisto Earring",
+		body="Pteroslaver Mail +3",hands="Pteroslaver Finger Gauntlets +4",ring1="Moonlight Ring",
 		back="Moonlight Cape",waist="Platinum Moogle Belt",legs="Nyame Flanchard",feet="Pteroslaver Greaves +3"}
 	sets.HB.Mid = {
-		head="Pteroslaver Armet +3",neck="Dragoon's Collar +2",ear1="Eabani Earring",ear2="Peltast's Earring +1",
-		body="Pteroslaver Mail +3",hands="Pteroslaver Finger Gauntlets +3",ring1="Moonlight Ring",
+		head="Pteroslaver Armet +3",neck="Dragoon's Collar +2",ear1="Alabaster Earring",ear2="Peltast's Earring +1",
+		body="Pteroslaver Mail +3",hands="Pteroslaver Finger Gauntlets +4",ring1="Moonlight Ring",
 		back="Brigantia's Mantle",waist="Platinum Moogle Belt",legs="Vishap Brais +3",feet="Pteroslaver Greaves +3"}
 		
 	sets.precast.JA['Steady Wing'] = set_combine(sets.HB.Mid, {})
@@ -109,7 +109,7 @@ function init_gear_sets()
 	
 	sets.WSD = {
 		head="Nyame Helm",ear1="Ishvara Earring",ear2="Thrud Earring",
-		body="Nyame Mail",hands="Pteroslaver Finger Gauntlets +3",ring1="Epaminondas's Ring",ring2="Sroda Ring",
+		body="Nyame Mail",hands="Pteroslaver Finger Gauntlets +4",ring1="Epaminondas's Ring",ring2="Sroda Ring",
 		back=gear.wsdmg.back,legs="Nyame Flanchard",feet="Nyame Sollerets"
 	}
 	
@@ -119,7 +119,7 @@ function init_gear_sets()
 		body="Gleti's Cuirass",hands="Peltast's Vambraces +3",ring1="Niqmaddu Ring",ring2="Regal Ring",
 		back=gear.melee.back,waist="Fotia Belt",legs="Nyame Flanchard",feet="Gleti's Boots"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		ear1="Telos Earring",ear2="Crepuscular Earring",
+		ear1="Crepuscular Earring",ear2="Peltast's Earring +1",
 		body="Dagon Breastplate",hands="Vishap Finger Gauntlets +3",ring2="Regal Ring",
 		back="Null Shawl",legs="Vishap Brais +3",feet="Vishap Greaves +3"})
 	sets.precast.WS.Crit = set_combine(sets.precast.WS, {
@@ -154,9 +154,9 @@ function init_gear_sets()
 	sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
 	
 	sets.idle = set_combine(sets.engaged, {
-		head="Null Masque",neck="Republican Platinum Medal",ear1="Sroda Earring",ear2="Infused Earring",
-		body="Gleti's Cuirass",hands="Gleti's Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
-		back="Moonlight Cape",legs="Carmine Cuisses +1",feet="Gleti's Boots"})
+		head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+		body="Gleti's Cuirass",hands="Gleti's Gauntlets",ring1="Sheltered Ring",ring2="Murky Ring",
+		back=gear.melee.back,waist="Null Belt",legs="Carmine Cuisses +1",feet="Gleti's Boots"})
 
 	-- Resting sets
 	sets.resting = set_combine(sets.idle, {})
@@ -170,16 +170,13 @@ function init_gear_sets()
 	
 	-- Defense sets
 	sets.defense.PDT = {ammo="Staunch Tathlum +1",
-		head="Nyame Helm",neck="Loricate Torque +1",
-		body="Hjarrandi Breastplate",hands="Nyame Gauntlets",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Nyame Flanchard"}
+		head="Nyame Helm",neck="Null Loop",ear1="Alabaster Earring",
+		body="Hjarrandi Breastplate",hands="Nyame Gauntlets",ring2="Murky Ring",
+		legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 	sets.defense.Reraise = set_combine(sets.defense.PDT, sets.Reraise)
 
-	sets.defense.MDT = {ammo="Staunch Tathlum +1",
-		head="Nyame Helm",neck="Loricate Torque +1",
-		body="Hjarrandi Breastplate",hands="Nyame Gauntlets",ring1="Purity Ring",ring2="Defending Ring",
-		back="Moonlight Cape",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+	sets.defense.MDT = set_combine(sets.defense.PDT, {})
 
 	sets.Kiting = {legs="Carmine Cuisses +1"}
 
@@ -203,7 +200,7 @@ function init_gear_sets()
 	sets.engaged.Rhongomiant = set_combine(sets.engaged,{})
 	sets.engaged.Rhongomiant.Acc = set_combine(sets.engaged.Acc, {})
 	sets.engaged.Rhongomiant.AM = set_combine(sets.engaged.Rhongomiant, {
-		head="Flamma Zucchetto +2",body="Gleti's Cuirass",hands="Gleti's Gauntlets",waist="Sailfi Belt +1",legs="Gleti's Breeches"
+		head="Hjarrandi Helm",body="Gleti's Cuirass",hands="Gleti's Gauntlets",waist="Sailfi Belt +1",legs="Gleti's Breeches"
 	})
 	sets.engaged.Rhongomiant.Acc.AM = set_combine(sets.engaged.Acc, {})
 	sets.engaged.Rhongomiant.Hybrid = set_combine(sets.engaged.Rhongomiant, sets.defense.PDT)
@@ -214,7 +211,7 @@ function init_gear_sets()
 	sets.engaged.Ryunohige = set_combine(sets.engaged,{})
 	sets.engaged.Ryunohige.Acc = set_combine(sets.engaged.Acc, {})
 	sets.engaged.Ryunohige.AM = set_combine(sets.engaged.Ryunohige, {
-		head="Hjarrandi Helm",ear1="Crepuscular Earring",body="Hjarrandi Breastplate",hands="Gleti's Gauntlets",ring1="Chirich Ring +1",waist="Gerdr Belt +1",legs="Pteroslaver Brais +3"
+		head="Hjarrandi Helm",ear1="Crepuscular Earring",body="Hjarrandi Breastplate",hands="Gleti's Gauntlets",ring1="Chirich Ring +1",waist="Gerdr Belt +1",legs="Pteroslaver Brais +4"
 	})
 	sets.engaged.Ryunohige.Acc.AM = set_combine(sets.engaged.Acc, {})
 	sets.engaged.Ryunohige.Hybrid = set_combine(sets.engaged.Ryunohige, sets.defense.PDT)

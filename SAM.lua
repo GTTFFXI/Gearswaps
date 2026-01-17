@@ -118,7 +118,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function update_combat_form()
-    if S{'Norifusa', 'Norifusa +1'}:contains(player.equipment.main) then
+    if S{'Norifusa', 'Norifusa +1', 'Soboro Sukehiro'}:contains(player.equipment.main) then
         state.CombatForm:set('Norifusa')
     else
 		state.CombatForm:reset()

@@ -108,3 +108,10 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
+function job_update(cmdParams, eventArgs)
+		if S{'NIN','DNC'}:contains(player.sub_job) then
+            state.CombatForm:set('DW')
+        else
+            state.CombatForm:reset()
+        end
+end

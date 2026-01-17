@@ -9,7 +9,7 @@ function user_setup()
 	
     gear.MovementFeet = {name="Danzo Sune-ate"}
     gear.DayFeet = "Danzo Sune-ate"
-    gear.NightFeet = "Hachiya Kyahan +2"
+    gear.NightFeet = "Hachiya Kyahan +3"
 	
 	gear.rings={}
 	gear.rings.left={name="Stikini Ring +1", bag="wardrobe"}
@@ -20,7 +20,7 @@ function user_setup()
 	gear.nuke={}
 	gear.nuke.back={ name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 	gear.wsd={}
-	gear.wsd.back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.wsd.back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','"Regen"+5',}}
 	gear.dw={}
 	gear.dw.back={ name="Andartia's Mantle", augments={'"Dual Wield"+10',}}
 	
@@ -61,7 +61,7 @@ function init_gear_sets()
     -- Set for acc on steps, since Yonin drops acc a fair bit
     sets.precast.Step = {
         neck="Null Loop",
-        body="Volte Jupon",hands="Adhemar Wristbands +1",ring1="Lehko's Ring",ring2="Patricius Ring",
+        body="Volte Jupon",hands="Adhemar Wristbands +1",ring1="Lehko's Ring",
         back="Andartia's Mantle",waist="Chaac Belt",feet="Herculean Boots"}
 
     sets.precast.Flourish1 = {body="Volte Jupon",waist="Chaac Belt"}
@@ -69,7 +69,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.FC = {
-		head="Herculean Helm",neck="Baetyl Pendant",ear1="Etiolation Earring",
+		head="Herculean Helm",neck="Baetyl Pendant",
 		hands="Leyline Gloves",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",
 		legs="Gyve Trousers"}
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Mochizuki Chainmail +3",back="Andartia's Mantle",feet="Hattori Kyahan +1"})
@@ -82,16 +82,16 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Mpaca's Cap",neck="Fotia Gorget",ear1="Telos Earring",ear2="Moonshade Earring",
+        head="Mpaca's Cap",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Mpaca's Doublet",hands="Mpaca's Gloves",ring1="Epaminondas's Ring",ring2="Regal Ring",
         back="Null Shawl",waist="Fotia Belt",legs="Mpaca's Hose",feet="Herculean Boots"}
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-		head="Malignance Chapeau",ear1="Telos Earring",ear1="Crepuscular Earring",
+		head="Malignance Chapeau",ear1="Crepuscular Earring",
 		body="Malignance Tabard",hands="Malignance Gloves",ring1="Ilabrat Ring",ring2="Regal Ring"
 	})
 	sets.precast.WS.Proc = {
 		head="Null Masque",neck="Null Loop",ear1="Crepuscular Earring",ear2="Cryptic Earring",
-		body="Taeon Tabard",hands="Taeon Gloves",ring1="Chirich Ring +1",ring2="Patricius Ring",
+		body="Taeon Tabard",hands="Taeon Gloves",ring1="Chirich Ring +1",ring2="Murky Ring",
 		back="Repulse Mantle",waist="Null Belt",legs="Taeon Tights",feet="Taeon Boots"}
 	
 	sets.precast.WS["Blade: Ten"] = set_combine(sets.precast.WS, {
@@ -155,12 +155,12 @@ function init_gear_sets()
     --------------------------------------
     -- Idle/resting/defense/etc sets
     --------------------------------------
-	sets.acc = {head="Mpaca's Cap",neck="Null Loop",ear1="Telos Earring",ear2="Odr Earring",
+	sets.acc = {head="Mpaca's Cap",neck="Null Loop",ear1="Crepuscular Earring",ear2="Odr Earring",
 		body="Tatenashi Haramaki +1",hands="Tatenashi Gote +1",ring1="Lehko's Ring",ring2="Regal Ring",
 		back="Null Shawl",waist="Null Belt",legs="Tatenashi Haidate +1",feet="Tatenashi Sune-Ate +1"}
 	
 	sets.engaged = {
-		head="Mpaca's Cap",neck="Ninja Nodowa +2",ear1="Telos Earring",ear2="Hattori Earring +1",
+		head="Mpaca's Cap",neck="Ninja Nodowa +2",ear1="Dedition Earring",ear2="Hattori Earring +1",
 		body="Tatenashi Haramaki +1",hands="Mpaca's Gloves",ring1="Lehko's Ring",ring2="Gere Ring",
 		back="Null Shawl",waist="Windbuffet Belt +1",legs="Mpaca's Hose",feet="Mpaca's Boots"}
 	sets.engaged.StoreTP = set_combine(sets.engaged, {
@@ -177,9 +177,9 @@ function init_gear_sets()
 		
 
 	sets.idle = set_combine(sets.engaged, {
-		head="Null Masque",neck="Republican Platinum Medal",ear1="Infused Earring",
-		body="Hizamaru Haramaki +2",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Rao Haidate",feet=gear.MovementFeet})
+		head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+		body="Hizamaru Haramaki +2",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Murky Ring",
+		back=gear.wsd.back,waist="Null Belt",legs="Nyame Flanchard",feet=gear.MovementFeet})
 
 	sets.idle.Town = set_combine(sets.idle, {})
     sets.idle.Weak = set_combine(sets.idle, {})
@@ -194,18 +194,16 @@ function init_gear_sets()
     
     -- Defense sets
     sets.defense.Evasion = {
-		head="Mpaca's Cap",neck="Loricate Torque +1",
-		body="Mpaca's Doublet",hands="Mpaca's Gloves",ring1="Patricius Ring",ring2="Defending Ring",
-        back="Null Shawl",waist="Null Belt",legs="Mpaca's Hose",feet="Malignance Boots"}
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
-    sets.defense.PDT = {ammo="Staunch Tathlum +1",
-        head="Mpaca's Cap",
-		body="Mpaca's Doublet",hands="Mpaca's Gloves",ring2="Defending Ring",
-        back="Null Shawl",legs="Mpaca's Hose",feet="Malignance Boots"}
+    sets.defense.PDT = {
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
-    sets.defense.MDT = set_combine(sets.defense.PDT, {
-		ear1="Etiolation Earring",ear2="Tuisto Earring",ring1="Purity Ring"
-	})
+    sets.defense.MDT = set_combine(sets.defense.PDT, {})
 
 
     sets.Kiting = {feet=gear.MovementFeet}
@@ -222,7 +220,7 @@ function init_gear_sets()
     -- Normal melee group
 
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
-		head="Mpaca's Cap",body="Mpaca's Doublet",hands="Mpaca's Gloves",ring2="Defending Ring",legs="Mpaca's Hose",feet="Nyame Sollerets"
+		head="Mpaca's Cap",body="Mpaca's Doublet",hands="Mpaca's Gloves",ring2="Murky Ring",legs="Mpaca's Hose",feet="Nyame Sollerets"
 	})
 	
 	sets.engaged.Evasion = set_combine(sets.engaged, sets.defense.Evasion)

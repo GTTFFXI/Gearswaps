@@ -24,7 +24,7 @@ function job_setup()
         ['Sharpshot Head'] = 'Ranged',
         ['Valoredge Head'] = 'Tank',
         ['Stormwaker Head'] = 'Magic',
-        ['Soulsoother Head'] = 'Tank',
+        ['Soulsoother Head'] = 'Melee',
         ['Spiritreaver Head'] = 'Nuke'
 	}
 

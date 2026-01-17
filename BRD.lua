@@ -52,7 +52,7 @@ function user_setup()
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT')
 
-    brd_daggers = S{'Izhiikoh', 'Vanir Knife', 'Atoyac', 'Aphotic Kukri', 'Sabebus'}
+    brd_daggers = S{"Carnwenhan", "Mandau", "Twashtar", "Ternion Dagger +1", "Centovente", "Tauret", "Gleti's Knife"}
     pick_tp_weapon()
     
     -- Adjust this if using the Terpander (new +song instrument)

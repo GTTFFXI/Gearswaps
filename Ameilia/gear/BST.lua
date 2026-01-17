@@ -14,23 +14,23 @@ function init_gear_sets()
     sets.precast.JA['Feral Howl'] = {body="Ankusa Jackcoat +3"}
     sets.precast.JA['Call Beast'] = {hands="Ankusa Gloves +3"}
     sets.precast.JA['Familiar'] = {legs="Ankusa Trousers +3"}
-    sets.precast.JA['Tame'] = {head="Totemic Helm +1",ear1="Tamer's Earring",legs="Stout Kecks"}
-    sets.precast.JA['Spur'] = {feet="Ferine Ocreae +2"}
+    sets.precast.JA['Tame'] = {head="Totemic Helm +3",ear1="Tamer's Earring",legs="Stout Kecks"}
+    sets.precast.JA['Spur'] = {feet="Nukumi Ocreae +1"}
 
     sets.precast.JA['Reward'] = {ammo=RewardFood,
         head="Stout Bonnet",neck="Aife's Medal",ear1="Lifestorm Earring",ear2="Neptune's Pearl",
-        body="Totemic Jackcoat +1",hands="Totemic Gloves +1",ring1="Aquasoul Ring",ring2="Aquasoul Ring",
+        body="Totemic Jackcoat +3",hands="Totemic Gloves +3",ring1="Aquasoul Ring",ring2="Aquasoul Ring",
         back="Pastoralist's Mantle",waist="Crudelis Belt",legs="Ankusa Trousers +3",feet="Ankusa Gaiters +3"}
 
     sets.precast.JA['Charm'] = {ammo="Tsar's Egg",
-        head="Totemic Helm +1",neck="Ferine Necklace",ear1="Enchanter's Earring",ear2="Reverie Earring +1",
+        head="Totemic Helm +3",neck="Ferine Necklace",ear1="Enchanter's Earring",ear2="Reverie Earring +1",
         body="Ankusa Jackcoat +3",hands="Ankusa Gloves +3",ring1="Dawnsoul Ring",ring2="Dawnsoul Ring",
         back="Aisance Mantle +1",waist="Aristo Belt",legs="Ankusa Trousers +3",feet="Ankusa Gaiters +3"}
 
     -- CURING WALTZ
     sets.precast.Waltz = {ammo="Tsar's Egg",
-        head="Totemic Helm +1",neck="Ferine Necklace",ear1="Enchanter's Earring",ear2="Reverie Earring +1",
-        body="Gorney Haubert +1",hands="Totemic Gloves +1",ring1="Valseur's Ring",ring2="Asklepian Ring",
+        head="Totemic Helm +3",neck="Ferine Necklace",ear1="Enchanter's Earring",ear2="Reverie Earring +1",
+        body="Gorney Haubert +1",hands="Totemic Gloves +3",ring1="Valseur's Ring",ring2="Asklepian Ring",
         back="Aisance Mantle +1",waist="Aristo Belt",legs="Osmium Cuisses",feet="Scamp's Sollerets"}
 
     -- HEALING WALTZ
@@ -76,7 +76,7 @@ function init_gear_sets()
     
     sets.midcast.FastRecast = {ammo="Demonry Core",
         head="Iuitl Headgear +1",neck="Baetyl Pendant",
-        body="Totemic Jackcoat +1",hands="Iuitl Wristbands +1",ring1="Prolix Ring",ring2="Dark Ring",
+        body="Totemic Jackcoat +3",hands="Iuitl Wristbands +1",ring1="Prolix Ring",ring2="Dark Ring",
         back="Mollusca Mantle",waist="Hurch'lan Sash",legs="Iuitl Tights +1",feet="Iuitl Gaiters +1"}
 
     sets.midcast.Utsusemi = set_combine(sets.midcast.FastRecast, {})
@@ -84,14 +84,14 @@ function init_gear_sets()
 
     -- PET SIC & READY MOVES
     sets.midcast.Pet.WS = {ammo="Demonry Core",
-        head="Totemic Helm +1",neck="Ferine Necklace",ear1="Domesticator's Earring",ear2="Sabong Earring",
-        body="Mirke Wardecors",hands="Ferine Manoplas +2",ring1="Angel's Ring",ring2="Angel's Ring",
-        back="Ferine Mantle",waist="Hurch'lan Sash",legs="Desultor Tassets",feet="Totemic Gaiters +1"}
+        head="Totemic Helm +3",neck="Ferine Necklace",ear1="Domesticator's Earring",ear2="Sabong Earring",
+        body="Mirke Wardecors",hands="Nukumi Manoplas +1",ring1="Angel's Ring",ring2="Angel's Ring",
+        back="Ferine Mantle",waist="Hurch'lan Sash",legs="Desultor Tassets",feet="Totemic Gaiters +3"}
 
     sets.midcast.Pet.WS.Unleash = set_combine(sets.midcast.Pet.WS, {hands="Scorpion Mittens"})
 
     sets.midcast.Pet.Neutral = {legs="Desultor Tassets"}
-    sets.midcast.Pet.Favorable = {head="Ferine Cabasset +2",legs="Desultor Tassets"}
+    sets.midcast.Pet.Favorable = {head="Nukumi Cabasset +1",legs="Desultor Tassets"}
 
 
     --------------------------------------
@@ -101,14 +101,14 @@ function init_gear_sets()
     -- RESTING
     sets.resting = {ammo="Demonry Core",
         head="Twilight Helm",neck="Wiglen Gorget",ear1="Domesticator's Earring",ear2="Sabong Earring",
-        body="Twilight Mail",hands="Totemic Gloves +1",ring1="Paguroidea Ring",ring2="Sheltered Ring",
-        back="Pastoralist's Mantle",waist="Muscle Belt +1",legs="Ferine Quijotes +2",feet="Skadi's Jambeaux +1"}
+        body="Twilight Mail",hands="Totemic Gloves +3",ring1="Paguroidea Ring",ring2="Sheltered Ring",
+        back="Pastoralist's Mantle",waist="Muscle Belt +1",legs="Nukumi Quijotes +1",feet="Skadi's Jambeaux +1"}
 
     -- IDLE SETS
     sets.idle = {ammo="Demonry Core",
         head="Null Masque",neck="Republican Platinum Medal",ear1="Domesticator's Earring",ear2="Sabong Earring",
-        body="Twilight Mail",hands="Totemic Gloves +1",ring1="Paguroidea Ring",ring2="Sheltered Ring",
-        back="Pastoralist's Mantle",waist="Muscle Belt +1",legs="Malignance Tights",feet="Skadi's Jambeaux +1"}
+        body="Twilight Mail",hands="Totemic Gloves +3",ring1="Paguroidea Ring",ring2="Sheltered Ring",
+        back="Pastoralist's Mantle",waist="Null Belt",legs="Malignance Tights",feet="Skadi's Jambeaux +1"}
 
     sets.idle.Refresh = {head="Null Masque",body="Twilight Mail",hands="Ogier's Gauntlets",legs="Ogier's Breeches"}
 
@@ -118,27 +118,24 @@ function init_gear_sets()
 
     sets.idle.Pet.Engaged = {ammo="Demonry Core",
         head="Anwig Salade",neck="Ferine Necklace",ear1="Domesticator's Earring",ear2="Sabong Earring",
-        body="Ankusa Jackcoat +3",hands="Totemic Gloves +1",ring1="Angel's Ring",ring2="Angel's Ring",
+        body="Ankusa Jackcoat +3",hands="Totemic Gloves +3",ring1="Angel's Ring",ring2="Angel's Ring",
         back="Ferine Mantle",waist="Hurch'lan Sash",legs="Ankusa Trousers +3",feet="Armada Sollerets"}
 
     -- DEFENSE SETS
-    sets.defense.PDT = {ammo="Jukukik Feather",
-        head="Null Masque",neck="Loricate Torque +1",
-        body="Malignance Tabard",ring1="Patricius Ring",ring2="Defending Ring",
-        back="Moonlight Cape",waist="Null Belt",legs="Malignance Tights",feet="Malignance Boots"}
+    sets.defense.PDT = {
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
-    sets.defense.Hybrid = set_combine(sets.defense.PDT, {ring1="Purity Ring"})
+    sets.defense.Hybrid = set_combine(sets.defense.PDT, {})
 
-    sets.defense.Killer = set_combine(sets.defense.Hybrid, {body="Ferine Gausape +2"})
+    sets.defense.Killer = set_combine(sets.defense.Hybrid, {body="Nukumi Gausape +1"})
 
-    sets.defense.MDT = set_combine(sets.defense.PDT, {ammo="Sihirik",
-        head="Null Masque",ear1="Flashward Earring",ear2="Spellbreaker Earring",
-        body="Nocturnus Mail",ring1="Shadow Ring",
-        back="Engulfer Cape",waist="Nierenschutz"})
+    sets.defense.MDT = set_combine(sets.defense.PDT, {})
 
     sets.Kiting = {ammo="Demonry Core",
         head="Iuitl Headgear +1",neck="Twilight Torque",
-        body="Mekira Meikogai",hands="Iuitl Wristbands +1",ring1="Dark Ring",ring2="Defending Ring",
+        body="Mekira Meikogai",hands="Iuitl Wristbands +1",ring1="Dark Ring",ring2="Murky Ring",
         back="Repulse Mantle",waist="Hurch'lan Sash",legs="Iuitl Tights +1",feet="Skadi's Jambeaux +1"}
 
 
@@ -156,8 +153,8 @@ function init_gear_sets()
         body="Mes'yohi Haubergeon",hands="Buremte Gloves",ring1="Mars's Ring",ring2="Oneiros Annulet",
         back="Letalis Mantle",waist="Hurch'lan Sash",legs="Malignance Tights",feet="Whirlpool Greaves"}
 
-    --sets.engaged.Killer = set_combine(sets.engaged, {body="Ferine Gausape +2",waist="Cetl Belt"})
-    --sets.engaged.Killer.Acc = set_combine(sets.engaged.Acc, {body="Ferine Gausape +2",waist="Cetl Belt"})
+    --sets.engaged.Killer = set_combine(sets.engaged, {body="Nukumi Gausape +1",waist="Cetl Belt"})
+    --sets.engaged.Killer.Acc = set_combine(sets.engaged.Acc, {body="Nukumi Gausape +1",waist="Cetl Belt"})
     
     
     -- EXAMPLE SETS WITH PET MODES
@@ -187,6 +184,6 @@ function init_gear_sets()
     -- Custom buff sets
     --------------------------------------
 
-    --sets.buff['Killer Instinct'] = {body="Ferine Gausape +2"}
+    --sets.buff['Killer Instinct'] = {body="Nukumi Gausape +2"}
     
 end

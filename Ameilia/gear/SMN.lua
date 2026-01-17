@@ -42,7 +42,7 @@ function init_gear_sets()
 	sets.idle = {main="Nirvana",sub="Elan Strap +1",ammo="Epitaph",
 		head="Beckoner's Horn +3",neck="Republican Platinum Medal",ear1="Cath Palug Earring",ear2="Beckoner's Earring +1",
 		body="Apogee Dalmatica +1",hands="Asteria Mitts +1",ring1=gear.rings.StikLeft,ring2="Defending Ring",
-		back=gear.capes.pet_phys,waist="Fucho-no-Obi",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
+		back=gear.capes.pet_phys,waist="Null Belt",legs="Assiduity Pants +1",feet="Crier's Gaiters"}
 
 	
 	sets.idle.Avatar = {main="Nirvana",sub="Elan Strap +1",ammo="Epitaph",
@@ -51,7 +51,7 @@ function init_gear_sets()
 		back=gear.capes.pet_phys,waist="Fucho-no-Obi",legs="Assiduity Pants +1",feet="Bunzi's Sabots"}
 
 	sets.lolMeleeSMN = {main="Nirvana",sub="Elan Strap +1",ammo="Epitaph",
-	    head="Bunzi's Hat",neck="Null Loop",ear1="Telos Earring",ear2="Digni. Earring",
+	    head="Bunzi's Hat",neck="Null Loop",ear1="Crepuscular Earring",ear2="Dignitary's Earring",
 		body="Nyame Mail",hands="Bunzi's Gloves",ring1="Lehko's Ring",ring2="Chirich Ring +1",
 		back="Null Shawl",waist="Klouskap Sash +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 		
@@ -116,7 +116,7 @@ function init_gear_sets()
 		back="Toro Cape",waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
 	sets.precast.WS['Myrkr'] = {
-		head="Beckoner's Horn +3",neck="Summoner's Collar +2",ear1="Halasz Earring",ear2="Etiolation Earring",
+		head="Beckoner's Horn +3",neck="Summoner's Collar +2",ear1="Mendicant's Earring",ear2="Andoaa Earring",
 		body="Glyphic Doublet +3",hands="Regal Cuffs",ring1="Evoker's Ring",ring2="Metamorph Ring +1",
 		back="Conveyance Cape",waist="Acuity Belt +1",legs="Baayami Slops +1",feet="Beckoner's Pigaches +2"}
 
@@ -136,7 +136,7 @@ function init_gear_sets()
 	sets.midcast.Stoneskin = {neck="Incanter's Torque"}
 	sets.midcast.Cursna = {neck="Debilis Medallion",ring1="Haoma's Ring",ring2="Haoma's Ring",back="Oretania's Cape +1",feet="Vanya Clogs"}
 	sets.midcast['Enhancing Magic'] = {
-		head="Telchine Cap",neck="Incanter's Torque",ear1="Andoaa Earring",ear2="Mimir Earring",
+		head="Telchine Cap",neck="Incanter's Torque",ear1="Mimir Earring",ear2="Andoaa Earring",
         body="Telchine Chasuble",hands="Inyanga Dastanas +2",ring1=gear.rings.left,ring2=gear.rings.right,
         waist="Embla Sash",legs="Telchine Braconi",feet="Telchine Pigaches"
 	}

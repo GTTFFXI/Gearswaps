@@ -7,6 +7,15 @@ end
 -- //gs debugmode
 -- //gs showswaps
  
+ -- Setup vars that are user-independent.
+function job_setup()
+	state.Buff['Aftermath'] = buffactive['Aftermath'] or false
+	state.Buff['Aftermath: Lv.1'] = buffactive['Aftermath: Lv.1'] or false
+	state.Buff['Aftermath: Lv.2'] = buffactive['Aftermath: Lv.2'] or false
+	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
+	update_combat_form()
+end
+ 
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Acc')
@@ -46,8 +55,10 @@ function job_state_change(field, new_value, old_value)
 end
  
 function update_combat_form()
-    -- Check Weapontype
-	if S{"Ragnarok","Chango","Nandaka","Shining One"}:contains(player.equipment.main) then
+	local aftermath = false
+    
+	-- Check Weapontype
+	if S{"Ragnarok","Chango","Nandaka","Shining One","Conqueror","Ukonvasara"}:contains(player.equipment.main) then
         state.CombatForm:set(player.equipment.main)
 	elseif S{"Drepanum"}:contains(player.equipment.main) then
 		state.CombatForm:set("Scythe")
@@ -59,6 +70,15 @@ function update_combat_form()
 			state.CombatForm:set('DW')
 	else
 		state.CombatForm:reset()
+	end
+	
+	classes.CustomMeleeGroups:clear()
+	if (buffactive['Aftermath: Lv.3']) then
+		aftermath = true
+	end
+		
+	if (S{"Conqueror","Ukonvasara"}:contains(player.equipment.main) and aftermath) then
+		classes.CustomMeleeGroups:append('AM')
 	end
 end
  

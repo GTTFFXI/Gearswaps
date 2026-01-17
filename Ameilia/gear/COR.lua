@@ -54,7 +54,7 @@ function init_gear_sets()
     --------------------------------------
     
 	sets.engaged = {
-		head="Adhemar Bonnet +1",neck="Null Loop",ear1="Telos Earring",ear2="Suppanomimi",
+		head="Adhemar Bonnet +1",neck="Null Loop",ear1="Dedition Earring",ear2="Suppanomimi",
 		body="Adhemar Jacket +1",hands="Adhemar Wristbands +1",ring1="Lehko's Ring",ring2="Epona's Ring",
 		back="Null Shawl",waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.melee.feet}
 	
@@ -64,7 +64,7 @@ function init_gear_sets()
     
     sets.precast.JA['Triple Shot'] = {body="Chasseur's Frac +3"}
     sets.precast.JA['Snake Eye'] = {legs="Lanun Trews +3"}
-    sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"}
+    sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +4"}
     sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
     
     sets.precast.CorsairRoll = {main=gear.rollingRostam,head="Lanun Tricorne +3",neck="Regal Necklace",hands="Chasseur's Gants +2",back=gear.rng.back}
@@ -76,7 +76,7 @@ function init_gear_sets()
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +2"})
     
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
-    sets.precast.FoldDoubleBust = {hands="Lanun Gants +3"}
+    sets.precast.FoldDoubleBust = {hands="Lanun Gants +4"}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {}
@@ -86,7 +86,7 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     
-    sets.precast.FC = {head="Herculean Helm",neck="Baetyl Pendant",ear1="Etiolation Earring",
+    sets.precast.FC = {head="Herculean Helm",neck="Baetyl Pendant",
 		body="Nyame Mail",hands="Leyline Gloves",ring1="Weatherspoon Ring +1",ring2="Lebeche Ring",
 		feet="Carmine Greaves +1"}
 	
@@ -94,7 +94,7 @@ function init_gear_sets()
 
 
     sets.precast.RA = {ammo=gear.RAbullet,
-		head="Ikenga's Hat",neck="Commodore Charm +2",body="Ikenga's Vest",hands="Lanun Gants +3",ring1="Crepuscular Ring",
+		head="Ikenga's Hat",neck="Commodore Charm +2",body="Ikenga's Vest",hands="Lanun Gants +4",ring1="Crepuscular Ring",
 		back=gear.snapshot.back,waist="Yemaya Belt",legs="Oshosi Trousers +1",feet="Meghanada Jambeaux +2"}
 
        
@@ -103,10 +103,10 @@ function init_gear_sets()
     sets.precast.WS = {ammo=gear.WSbullet,
 		head="Nyame Helm",neck="Commodore Charm +2",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Ikenga's Vest",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Dingir Ring",
-		back=gear.rng.back,waist="Fotia Belt",legs="Nyame Flanchard",feet="Lanun Bottes +3" }
+		back=gear.rng.back,waist="Fotia Belt",legs="Nyame Flanchard",feet="Lanun Bottes +4" }
 
 	sets.meleeWS = set_combine(sets.engaged, {
-		head="Nyame Helm",neck="Republican Platinum Medal",ear1="Telos Earring",ear2="Moonshade Earring",
+		head="Nyame Helm",neck="Republican Platinum Medal",ear1="Ishvara Earring",ear2="Moonshade Earring",
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Regal Ring",ring2="Ilabrat Ring",
 		back=gear.melee.wsback,waist="Fotia Belt",legs="Nyame Flanchard",waist="Fotia Belt",feet="Nyame Sollerets"
 	})	
@@ -120,7 +120,7 @@ function init_gear_sets()
 		neck="Commodore Charm +2",ear1="Ishvara Earring",ring1="Epaminondas's Ring",ring2="Sroda Ring",waist="Sailfi Belt +1"
 	})
 	sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
-		neck="Null Loop",ear1="Telos Earring",ring1="Chirich Ring +1",ring2="Regal Ring",waist="Null Belt"
+		neck="Null Loop",ear1="Odr Earring",ring1="Chirich Ring +1",ring2="Regal Ring",waist="Null Belt"
 	})
 	
     sets.precast.WS['Last Stand'] = set_combine(sets.precast.WS, {ring1="Regal Ring"})
@@ -130,7 +130,7 @@ function init_gear_sets()
     sets.precast.WS['Wildfire'] = {ammo=gear.MAbullet,
 		head="Nyame Helm",neck="Commodore Charm +2",ear1="Friomisi Earring",ear2="Crematio Earring",
         body="Lanun Frac +3",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Dingir Ring",
-        back=gear.mab.back,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Lanun Bottes +3"}
+        back=gear.mab.back,waist="Orpheus's Sash",legs="Nyame Flanchard",feet="Lanun Bottes +4"}
 	sets.precast.WS['Wildfire'].Storm = set_combine(sets.precast.WS['Wildfire'], {waist="Hachirin-no-obi"})
 
     sets.precast.WS['Wildfire'].Brew = set_combine(sets.precast.WS['Wildfire'], {})
@@ -166,7 +166,7 @@ function init_gear_sets()
 
     -- Ranged gear
 	sets.midcast.RA = {ammo=gear.RAbullet,
-		head="Ikenga's Hat",neck="Commodore Charm +2",ear1="Telos Earring",ear2="Crepuscular Earring",
+		head="Ikenga's Hat",neck="Commodore Charm +2",ear1="Dedition Earring",ear2="Crepuscular Earring",
 		body="Nisroch Jerkin",hands="Ikenga's Gloves",ring1="Lehko's Ring",ring2="Dingir Ring",
 		back=gear.rng.back,waist="Tellen Belt",legs="Ikenga's Trousers",feet="Ikenga's Clogs"}
 	
@@ -186,19 +186,18 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {
-		head="Null Masque",neck="Republican Platinum Medal",ear1="Telos Earring",ear2="Infused Earring",
-		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}
+		head="Null Masque",neck="Republican Platinum Medal",ear1="Alabaster Earring",ear2="Infused Earring",
+		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Sheltered Ring",ring2="Murky Ring",
+		back=gear.crit.back,waist="Null Belt",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}
 	sets.idle.Town = set_combine(sets.idle, {})
 	
     -- Defense sets
 	sets.defense.PDT = {
-		head="Null Masque",
-		body="Malignance Tabard",hands="Malignance Gloves",ring2="Defending Ring",
-		back="Moonlight Cape",waist="Null Belt",legs="Malignance Tights",feet="Malignance Boots"}
+		head="Null Masque",ear1="Alabaster Earring",
+		body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",
+		legs="Malignance Tights",feet="Malignance Boots"}
 
-	sets.defense.MDT = set_combine(sets.defense.PDT, {
-		ring1="Purity Ring"})
+	sets.defense.MDT = set_combine(sets.defense.PDT, {})
     
 
     sets.Kiting = {legs="Carmine Cuisses +1"}
@@ -218,7 +217,7 @@ function init_gear_sets()
 		waist="Null Belt",legs="Carmine Cuisses +1",feet="Malignance Boots"
 	})
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
-		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",ring2="Defending Ring",legs="Malignance Tights",feet="Malignance Boots"
+		head="Malignance Chapeau",body="Malignance Tabard",hands="Malignance Gloves",ring2="Murky Ring",legs="Malignance Tights",feet="Malignance Boots"
 	})
 	sets.engaged.Crit = set_combine(sets.engaged,{
 		head="Mummu Bonnet +2",ear1="Odr Earring",body="Mummu Jacket +2",hands="Mummu Wrists +2",legs="Mummu Kecks +2",feet="Mummu Gamashes +2"
@@ -230,7 +229,12 @@ function init_gear_sets()
 	
 	sets.WeatherObi = {waist="Hachirin-no-obi"}
 	
-	sets.buff['Triple Shot'] = {head="Oshosi Mask +1",body="Chasseur's Frac +3",hands="Lanun Gants +3",legs="Oshosi Trousers +1",feet="Oshosi Leggings +1"}
+	sets.assault = {ammo="Staunch Tathlum +1",
+		head=empty,neck="Null Loop",ear1="Alabaster Earring",ear2="Infused Earring",
+		body=empty,hands=empty,ring1="Defending Ring",ring2="Murky Ring",
+		back=gear.melee.back,waist="Bullwhip Belt",legs=empty,feet=empty}
+	
+	sets.buff['Triple Shot'] = {head="Oshosi Mask +1",body="Chasseur's Frac +3",hands="Lanun Gants +4",legs="Oshosi Trousers +1",feet="Oshosi Leggings +1"}
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
