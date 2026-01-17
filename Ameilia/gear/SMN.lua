@@ -34,7 +34,7 @@ function init_gear_sets()
 		body="Glyphic Doublet +3",hands="Convoker's Bracers +3",ring1=gear.rings.left,ring2=gear.rings.right,
 		back=gear.capes.pet_phys,waist="Regal Belt",legs="Baayami Slops +1",feet="Beckoner's Pigaches +2"}
 
-	sets.skill = {main="Kirin's Pole",sub="Elan Strap +1",ammo="Epitaph",
+	sets.skill = {main="Espiritus",sub="Elan Strap +1",ammo="Epitaph",
 		head="Beckoner's Horn +3",neck="Incanter's Torque",ear1="Cath Palug Earring",ear2="Andoaa Earring",
 		body="Baayami Robe +1",hands="Baayami Cuffs +1",ring1="Evoker's Ring",ring2=gear.rings.StikRight,
 		back="Conveyance Cape",waist="Kobo Obi",legs="Baayami Slops +1",feet="Baayami Sabots +1"}

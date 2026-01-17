@@ -210,7 +210,7 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
-		head="Wicce Petasos +3",neck="Null Loop",ear1="Suppanomimi",ear2="Eabani Earring",
+		head="Wicce Petasos +3",neck="Null Loop",ear1="Suppanomimi",ear2="Crepuscular Earring",
         body="Wicce Coat +3",hands="Nyame Gauntlets",ring1="Lehko's Ring",ring2="Chirich Ring +1",
         back="Null Shawl",waist="Null Belt",legs="Wicce Chausses +3",feet="Wicce Sabots +3"}
 

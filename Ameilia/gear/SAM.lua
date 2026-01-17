@@ -13,7 +13,6 @@ function user_setup()
 	gear.tp.back = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
 	    
 	gear.wsdmg = {}
-	gear.wsdmg.head = { name="Valorous Mask", augments={'Weapon skill damage +4%','STR+4','Accuracy+12','Attack+15',}}
 	gear.wsdmg.back = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 	
 	gear.crit = {}
@@ -46,7 +45,6 @@ function init_gear_sets()
 
 	-- Waltz set (chr and vit)
 	sets.precast.Waltz = {
-		head="Valorous Mask",
 		body="Sakonji Domaru +4",hands="Leyline Gloves",
 		feet="Nyame Sollerets"}
 		
